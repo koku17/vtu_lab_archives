@@ -1,0 +1,35 @@
+\documentclass{article}
+
+%!TEX program=xelatex
+
+% packages
+\usepackage[a4paper,margin=.5in]{geometry}
+\usepackage{minted}
+\usepackage{enumitem}
+\usepackage{verbatim}
+
+% prestes
+\pagestyle{empty}
+
+% command
+\newcommand{\question}[2]{
+	\item [#1.] #2
+}
+
+\newcommand{\ttt}[1]{\texttt{#1}}
+\newcommand{\answer}[1]{\item[] \inputminted{c}{#1}}
+
+\begin{document}
+	\begin{enumerate}[label=\roman*)]
+		\question{4}{
+			Develop a C program which demonstrates interprocess communication between a reader process and a writer process. \\
+			Use \ttt{mkfifo()}, \ttt{open()}, \ttt{read()}, \ttt{write()} and \ttt{close()} APIs in your program.
+		}
+
+		\item Reader Process
+		\answer{lab4.reader.c} \newpage
+
+		\item Writer Process
+		\answer{lab4.writer.c}
+	\end{enumerate}
+\end{document}

@@ -1,2 +1,14 @@
 *.cast
 *.bin
+*.pdf
+*.dvi
+*.fdb_latexmk
+*.toc
+*.class
+*.gz
+*.zip
+*.aux
+*.nav
+*.pygtex
+*.pygstyle
+/.minted-*/

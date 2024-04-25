@@ -1,0 +1,34 @@
+\documentclass{article}
+%!TEX program=xelatex
+
+% packages
+\usepackage{amsmath}
+\usepackage[a4paper,margin=.5in]{geometry}
+\usepackage{minted}
+\usepackage{enumitem}
+\usepackage{pagecolor}
+
+% presets
+\pagestyle{empty}
+\pagecolor{black}
+\usemintedstyle{one-dark}
+\color{white}
+
+
+% commands
+\newcommand{\answer}{\item [$\rightarrow$]}
+
+\begin{document}
+	\begin{itemize}
+		\item [12. ] Given a file of N employees with a set of K keys (4 digits) which uniquely determine the records in file F. \\
+		Assume that file F is maintained in memory by Hash table (HT) of $m$ memory locations with L on the set of memory address in L are integers \\
+		Develop a program in C that uses :
+		\begin{enumerate}[label=\alph* .]
+			\item hash function H:K $\rightarrow$ L as $\text{H}(\text{K})=\text{K} ~\text{mod}~ m$ (remainder method)
+			\item Implement hashing technique to map a given key K to the address space L
+			\item Resolve the collision (if any) using linear probing
+		\end{enumerate}
+
+		\answer \inputminted{c}{../Program12.c}
+	\end{itemize}
+\end{document}

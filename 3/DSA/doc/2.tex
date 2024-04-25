@@ -1,0 +1,32 @@
+\documentclass{article}
+%!TEX program=xelatex
+
+% packages
+\usepackage[a4paper,margin=.5in]{geometry}
+\usepackage{minted}
+\usepackage{enumitem}
+\usepackage{pagecolor}
+
+% presets
+\pagestyle{empty}
+\pagecolor{black}
+\usemintedstyle{one-dark}
+\color{white}
+
+% commands
+\newcommand{\answer}{\item [$\rightarrow$]}
+
+\begin{document}
+	\begin{enumerate}
+		\item [2.] Develop a Program in C for the following operations on Strings.
+		\begin{enumerate}[label=\alph*.]
+			\item Read a main String (STR), a Pattern String (PAT) and a Replace String (REP)
+			\item Perform Pattern Matching Operation : \\
+			Find and Replace all occurrences of PAT in STR with REP if PAT exists in STR. \\
+			Report suitable messages in case PAT does not exist in STR Support the program with functions for each of the above operations.
+		\end{enumerate}
+		Don't use Built-in functions.
+
+		\answer \inputminted{c}{../Program2.c}
+	\end{enumerate}
+\end{document}
