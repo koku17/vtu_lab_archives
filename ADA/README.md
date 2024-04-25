@@ -8,7 +8,7 @@ These are Examples for Algorithms used
 Go to the `Example` directory
 ```
 cd Example
-```x
+```
 
 compilation
 ```
