@@ -20,8 +20,8 @@ read:
 ark:
 	@tar -zcvf archive.tgz *.c makefile doc/*.tex
 
-cdrom:	ark
-	@mkisofs archive.tgz > DSA-CD.iso
+cdrom:
+	@mkisofs DSA-CD.iso
 
 mclean:
 	@echo "Removing misc files *.pdf *.iso *.tgz ..."
