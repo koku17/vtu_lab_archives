@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-int i,j,m,n,n1,n2,result,T;
+int i,m,n,n1,n2,result,T;
 
 // Euclidean GCD Algorithm
 int euclid_gcd(int dividend,int divisor){
@@ -13,9 +13,8 @@ int euclid_gcd(int dividend,int divisor){
 
 // Mid School GCD Algorithm
 int midschool_gcd(int m,int n){
-	i=m<n?m:n;
-	while(i>=1)
-		if(m%i==0&&n%i==0)
+	while(i<=(m<n?m:n))
+		if(m%i==0 && n%i==0)
 			return i;
 		else
 			i--;
@@ -32,39 +31,34 @@ int cic_gcd(int n1,int n2){
 }
 
 void help(){
-	printf("Usage : gcd [option] [num1] [num2] \
-		\n Options : \
-		\n\t e Use Euclidean GCD Algorithm \
-		\n\t m Use Mid School GCD Algorithm \
-		\n\t c Use Consecutive Integer Checking Algorithm \
-		\n\t h Display this help message \n" \
+	printf("Usage:gcd [option] [num1] [num2] \
+		\n Options: \
+		\n\t  e Use Euclidean GCD Algorithm \
+		\n\t  m Use Mid School GCD Algorithm \
+		\n\t  c Use Consecutive Integer Checking Algorithm \
+		\n\t  h Display this help message \n" \
 	);
 }
 
 int main(int argc,char *argv[]){
-	for(j=1;j<argc;j++){
-		switch(*argv[j]){
-			case 'e':
+	for(i=1;i<argc;i++){
+		if(*argv[i] == 'e'){
 				printf("Euclidean Algorithm :\n");
-				n1=atoi(argv[++j]);
-				n2=atoi(argv[++j]);
+				n1=atoi(argv[++i]);
+				n2=atoi(argv[++i]);
 				result=euclid_gcd(n1,n2);
-				break;
-			case 'm':
+		}else if(*argv[i] == 'm'){
 				printf("Mid-School Algorithm :\n");
-				n1=atoi(argv[++j]);
-				n2=atoi(argv[++j]);
+				n1=atoi(argv[++i]);
+				n2=atoi(argv[++i]);
 				result=midschool_gcd(n1,n2);
-				break;
-			case 'c':
+		}else if(*argv[i] == 'c'){
 				printf("CIC Algorithm :\n");
-				n1=atoi(argv[++j]);
-				n2=atoi(argv[++j]);
+				n1=atoi(argv[++i]);
+				n2=atoi(argv[++i]);
 				result=cic_gcd(n1,n2);
-				break;
-			case 'h':
-			default:
-				help();
+		}else{
+			help();
 		}
 		printf("GCD(%d,%d) = %d\n",n1,n2,result);
 	}
