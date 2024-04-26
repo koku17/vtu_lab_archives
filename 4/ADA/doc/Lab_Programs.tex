@@ -1,0 +1,72 @@
+\documentclass{article}
+
+% packages
+\usepackage[margin=.5in]{geometry}
+\usepackage{enumitem}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{minted}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+
+% detailes
+\author{koku17}
+\title{ADA Lab Programs}
+
+% presets
+\urlstyle{same}
+\pagecolor{black}
+\color{white}
+\pagestyle{fancy}
+\hypersetup{
+	colorlinks,
+	linkcolor=black
+}
+
+\begin{document}
+	\maketitle \thispagestyle{empty} \newpage
+	\setcounter{page}{1} \pagenumbering{roman} \fancyhf{} \fancyfoot[C]{(\thepage)}
+	\tableofcontents \newpage
+	\setcounter{page}{1} \pagenumbering{arabic} \fancyhf{} \fancyfoot[C]{\thepage}
+	\begin{enumerate}[label=\arabic*. ]
+		\item Design and implement C/C++ Program to find Minimum Cost Spanning Tree of a given
+			connected undirected graph using Kruskal's algorithm
+		\item Design and implement C/C++ Program to find Minimum Cost Spanning Tree of a given
+			connected undirected graph using Prim's algorithm
+		\item Design and implement C/C++ Program
+			\begin{enumerate}[label=\alph*.]
+				\item To solve All-Pairs Shortest Paths problem using Floyd's algorithm
+				\item To find the transitive closure using Warshal's algorithm
+			\end{enumerate}
+		\item Design and implement C/C++ Program to find shortest paths from a given vertex in a
+			weighted connected graph to other vertices using Dijkstra's algorithm
+		\item Design and implement C/C++ Program to obtain the Topological ordering of vertices in a
+			given digraph
+		\item Design and implement C/C++ Program to solve 0/1 Knapsack problem using Dynamic
+			Programming method
+		\item Design and implement C/C++ Program to solve discrete Knapsack and continuous Knapsack
+			problems using greedy approximation method
+		\item Design and implement C/C++ Program to find a subset of a given set
+			$\text{S}=\{s1,s2,\cdots,sn\}$ of $n$ positive integers whose sum is equal to a given
+			positive integer $d$
+		\item Design and implement C/C++ Program to sort a given set of $n$ integer elements using
+			Selection Sort method and compute its time complexity. \\
+			Run the program for varied values of $n>5000$ and record the time taken to sort. \\
+			Plot a graph of the time taken versus $n$. \\
+			The elements can be read from a file or can be generated using the random number
+			generator.
+		\item Design and implement C/C++ Program to sort a given set of $n$ integer elements using
+			Quick Sort method and compute its time complexity. \\
+			Run the program for varied values of $n>5000$ and record the time taken to sort. \\
+			Plot a graph of the time taken versus $n$. \\
+			The elements can be read from a file or can be generated using the random number
+			generator.
+		\item Design and implement C/C++ Program to sort a given set of $n$ integer elements using
+			Merge Sort method and compute its time complexity. \\
+			Run the program for varied values of $n>5000$ and record the time taken to sort. \\
+			Plot a graph of the time taken versus $n$. \\
+			The elements can be read from a file or can be generated using the random number
+			generator.
+		\item Design and implement C/C++ Program for N Queen's problem using Backtracking
+	\end{enumerate}
+\end{document}
