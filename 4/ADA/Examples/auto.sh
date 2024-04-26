@@ -27,10 +27,10 @@ do
 
 	# Verify each algorithms
 	[ $(./gcd.bin e $p $q | \grep "=" | cut -d "=" -f 2) -eq $(qalc -t "gcd($p,$q)") ] || \
-		echo "Verification failed for Euclidean Algorithms !"
+		echo "Verification failed for Euclidean Algorithm !"
 	[ $(./gcd.bin m $p $q | \grep "=" | cut -d "=" -f 2) -eq $(qalc -t "gcd($p,$q)") ] || \
-		echo "Verification failed for Mid-School Algorithms !"
+		echo "Verification failed for Mid-School Algorithm !"
 	[ $(./gcd.bin c $p $q | \grep "=" | cut -d "=" -f 2) -eq $(qalc -t "gcd($p,$q)") ] || \
-		echo "Verification failed for CIC Algorithms !"
+		echo "Verification failed for CIC Algorithm !"
 	sleep 3
 done
