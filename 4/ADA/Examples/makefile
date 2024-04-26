@@ -5,4 +5,5 @@ clean:
 	@rm -rf *.bin
 
 tc:
+	@[ -e gcd.bin ] || make build
 	@sh auto.sh
