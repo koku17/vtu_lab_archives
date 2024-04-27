@@ -1,5 +1,5 @@
 doc:
-	@latexmk -pdf -shell-escape  -auxdir=tmp
+	@latexmk -pdf -shell-escape  -auxdir=tmp 1> /dev/null
 
 clean:
-	@rm -rf tmp/ minted_*/
+	@rm -rf tmp/ _minted-*/

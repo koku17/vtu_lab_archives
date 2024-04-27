@@ -31,17 +31,21 @@ int cic_gcd(int n1,int n2){
 	return T;
 }
 
-void help(){
-	printf("Usage : gcd [option] [num1] [num2] \
+void help(char argv[]){
+	printf("Usage : %s [option] [num1] [num2] \
 		\n Options : \
 		\n\t e Use Euclidean GCD Algorithm \
 		\n\t m Use Mid School GCD Algorithm \
 		\n\t c Use Consecutive Integer Checking Algorithm \
-		\n\t h Display this help message \n" \
+		\n\t h Display this help message and exit \n",argv \
 	);
 }
 
 int main(int argc,char *argv[]){
+	if(argc==1){
+		help(argv[0]);
+		exit(EXIT_SUCCESS);
+	}
 	for(j=1;j<argc;j++){
 		switch(*argv[j]){
 			case 'e':
@@ -64,7 +68,8 @@ int main(int argc,char *argv[]){
 				break;
 			case 'h':
 			default:
-				help();
+				help(argv[0]);
+				return EXIT_SUCCESS;
 		}
 		printf("GCD(%d,%d) = %d\n",n1,n2,result);
 	}

@@ -5,7 +5,6 @@
 *.fdb_latexmk
 *.fls
 *.log
-*.out
 *.toc
 *.class
 *.gz
