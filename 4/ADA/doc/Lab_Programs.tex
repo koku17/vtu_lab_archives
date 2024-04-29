@@ -25,6 +25,7 @@
 	colorlinks,
 	linkcolor=black
 }
+\renewcommand{\headrulewidth}{0pt}
 
 % macro
 \newcommand{\answer}{\item [$\longrightarrow$]}
@@ -52,41 +53,30 @@
 
 	\setcounter{page}{1} \pagenumbering{roman} \fancyhf{} \fancyfoot[C]{(\thepage)}
 	\tableofcontents \newpage
-	
 	\setcounter{page}{1} \pagenumbering{arabic} \fancyhf{} \fancyfoot[C]{\thepage}
-	\begin{enumerate}[label=\arabic*. ]
+
+	\begin{enumerate}[label=\arabic*. ] \setcounter{enumi}{0}
 		\program{1} \addtotoc{section}{Program 1}
-		\item [1] Design and implement C/C++ Program to find Minimum Cost Spanning Tree of a given
+		\item Design and implement C/C++ Program to find Minimum Cost Spanning Tree of a given
 			connected undirected graph using Kruskal's algorithm
 		\answer \inputminted{c}{program/1.c}
 	\end{enumerate} \newpage
 	
 	\algorithm{Kruskal's} \addtotoc{subsection}{Kruskal's algorithm}
-	\begin{enumerate}[label=Step \arabic* : ,itemindent=1.5em]
-		\item Input the number of vertices \texttt{n} and the cost matrix \texttt{c[][]}
-		\item Initialize an array \texttt{parent[]} to store the parent of each vertex, 
-			initially all set to 0
-		\item Initialize \texttt{ne} (number of edges in the minimum spanning tree) and
-			\texttt{mincost} (total cost of the minimum spanning tree) to 0
-		\item Repeat the following steps until \texttt{ne} becomes \texttt{n-1}
-			\begin{enumerate}[label=\alph*) ]
-				\item Find the edge with the minimum weight that connects two disjoint
-					components
-				\item Merge the two components by setting the parent of one component's
-					root to the other component's root
-				\item Update \texttt{mincost} by adding the weight of the selected edge
-					to it
-				\item Mark the selected edge as visited by setting its weight to a
-					large value (i.e 9999)
-			\end{enumerate}
-		\item Print the minimum spanning tree edges and the total cost \texttt{mincost}
-	\end{enumerate}
-	
+	\input{algorithm/1.tex}
 	\Out{output/1.out} \addtotoc{subsection}{Output} \newpage
 
-	\begin{enumerate}[label=\arabic*. ]
+	\begin{enumerate}[label=\arabic*. ] \setcounter{enumi}{1}
 		\item Design and implement C/C++ Program to find Minimum Cost Spanning Tree of a given
 			connected undirected graph using Prim's algorithm
+		\answer \inputminted{c}{program/2.c}
+	\end{enumerate} \newpage
+
+	\algorithm{Prim's} \addtotoc{subsection}{Prim's algorithm}
+	\input{algorithm/2.tex}
+	\Out{output/2.out} \addtotoc{subsection}{Output} \newpage
+
+	\begin{enumerate}[label=\arabic*. ] \setcounter{enumi}{2}
 		\item Design and implement C/C++ Program
 			\begin{enumerate}[label=\alph*.]
 				\item To solve All-Pairs Shortest Paths problem using Floyd's algorithm
@@ -128,5 +118,12 @@
 	\begin{center}
 		\large Program 1 \phantomsection
 	\end{center}
+	\addtotoc{subsection}{Kruskal's algorithm}
 	\input{viva/1.tex}
+
+	\begin{center}
+		\large Program 2 \phantomsection
+	\end{center}
+	\addtotoc{subsection}{Prim's algorithm}
+	\input{viva/2.tex}
 \end{document}

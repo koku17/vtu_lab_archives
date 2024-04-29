@@ -21,26 +21,26 @@ void kruskals(){
 					u=a=i;
 					v=b=j;
 				}
-		while(parent[u]!=0)
-			u=parent[u];
-		while(parent[v]!=0)
-			v=parent[v];
+		while(parent[u]!=0||parent[v]!=0)
+			if(parent[u]!=0)
+				u=parent[u];
+			else
+				v=parent[v];
 		if(u!=v){
-			printf("\n%d ----> %d=%d\n",a,b,min);
+			printf("\n%d ----> %d=%d",a,b,min);
 			parent[v]=u;
 			ne+=1;
 			mincost+=min;
 		}
 		c[a][b]=c[b][a]=9999;
 	}
-	printf("\n Mincost=%d\n",mincost);
+	printf("\n\nMincost=%d\n",mincost);
 }
 
 int main(){
-	int i,j;
 	printf("Enter the number of vertices : ");
 	scanf("%d",&n);
-	printf("\nEnter the cost matrix : ");
+	printf("\nEnter the cost matrix :\n");
 	for(i=1;i<=n;i++)
 		for(j=1;j<=n;j++)
 			scanf("%d",&c[i][j]);

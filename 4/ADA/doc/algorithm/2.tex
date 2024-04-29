@@ -1,0 +1,30 @@
+\begin{enumerate}[label=Step \arabic* : ]
+\item [Input : ] Graph \texttt{G} with \texttt{n} vertices and edge weights represented by adjacency matrix
+	\texttt{c[n][n]}
+\item [Output : ] Minimum spanning tree of \texttt{G} and its total cost
+
+\item Initialize an empty set \texttt{S} to store selected vertices
+	\begin{itemize}
+		\item Initialize a list of minimum edge weights \texttt{minEdge} to \texttt{INFINITY} for each
+			vertex
+		\item Initialize \texttt{mincost} to \texttt{0}
+		\item Select an arbitrary vertex as the starting vertex
+		\item Add the starting vertex to set \texttt{S}
+	\end{itemize}
+\item Repeat until \texttt{S} contains all vertices:
+	\begin{itemize}
+		\item Find the vertex \texttt{u} in set \texttt{S} with the minimum edge weight to a vertex
+			\texttt{v} not in \texttt{S}:
+		\item \texttt{minWeight=INFINITY}
+		\item For each vertex \texttt{i} in \texttt{S}:
+		\item For each vertex \texttt{j} not in \texttt{S}:
+		\item If \texttt{c[i][j]<minWeight}:
+		\item Update \texttt{minWeight} to \texttt{c[i][j]} and \texttt{minEdge[j]} to \texttt{i}
+	\end{itemize}
+\item Add the vertex \texttt{v} with the minimum weight edge to set \texttt{S}
+	\begin{itemize}
+		\item Add the minimum weight edge to the minimum spanning tree
+		\item Update mincost by adding minWeight
+	\end{itemize}
+\item Output the minimum spanning tree and its total cost
+\end{enumerate}

@@ -1,0 +1,19 @@
+\begin{enumerate}[label=Step \arabic* : ,itemindent=1.5em]
+		\item Input the number of vertices \texttt{n} and the cost matrix \texttt{c[][]}
+		\item Initialize an array \texttt{parent[]} to store the parent of each vertex,
+			initially all set to 0
+		\item Initialize \texttt{ne} (number of edges in the minimum spanning tree) and
+			\texttt{mincost} (total cost of the minimum spanning tree) to 0
+		\item Repeat the following steps until \texttt{ne} becomes \texttt{n-1}
+			\begin{enumerate}[label=\alph*) ]
+				\item Find the edge with the minimum weight that connects two disjoint
+					components
+				\item Merge the two components by setting the parent of one component's
+					root to the other component's root
+				\item Update \texttt{mincost} by adding the weight of the selected edge
+					to it
+				\item Mark the selected edge as visited by setting its weight to a
+					large value (i.e 9999)
+			\end{enumerate}
+		\item Print the minimum spanning tree edges and the total cost \texttt{mincost}
+	\end{enumerate}
