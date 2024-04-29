@@ -41,4 +41,5 @@ void main(){
 		for(j=1;j<=n;j++)
 			scanf("%d",&c[i][j]);
 	prims();
+	return 0;
 }
