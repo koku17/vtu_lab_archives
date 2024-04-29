@@ -33,7 +33,7 @@ void prims(){
 	printf("\n\nMincost=%d\n",mincost);
 }
 
-void main(){
+int main(){
 	printf("Enter the number of vertices : ");
 	scanf("%d",&n);
 	printf("Enter the cost matrix :\n");
