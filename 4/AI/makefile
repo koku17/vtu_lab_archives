@@ -1,15 +1,7 @@
-CC = cc
-
-build:
-	@for i in *.c ; do $(CC) "$$i" -o "$${i%.*}.bin" -Wall ; done
-
-clean:
-	@rm -rf *.bin
-
 doc:
 	@latexmk -cd -pdf -shell-escape -auxdir=tmp doc/*.tex 1> /dev/null
 
-mclean:
+clean:
 	@rm -rf doc/tmp/ doc/_minted-*/ doc/*.pdf
 
 .PHONY:	doc

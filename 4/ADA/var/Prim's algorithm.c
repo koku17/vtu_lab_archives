@@ -36,7 +36,7 @@ void prims(){
 
 void help(char argv[]){
         printf(\
-                "Usage : %s -v size -m num1 num2 ... numN \
+                "Usage : %s v [size] m [num1] [num2] ... [numN] \
                 \n Options : \
                 \n \t v Size of the array \
                 \n \t m Insert the array \
@@ -49,6 +49,7 @@ int main(int argc,char *argv[]){
 		help(argv[0]);
 		exit(EXIT_SUCCESS);
 	}
+
 	for(i=1;i<argc;i++)
 		switch(*argv[i]){
 			case 'v':

@@ -39,10 +39,10 @@ void kruskals(){
 
 void help(char argv[]){
 	printf(\
-		"Usage : %s -v size -m num1 num2 ... numN \
+		"Usage : %s v [size] m [num1] [num2] ... [numN] \
 		\n Options : \
 		\n \t v Size of the array \
-		\n \t m Insert the array \
+		\n \t m Elements of the array \
 		\n \t h Display this help message and exit\n",argv \
 	);
 }

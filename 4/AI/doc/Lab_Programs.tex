@@ -1,0 +1,30 @@
+\documentclass{article}
+
+% packages
+\usepackage[margin=.5in]{geometry}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{minted}
+\usepackage{hyperref}
+
+% detailes
+\author{koku17}
+\title{ADA Lab Programs}
+
+% presets
+\urlstyle{same}
+\pagecolor{black}
+\color{white}
+\usemintedstyle{one-dark}
+\hypersetup{
+	colorlinks,
+	linkcolor=black
+}
+
+% macro
+
+\begin{document}
+	\maketitle \thispagestyle{empty} \newpage
+	\inputminted{python}{../lab1.py} \newpage
+	\inputminted{python}{../lab2.py}
+\end{document}
