@@ -22,9 +22,36 @@
 }
 
 % macro
+\newcommand{\answer}{\item [$\longrightarrow$]}
+\newcommand{\addtotoc}[2]{\addcontentsline{toc}{#1}{\color{white}#2}}
+\newcommand{\program}[1]{
+    \item []
+    \begin{center}
+        \Large Program #1 \phantomsection
+    \end{center}
+}
+\newcommand{\algorithm}[1]{
+    \begin{center}
+        \large #1 algorithm \vspace{-1em} \phantomsection
+    \end{center}
+}
+\newcommand{\Out}[1]{
+    \begin{center}
+        \large Output \vspace{-.5em} \phantomsection
+    \end{center}
+    \inputminted{text}{#1}
+}
 
 \begin{document}
 	\maketitle \thispagestyle{empty} \newpage
-	\inputminted{python}{../lab1.py} \newpage
-	\inputminted{python}{../lab2.py}
+	\begin{enumerate}[label=\arabic*. ]
+		\program{1}
+		\item Implement and Demonstrate Depth First Search Algorithm on Water Jug Problem
+		\inputminted{python}{../lab1.py} \newpage
+		\program{2}
+		\item Implement and Demonstrate Best First Search Algorithm on
+			Missionaries-Cannibals Problems using Python program to illustrate
+			Missionaries \& cannibals Problem
+		\inputminted{python}{../lab2.py}
+	\end{enumerate}
 \end{document}

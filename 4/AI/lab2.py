@@ -1,12 +1,11 @@
-# Implement and Demonstrate Best First Search Algorithm on Missionaries-Cannibals Problems using Python
-# program to illustrate Missionaries & cannibals Problem
 print("\
 	\nMissionaries & cannibals \
 	\nNow the task is to move all of them to right side of the river \
 	\n\
 	\nRules : \
 	\n1. The boat can carry at most two people \
-	\n2. If cannibals number greater than missionaries then the cannibals would eat the missionaries \
+	\n2. If cannibals number greater than missionaries then the cannibals would eat the \
+	\n   missionaries \
 	\n3. The boat cannot cross the river by itself with no people on board")
 
 lM = 3    #lM = Left side Missionaries number
@@ -45,7 +44,8 @@ try:
 	while(True):
 		while(True):
 			print("\nLeft side -> right side river travel\n")
-			#uM,uC : user input for number of missionaries and cannibals for left to right travel respectively
+			# uM,uC : user input for number of missionaries and cannibals for left to right
+			# travel respectively
 			uM,uC=IN()
 			if((uM==0)and(uC==0)):
 				print("Empty travel not possible\nRe-enter : ")
@@ -59,8 +59,9 @@ try:
 		rC += uC
 		POS()
 		k += 1
-		if(((lC == 3) and (lM == 1)) or ((lC == 3) and (lM == 2)) or ((lC == 2) and (lM == 1)) or ((rC == 3) \
-			and (rM == 1)) or ((rC == 3) and (rM == 2)) or ((rC == 2) and (rM == 1))):
+		if(((lC == 3) and (lM == 1)) or ((lC == 3) and (lM == 2)) or \
+			((lC == 2) and (lM == 1)) or ((rC == 3) and (rM == 1)) or \
+			((rC == 3) and (rM == 2)) or ((rC == 2) and (rM == 1))):
 			print("\nCannibals ate missionaries !\nYou lost the game :(\n")
 			break
 		if((rM+rC) == 6):
@@ -82,7 +83,8 @@ try:
 			POS()
 			k += 1
 			if(((lC==3) and (lM==1)) or ((lC==3) and (lM==2)) or ((lC==2) and (lM==1)) or \
-				((rC==3) and (rM == 1)) or ((rC==3) and (rM==2)) or ((rC==2) and (rM==1))):
+				((rC==3) and (rM == 1)) or ((rC==3) and (rM==2)) or \
+				((rC==2) and (rM==1))):
 				print("\nCannibals ate missionaries !\nYou have lost the game :(\n")
 				break
 except EOFError as e:

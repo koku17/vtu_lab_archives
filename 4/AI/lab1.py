@@ -1,4 +1,3 @@
-# Implement and Demonstrate Depth First Search Algorithm on Water Jug Problem
 from collections import deque
 
 # Define the jug capacities
