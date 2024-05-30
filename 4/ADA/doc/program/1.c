@@ -1,1 +1,0 @@
-../../Kruskal's algorithm.c

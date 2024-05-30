@@ -1,1 +1,0 @@
-../../Prim's algorithm.c

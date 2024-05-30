@@ -1,16 +1,20 @@
 print("\
 	\nMissionaries & cannibals \
 	\nNow the task is to move all of them to right side of the river \
-	\n \
+	\n\
 	\nRules : \
 	\n1. The boat can carry at most two people \
 	\n2. If cannibals number greater than missionaries then the cannibals would eat the \
 	\n   missionaries \
-	\n3. The boat cannot cross the river by itself with no people on board \
-")
+	\n3. The boat cannot cross the river by itself with no people on board")
 
-lM = lC = 3
-rM = rC = M = C = k = 0
+lM = 3    #lM = Left side Missionaries number
+lC = 3    #lC = Left side Cannibals number
+rM = 0    #rM = Right side Missionaries number
+rC = 0    #rC = Right side cannibals' number
+userM = 0 #userM = User input for number of missionaries for right to left side travel
+userC = 0 #userC = User input for number of cannibals for right to left travel
+k = 0
 
 # Initial Position
 print("\nM M M C C C | --- |")
@@ -34,48 +38,48 @@ def POS():
 def IN():
 	M = int(input("Enter number of Missionaries travel => "))
 	C = int(input("Enter number of Cannibals travel => "))
-	return M,C 
+	return M,C
 
 try:
 	while(True):
 		while(True):
 			print("\nLeft side -> right side river travel\n")
-			M,C=IN()
-			if(M==0 and C==0):
+			uM,uC=IN()
+			if((uM==0)and(uC==0)):
 				print("Empty travel not possible\nRe-enter : ")
-			elif (M+C <= 2) and (lM-M >= 0) and (lC-C >= 0):
+			elif(((uM+uC) <= 2) and ((lM-uM) >= 0) and ((lC-uC) >= 0)):
 				break
 			else:
 				print("\nWrong input re-enter !")
-		lM -= M
-		lC -= C
-		rM += M
-		rC += C
+		lM -= uM
+		lC -= uC
+		rM += uM
+		rC += uC
 		POS()
 		k += 1
-		if(lC>lM):
+		if(lC>lM or rC>rM):
 			print("\nCannibals ate missionaries !\nYou lost the game :(\n")
 			break
-		if(rM+rC == 6):
+		if((rM+rC) == 6):
 			print("\nYou won the game Congrats !\nTotal attempt(s) : ",k)
 			break
 		while(True):
 			print("\nRight side -> Left side river travel\n")
-			M,C=IN()
-			if(M==0 and C==0):
+			userM,userC=IN()
+			if((userM==0)and(userC==0)):
 				print("Empty travel not possible\nRe-enter : ")
-			elif (M+C <= 2) and (rM-M >= 0) and (rC-C >= 0):
+			elif(((userM+userC) <= 2) and ((rM-userM)>=0) and ((rC-userC)>=0)):
 				break
 			else:
 				print("\nWrong input re-enter !")
-			lM += M
-			lC += C
-			rM -= M
-			rC -= C
+			lM += userM
+			lC += userC
+			rM -= userM
+			rC -= userC
 			POS()
 			k += 1
-			if(rC>rM):
+			if(lC>lM or rC>rM):
 				print("\nCannibals ate missionaries !\nYou have lost the game :(\n")
 				break
 except EOFError as e:
-	print("\nInvalid input please retry !")
+	print("\nInvalid input please retry !!")
