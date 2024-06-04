@@ -7,12 +7,12 @@ print(
 	\n3. The boat cannot cross the river by itself with no people on board'
 )
 
-lM=3    #lM=Left side Missionaries number
-lC=3    #lC=Laft side Cannibals number
-rM=0    #rM=Right side Missionaries number
-rC=0    #rC=Right side cannibals’ number
-uM=0    #uC=User input for number of missionaries
-uC=0    #uC=User input for number of cannibals
+lM=3
+lC=3
+rM=0
+rC=0
+uM=0
+uC=0
 k=0
 
 def IN():
