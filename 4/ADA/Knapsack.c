@@ -29,11 +29,11 @@ void main(){
 	printf("Enter the number of objects : ");
 	scanf("%d",&n);
 
-	printf("Enter the weights and profits of each object :\n");
+	printf("\nEnter the weights and profits of each object :\n");
 	for(i=0;i<n;i++)
 		scanf("%f%f",&weight[i],&profit[i]);
 
-	printf("Enter the capacity of Knapsack : ");
+	printf("\nEnter the capacity of Knapsack : ");
 	scanf("%f",&capacity);
 	for(i=0;i<n;i++)
 		ratio[i]=profit[i]/weight[i];

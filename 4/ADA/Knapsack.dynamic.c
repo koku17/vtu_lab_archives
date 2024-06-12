@@ -18,11 +18,11 @@ void main(){
 	printf("Enter the number of objects : ");
 	scanf("%d",&n);
 
-	printf("Enter the weights and profits of each object :\n");
+	printf("\nEnter the weights and profits of each object :\n");
 	for(i=0;i<n;i++)
 		scanf("%d%d",&w[i],&p[i]);
 
-	printf("Enter the capacity of Knapsack : ");
+	printf("\nEnter the capacity of Knapsack : ");
 	scanf("%d",&m);
 	printf("\nThe maximum profit is %d\n",knapsack(1,m));
 }

@@ -27,7 +27,7 @@ void topo(){
 					s[++top]=v;
 			}
 	}
-	printf("Topological Ordering :\n");
+	printf("\nTopological Ordering :\n");
 	for(i=0;i<n;i++)
 		printf("%d ",t[i]);
 	printf("\n");
@@ -36,7 +36,7 @@ void topo(){
 void main(){
 	printf("Enter the number of nodes : ");
 	scanf("%d",&n);
-	printf("Enter the adjacency matrix :\n");
+	printf("\nEnter the adjacency matrix :\n");
 	for(i=0;i<n;i++)
 		for(j=0;j<n;j++)
 			scanf("%d",&a[i][j]);

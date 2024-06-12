@@ -31,7 +31,7 @@
 \newcommand{\answer}{\item [$\longrightarrow$]}
 \newcommand{\addtotoc}[2]{\addcontentsline{toc}{#1}{\color{white}#2}}
 \newcommand{\program}[1]{
-	\item [] 
+	\item []
 	\begin{center}
 		\Large Program #1 \phantomsection
 	\end{center}
@@ -59,17 +59,18 @@
 		\program{1} \addtotoc{section}{Program 1}
 		\item Design and implement C/C++ Program to find Minimum Cost Spanning Tree of a given
 			connected undirected graph using Kruskal's algorithm
-		\answer \inputminted{c}{program/1.c}
+		\answer \inputminted{c}{../Kruskal*s*algorithm.c} \newpage
 	\end{enumerate} \newpage
-	
+
 	\algorithm{Kruskal's} \addtotoc{subsection}{Kruskal's algorithm}
 	\input{algorithm/1.tex}
+
 	\Out{output/1.out} \addtotoc{subsection}{Output} \newpage
 
 	\begin{enumerate}[label=\arabic*. ] \setcounter{enumi}{1}
 		\item Design and implement C/C++ Program to find Minimum Cost Spanning Tree of a given
 			connected undirected graph using Prim's algorithm
-		\answer \inputminted{c}{program/2.c}
+		\answer \inputminted{c}{../Prim*s*algorithm.c}
 	\end{enumerate} \newpage
 
 	\algorithm{Prim's} \addtotoc{subsection}{Prim's algorithm}
@@ -84,9 +85,9 @@
 			\end{enumerate}
 		\answer \vspace{-1em}
 			\begin{enumerate}[label=\alph*. ]
-				\item \inputminted{c}{program/3.a.c} \newpage
+				\item \inputminted{c}{../Floyd*s*algorithm.c} \newpage
 				\item[] \Out{output/3.a.out} \addtotoc{subsection}{Output} \newpage
-				\item \inputminted{c}{program/3.b.c} \newpage
+				\item \inputminted{c}{../Warshall*s*algorithm.c} \newpage
 				\item[] \Out{output/3.b.out} \addtotoc{subsection}{Output} \newpage
 			\end{enumerate}
 	\end{enumerate} \newpage
