@@ -15,7 +15,7 @@ void floyd(int p[][10],int n){
 
 int main(){
 	int p[10][10],n;
-	printf("\nEnter the n value : ");
+	printf("Enter the n value : ");
 	scanf("%d",&n);
 	printf("\nEnter the graph data :\n");
 
