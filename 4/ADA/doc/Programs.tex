@@ -48,8 +48,9 @@
 	\item [] \inputminted{text}{#2}
 }
 \begin{document}
-	\maketitle \newpage
-	\begingroup \color{white} \tableofcontents \endgroup \newpage
+	\maketitle \thispagestyle{empty} \newpage
+	\begingroup \color{white} \tableofcontents \endgroup
+	\thispagestyle{empty} \newpage
 	\begin{enumerate}
 		\phead
 		\item Design and implement C/C++ Program to find Minimum Cost Spanning Tree of a given connected undirected graph using Kruskal’s algorithm
