@@ -7,7 +7,7 @@ clean:
 	@rm -rf *.bin
 
 doc:
-	@latexmk -cd -pdf -shell-escape -auxdir=tmp doc/*.tex
+	@latexmk -cd -pdf -shell-escape -auxdir=tmp doc/*.tex 1> /dev/null
 
 mclean:
 	@rm -rf doc/tmp/ doc/_minted-*/ doc/*.pdf
