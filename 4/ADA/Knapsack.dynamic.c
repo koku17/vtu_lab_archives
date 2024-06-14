@@ -19,7 +19,7 @@ void main(){
 	scanf("%d",&n);
 
 	printf("\nEnter the weights and profits of each object :\n");
-	for(i=0;i<n;i++)
+	for(i=1;i<=n;i++)
 		scanf("%d%d",&w[i],&p[i]);
 
 	printf("\nEnter the capacity of Knapsack : ");
