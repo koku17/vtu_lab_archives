@@ -1,5 +1,5 @@
-create database employee;
-use employee;
+create database Employee;
+use Employee;
 
 create table Employees(
 	Empno int,
@@ -9,23 +9,31 @@ create table Employees(
 	Sal decimal(10,2)
 );
 
-desc employees
+-- Add a column commission with domain to the Employee table
+alter table Employees add(Commission int);
+desc Employees;
 
-alter table employees add(commission int);
-insert into Employee values(
-        100,'Abhishek','Manager',10,25000
+-- Insert any five records into the table
+insert into Employees values(
+        100,'Abhishek','Manager',10,25000,100
 ),(
-        101,'Bharat','Analyst',20,20000
+        101,'Bharat','Analyst',20,20000,50
 ),(
-        102,'Charan','Trainee',30,15000
+        102,'Charan','Trainee',30,15000,75
 );
-
 select * from Employees;
 
+-- Update the column details of job
+Update the column details of job
 update Employees set Job='Trainee' where Empno=101;
-alter table employees rename column MGR to Manager_No;
-
 select * from Employees;
 
+-- Rename the column of Employ table using alter command
+alter table Employees rename column MGR to Manager_No;
+select * from Employees;
+
+-- Delete the employee whose Empno is 105
 delete from Employees where Empno=105;
 select * from Employees;
+
+drop database Employee;
