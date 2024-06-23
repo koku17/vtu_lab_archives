@@ -1,2 +1,3 @@
 doc:
-	@latexmk -auxdir=tmp -pdfxe -shell-escape output.tex
+	@latexmk -cd -auxdir=tmp -pdfxe -shell-escape doc/output/*.tex
+.PHONY: doc

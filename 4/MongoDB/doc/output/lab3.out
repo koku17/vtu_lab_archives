@@ -1,0 +1,106 @@
+// Insert document
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('66785f1bf930387eaf597193'),
+    '1': ObjectId('66785f1bf930387eaf597194'),
+    '2': ObjectId('66785f1bf930387eaf597195'),
+    '3': ObjectId('66785f1bf930387eaf597196'),
+    '4': ObjectId('66785f1bf930387eaf597197'),
+    '5': ObjectId('66785f1bf930387eaf597198'),
+    '6': ObjectId('66785f1bf930387eaf597199')
+  }
+}
+
+// Comparison selectors
+[
+  {
+    _id: ObjectId('66785f1bf930387eaf597193'),
+    name: 'Ananth',
+    age: 32,
+    gender: 'male'
+  },
+  {
+    _id: ObjectId('66785f1bf930387eaf597194'),
+    name: 'Adithi',
+    age: 35,
+    gender: 'female'
+  }
+]
+
+// Logical selectors
+[
+  {
+    _id: ObjectId('66785f1bf930387eaf597193'),
+    name: 'Ananth',
+    age: 32,
+    gender: 'male'
+  },
+  {
+    _id: ObjectId('66785f1bf930387eaf597196'),
+    name: 'Aditya',
+    age: 30,
+    gender: 'male'
+  },
+  {
+    _id: ObjectId('66785f1bf930387eaf597198'),
+    name: 'Rahul',
+    age: 28,
+    gender: 'male'
+  }
+]
+
+// Geographical data
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('66785f1bf930387eaf59719a'),
+    '1': ObjectId('66785f1bf930387eaf59719b'),
+    '2': ObjectId('66785f1bf930387eaf59719c')
+  }
+}
+
+Location_2dsphere
+
+// Geospatial selectors
+[
+  {
+    _id: ObjectId('66785f1bf930387eaf59719a'),
+    Name: 'Central Park',
+    Location: { type: 'Point', coordinates: [ -73.97, 40.77 ] },
+    category: 'Parks',
+    flag: 6
+  },
+  {
+    _id: ObjectId('66785f1bf930387eaf59719c'),
+    Name: 'Polo Grounds',
+    Location: { type: 'Point', coordinates: [ -73.9928, 40.7193 ] },
+    category: 'Stadiums',
+    flag: 8
+  },
+  {
+    _id: ObjectId('66785f1bf930387eaf59719b'),
+    Name: 'Sara D. Roosevelt Park',
+    Location: { type: 'Point', coordinates: [ -73.9928, 40.193 ] },
+    category: 'Parks',
+    flag: 7
+  }
+]
+
+// Bitwise selectors
+[
+  {
+    _id: ObjectId('66785f1bf930387eaf59719a'),
+    Name: 'Central Park',
+    Location: { type: 'Point', coordinates: [ -73.97, 40.77 ] },
+    category: 'Parks',
+    flag: 6
+  },
+  {
+    _id: ObjectId('66785f1bf930387eaf59719b'),
+    Name: 'Sara D. Roosevelt Park',
+    Location: { type: 'Point', coordinates: [ -73.9928, 40.193 ] },
+    category: 'Parks',
+    flag: 7
+  }
+]

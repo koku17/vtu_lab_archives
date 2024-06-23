@@ -1,6 +1,6 @@
 use lab1
 
-// Insert data
+// Insert document
 db.lab1.insertMany([
 	{
 		name : 'Ananth',
