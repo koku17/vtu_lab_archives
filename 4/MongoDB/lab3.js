@@ -63,7 +63,8 @@ db.places.find({
 			$geometry: {
 				type : "Point",
 				coordinates : [-73.9667,40.78]
-			}
+			},
+			$maxDistance: 10000
 		}
 	}
 })

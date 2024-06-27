@@ -2,6 +2,7 @@
 *.bin
 *.pdf
 *.dvi
+*.xdv
 *.fdb_latexmk
 *.fls
 *.log
