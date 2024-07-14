@@ -1,0 +1,82 @@
+// Insert document
+
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('668a355b9a791be5bf149f48'),
+    '1': ObjectId('668a355b9a791be5bf149f49'),
+    '2': ObjectId('668a355b9a791be5bf149f4a'),
+    '3': ObjectId('668a355b9a791be5bf149f4b')
+  }
+}
+
+// projection operator
+
+[
+  {
+    _id: ObjectId('668a355b9a791be5bf149f48'),
+    review: [
+      {
+        user: 'Robert',
+        rating: 4,
+        commnet: 'Best Budget Laptop for Gaming'
+      }
+    ]
+  }
+]
+
+// elemMatch projection operator
+
+[
+  { _id: ObjectId('668a355b9a791be5bf149f48') },
+  {
+    _id: ObjectId('668a355b9a791be5bf149f49'),
+    review: [ { user: 'Rayan', rating: 4.5, commnet: 'Best Gaming Laptop' } ]
+  }
+]
+
+// slice projection operator
+
+[
+  {
+    _id: ObjectId('668a355b9a791be5bf149f4b'),
+    name: 'Smart Phone',
+    brand: 'Apple',
+    features: [
+      { name: 'Processor', value: 'A15 Bionic' },
+      { name: 'RAM', value: '8 GB' },
+      { name: 'Graphics', value: 'Neural Engine' },
+      { name: 'Storage', value: '512 GB' }
+    ],
+    review: [ { user: 'Alice', rating: 5, commnet: 'Best phone !' } ]
+  }
+]
+
+// slice projection operator
+
+[
+  {
+    _id: ObjectId('668a355b9a791be5bf149f48'),
+    name: 'Laptop',
+    features: [
+      { name: 'Processor', value: 'i5' },
+      { name: 'RAM', value: '16 GB' }
+    ],
+    review: [
+      {
+        user: 'Robert',
+        rating: 4,
+        commnet: 'Best Budget Laptop for Gaming'
+      }
+    ]
+  },
+  {
+    _id: ObjectId('668a355b9a791be5bf149f49'),
+    name: 'Laptop',
+    features: [
+      { name: 'Processor', value: 'i7' },
+      { name: 'RAM', value: '16 GB' }
+    ],
+    review: [ { user: 'Rayan', rating: 4.5, commnet: 'Best Gaming Laptop' } ]
+  }
+]

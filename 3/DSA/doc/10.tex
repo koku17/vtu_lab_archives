@@ -1,0 +1,33 @@
+\documentclass{article}
+%!TEX program=xelatex
+
+% packages
+\usepackage{calc}
+\usepackage[a4paper,margin=.5in,paperheight=\paperheight+15.5in]{geometry}
+\usepackage{minted}
+\usepackage{enumitem}
+\usepackage{pagecolor}
+
+% presets
+\pagestyle{empty}
+\pagecolor{black}
+\usemintedstyle{one-dark}
+\color{white}
+
+% commands
+\newcommand{\answer}{\item [$\rightarrow$]}
+
+\begin{document}
+	\begin{itemize}
+		\item [10. ] Design, Develop and Implement a menu driven Program in C for the following operations on Binary Search Tree (BST) of Integers
+
+		\begin{enumerate}[label=\alph*.]
+		\item Create a BST of N Integers : \\ 6, 9, 5, 2, 8, 15, 24, 14, 7, 8, 5, 2
+		\item Traverse the BST in In-order, Pre-order and Post-order
+		\item Search the BST for a given element (KEY) and report the appropriate message
+		\item Exit
+		\end{enumerate}
+
+		\answer \inputminted{c}{../Program10.c}
+	\end{itemize}
+\end{document}

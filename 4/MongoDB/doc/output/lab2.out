@@ -1,0 +1,65 @@
+// Insert document
+
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('668a3214b7b667a0d8149f48'),
+    '1': ObjectId('668a3214b7b667a0d8149f49'),
+    '2': ObjectId('668a3214b7b667a0d8149f4a'),
+    '3': ObjectId('668a3214b7b667a0d8149f4b'),
+    '4': ObjectId('668a3214b7b667a0d8149f4c'),
+    '5': ObjectId('668a3214b7b667a0d8149f4d'),
+    '6': ObjectId('668a3214b7b667a0d8149f4e')
+  }
+}
+
+// Select certain fields and ignore some fields
+
+[
+  { name: 'Ananth', age: 32 },
+  { name: 'Adithi', age: 35 },
+  { name: 'Ananya', age: 27 },
+  { name: 'Aditya', age: 30 },
+  { name: 'Bharat', age: 25 },
+  { name: 'Rahul', age: 28 },
+  { name: 'Revathi', age: 25 }
+]
+
+// Display the first 5 documents
+
+[
+  {
+    _id: ObjectId('668a3214b7b667a0d8149f48'),
+    name: 'Ananth',
+    age: 32,
+    gender: 'male'
+  },
+  {
+    _id: ObjectId('668a3214b7b667a0d8149f49'),
+    name: 'Adithi',
+    age: 35,
+    gender: 'female'
+  },
+  {
+    _id: ObjectId('668a3214b7b667a0d8149f4a'),
+    name: 'Ananya',
+    age: 27,
+    gender: 'female'
+  },
+  {
+    _id: ObjectId('668a3214b7b667a0d8149f4b'),
+    name: 'Aditya',
+    age: 30,
+    gender: 'male'
+  },
+  {
+    _id: ObjectId('668a3214b7b667a0d8149f4c'),
+    name: 'Bharat',
+    age: 25,
+    gender: 'male'
+  }
+]
+
+// RIP DB
+
+true

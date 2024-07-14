@@ -1,0 +1,5 @@
+\item Add a column commission with domain to the Employeetable.
+\item Insert any five records into the table.
+\item Update the column details of job
+\item Rename the column of Employ table using alter command.
+\item Delete the employee whose Empno is 105.

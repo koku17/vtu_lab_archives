@@ -1,0 +1,140 @@
+\documentclass{article}
+
+% packages
+\usepackage[margin=.5in]{geometry}
+\usepackage{enumitem}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{minted}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{verbatim}
+\usepackage{calc}
+
+% detailes
+\author{koku17}
+\title{ADA Lab Programs}
+
+% presets
+\urlstyle{same}
+\pagecolor{black}
+\color{white}
+\pagestyle{fancy}
+\usemintedstyle{one-dark}
+\hypersetup{
+	colorlinks,
+	linkcolor=black
+}
+\renewcommand{\headrulewidth}{0pt}
+
+% macro
+\newcommand{\answer}{\item [$\longrightarrow$]}
+\newcommand{\addtotoc}[2]{\addcontentsline{toc}{#1}{\color{white}#2}}
+\newcommand{\program}[1]{
+	\item []
+	\begin{center}
+		\Large Program #1 \phantomsection
+	\end{center}
+}
+\newcommand{\algorithm}[1]{
+	\begin{center}
+		\large #1 algorithm \vspace{-1em} \phantomsection
+	\end{center}
+}
+\newcommand{\Out}[1]{
+	\begin{center}
+		\large Output \vspace{-.5em} \phantomsection
+	\end{center}
+	\inputminted{text}{#1}
+}
+
+\begin{document}
+	\maketitle \thispagestyle{empty} \newpage
+
+	\setcounter{page}{1} \pagenumbering{roman} \fancyhf{} \fancyfoot[C]{(\thepage)}
+	\tableofcontents \newpage
+	\setcounter{page}{1} \pagenumbering{arabic} \fancyhf{} \fancyfoot[C]{\thepage}
+
+	\begin{enumerate}[label=\arabic*. ] \setcounter{enumi}{0}
+		\program{1} \addtotoc{section}{Program 1}
+		\item Design and implement C/C++ Program to find Minimum Cost Spanning Tree of a given
+			connected undirected graph using Kruskal's algorithm
+		\answer \inputminted{c}{../Kruskal*s*algorithm.c} \newpage
+	\end{enumerate} \newpage
+
+	\algorithm{Kruskal's} \addtotoc{subsection}{Kruskal's algorithm}
+	\input{algorithm/1.tex}
+
+	\Out{output/1.out} \addtotoc{subsection}{Output} \newpage
+
+	\begin{enumerate}[label=\arabic*. ] \setcounter{enumi}{1}
+		\item Design and implement C/C++ Program to find Minimum Cost Spanning Tree of a given
+			connected undirected graph using Prim's algorithm
+		\answer \inputminted{c}{../Prim*s*algorithm.c}
+	\end{enumerate} \newpage
+
+	\algorithm{Prim's} \addtotoc{subsection}{Prim's algorithm}
+	\input{algorithm/2.tex}
+	\Out{output/2.out} \addtotoc{subsection}{Output} \newpage
+
+	\begin{enumerate}[label=\arabic*. ] \setcounter{enumi}{2}
+		\item Design and implement C/C++ Program
+			\begin{enumerate}[label=\alph*.]
+				\item To solve All-Pairs Shortest Paths problem using Floyd's algorithm
+				\item To find the transitive closure using Warshal's algorithm
+			\end{enumerate}
+		\answer \vspace{-1em}
+			\begin{enumerate}[label=\alph*. ]
+				\item \inputminted{c}{../Floyd*s*algorithm.c} \newpage
+				\item[] \Out{output/3.a.out} \addtotoc{subsection}{Output} \newpage
+				\item \inputminted{c}{../Warshal*s*algorithm.c} \newpage
+				\item[] \Out{output/3.b.out} \addtotoc{subsection}{Output} \newpage
+			\end{enumerate}
+	\end{enumerate} \newpage
+
+	\begin{enumerate}[label=\arabic*. ] \setcounter{enumi}{3}
+		\item Design and implement C/C++ Program to find shortest paths from a given vertex in a
+			weighted connected graph to other vertices using Dijkstra's algorithm
+		\item Design and implement C/C++ Program to obtain the Topological ordering of vertices in a
+			given digraph
+		\item Design and implement C/C++ Program to solve 0/1 Knapsack problem using Dynamic
+			Programming method
+		\item Design and implement C/C++ Program to solve discrete Knapsack and continuous Knapsack
+			problems using greedy approximation method
+		\item Design and implement C/C++ Program to find a subset of a given set
+			$\text{S}=\{s1,s2,\cdots,sn\}$ of $n$ positive integers whose sum is equal to a given
+			positive integer $d$
+		\item Design and implement C/C++ Program to sort a given set of $n$ integer elements using
+			Selection Sort method and compute its time complexity. \\
+			Run the program for varied values of $n>5000$ and record the time taken to sort. \\
+			Plot a graph of the time taken versus $n$. \\
+			The elements can be read from a file or can be generated using the random number
+			generator.
+		\item Design and implement C/C++ Program to sort a given set of $n$ integer elements using
+			Quick Sort method and compute its time complexity. \\
+			Run the program for varied values of $n>5000$ and record the time taken to sort. \\
+			Plot a graph of the time taken versus $n$. \\
+			The elements can be read from a file or can be generated using the random number
+			generator.
+		\item Design and implement C/C++ Program to sort a given set of $n$ integer elements using
+			Merge Sort method and compute its time complexity. \\
+			Run the program for varied values of $n>5000$ and record the time taken to sort. \\
+			Plot a graph of the time taken versus $n$. \\
+			The elements can be read from a file or can be generated using the random number
+			generator.
+		\item Design and implement C/C++ Program for N Queen's problem using Backtracking
+	\end{enumerate} \newpage
+
+	\section*{Viva Questions} \phantomsection \addtotoc{section}{Viva Questions}
+	\begin{center}
+		\large Program 1 \phantomsection
+	\end{center}
+	\addtotoc{subsection}{Kruskal's algorithm}
+	\input{viva/1.tex}
+
+	\begin{center}
+		\large Program 2 \phantomsection
+	\end{center}
+	\addtotoc{subsection}{Prim's algorithm}
+	\input{viva/2.tex}
+\end{document}

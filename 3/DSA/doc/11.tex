@@ -1,0 +1,31 @@
+\documentclass{article}
+%!TEX program=xelatex
+
+% packages
+\usepackage{calc}
+\usepackage[a4paper,margin=.5in,paperheight=\paperheight+1.5in]{geometry}
+\usepackage{minted}
+\usepackage{enumitem}
+\usepackage{pagecolor}
+
+% presets
+\pagestyle{empty}
+\pagecolor{black}
+\usemintedstyle{one-dark}
+\color{white}
+
+% commands
+\newcommand{\answer}{\item [$\rightarrow$]}
+
+\begin{document}
+	\begin{itemize}
+		\item [11.] Develop a Program in C for the following operations on Graph (G) of cities
+
+		\begin{enumerate}[label=\alph*.]
+			\item Create a Graph of N cities using adjacency matrix
+			\item Print all the nodes reachable from given staring node in diagrams using DFS, BFS methods
+		\end{enumerate}
+
+		\answer \inputminted{c}{../Program11.c}
+	\end{itemize}
+\end{document}
