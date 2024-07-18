@@ -17,7 +17,7 @@ void knapsack(int n,float weight[],float profit[],float capacity){
 		}
 	if(i<n)
 		x[i]=u/weight[i];
-	tp=tp+(x[i]*profit[i]);
+	tp+=x[i]*profit[i];
 
 	printf("\nThe result vector is :\n");
 	for(i=0;i<n;i++)

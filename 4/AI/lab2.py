@@ -22,8 +22,8 @@ try:
 	while(True):
 		while(True):
 			print('Left side-> right side river travel')
-			uM=int(input('Enter number of Missionaries travel=> '))
-			uC=int(input('Enter number of Cannibals travel=> '))
+			uM=int(input('Enter number of Missionaries travel => '))
+			uC=int(input('Enter number of Cannibals travel => '))
 			if uM==0 and uC==0:
 				print('Empty travel not possible\nRe-enter : ')
 			elif (uM+uC)<=2 and (lM-uM)>=0 and (lC-uC)>=0:
@@ -57,8 +57,8 @@ try:
 			break
 		while(True):
 			print('Right side-> Left side river travel')
-			userM=int(input('Enter number of Missionaries travel=> '))
-			userC=int(input('Enter number of Cannibals travel=> '))
+			userM=int(input('Enter number of Missionaries travel => '))
+			userC=int(input('Enter number of Cannibals travel => '))
 			if userM==0 and userC==0:
 				print('Empty travel not possible\nRe-enter : ')
 			elif (userM+userC)<=2 and (rM-userM)>=0 and (rC-userC)>=0:

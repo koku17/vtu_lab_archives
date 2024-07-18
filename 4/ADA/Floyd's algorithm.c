@@ -3,7 +3,7 @@
 #define INF 999
 
 int min(int a,int b){
-	return(a<b)?a:b;
+	return a<b?a:b;
 }
 
 void floyd(int p[][10],int n){

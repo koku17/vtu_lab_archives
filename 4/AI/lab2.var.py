@@ -18,8 +18,8 @@ uC=0
 k=0
 
 def IN():
-	M=int(input('Enter number of Missionaries travel=> '))
-	C=int(input('Enter number of Cannibals travel=> '))
+	M=int(input('Enter number of Missionaries travel => '))
+	C=int(input('Enter number of Cannibals travel => '))
 	return M,C
 
 def POS(direction):

@@ -1,10 +1,10 @@
 CC = cc
 
 build:
-	@for i in *.c ; do $(CC) "$$i" -o "$${i%.*}.bin" -Wall ; done
+	@for i in *.c var/*.c ; do $(CC) "$$i" -o "$${i%.*}.bin" -Wall ; done
 
 clean:
-	@rm -rf *.bin
+	@rm -rf *.bin var/*.bin
 
 doc:
 	@latexmk -cd -pdf -shell-escape -auxdir=tmp doc/*.tex 1> /dev/null

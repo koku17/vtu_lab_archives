@@ -16,3 +16,4 @@
 *.pygstyle
 /.minted-*/
 *.cast
+tmp/

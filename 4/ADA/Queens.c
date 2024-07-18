@@ -30,17 +30,17 @@ void n_queens(int n){
 	c[r]=-1;
 	while(r>=0){
 		c[r]++;
-	while(c[r]<n&&!can_place(c,r))
-		c[r]++;
-	if(c[r]<n){
-		if(r==n-1){
-			printf("Count : %d\n\n",count++);
-			display(c,n);
-			printf("\n");
+		while(c[r]<n&&!can_place(c,r))
+			c[r]++;
+		if(c[r]<n){
+			if(r==n-1){
+				printf("Count : %d\n\n",count++);
+				display(c,n);
+				printf("\n");
+			}else
+				c[++r]=-1;
 		}else
-			c[++r]=-1;
-	}else
-		r--;
+			r--;
 	}
 }
 

@@ -10,4 +10,6 @@ doc:
 clean:
 	@rm -rf doc/tmp/ doc/_minted-*/ doc/*.pdf
 
+run:
+	@for i in *.py ; do clear ; ./$$i ; printf "\nPress return to Continue ... " ; read continue ; done
 .PHONY:	doc
