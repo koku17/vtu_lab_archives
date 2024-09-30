@@ -17,3 +17,10 @@
 /.minted-*/
 *.cast
 tmp/
+*.gif
+*.nam
+*.tr
+*.xwd
+*.txt
+*.7z
+*.awk

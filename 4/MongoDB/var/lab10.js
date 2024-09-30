@@ -1,5 +1,4 @@
-use lab9
-
+use lab10
 db.catalog.insertMany([{
 	_id: 1,
 	subject: 'mongoDB',
@@ -43,22 +42,55 @@ db.catalog.insertMany([{
 }])
 
 db.catalog.createIndex({
-		subject: 'text'
+	subject: 'text'
 })
 
-db.catalog.find({
-	$text:{ $search: ' dbms ' }
-})
-
-db.catalog.find({
-	$text: { $search: 'ai -and dbms'}
-})
-
-db.catalog.find({
-	$text: {
-		$search: 'mongodb',
-		$caseSensitive: true
+db.catalog.aggregate({
+	$match: {
+		$text: { $search: 'machine' }
 	}
+})
+
+db.catalog.aggregate({
+	$match: {
+		$text: { $search: 'machine' }
+	}
+},{
+	$project: {
+		subject: 1,
+		views: 1,
+		_id: 0
+	}
+})
+
+db.catalog.aggregate({
+	$match: {
+		$text: { $search: 'machine' }
+	}
+},{
+	$project: {
+		subject: 1,
+		views: 1,
+		_id: 0
+	}
+},{
+	$sort: { views: -1 }
+})
+
+db.catalog.aggregate({
+	$match: {
+		$text: { $search: 'machine' }
+	}
+},{
+	$project: {
+		subject: 1,
+		views: 1,
+		_id: 0
+	}
+},{
+	$sort: { views: -1 }
+},{
+	$skip: 1
 })
 
 db.dropDatabase()

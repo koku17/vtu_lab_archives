@@ -1,0 +1,31 @@
+$ for i in {1..10}000 ; do echo $i | ./a.out ; done
+
+Enter the number of elements : 10000
+Time taken to sort 10000 elements is 0.000814 seconds
+
+Enter the number of elements : 20000
+Time taken to sort 20000 elements is 0.001344 seconds
+
+Enter the number of elements : 30000
+Time taken to sort 30000 elements is 0.002841 seconds
+
+Enter the number of elements : 40000
+Time taken to sort 40000 elements is 0.002863 seconds
+
+Enter the number of elements : 50000
+Time taken to sort 50000 elements is 0.003516 seconds
+
+Enter the number of elements : 60000
+Time taken to sort 60000 elements is 0.004248 seconds
+
+Enter the number of elements : 70000
+Time taken to sort 70000 elements is 0.004999 seconds
+
+Enter the number of elements : 80000
+Time taken to sort 80000 elements is 0.005711 seconds
+
+Enter the number of elements : 90000
+Time taken to sort 90000 elements is 0.006659 seconds
+
+Enter the number of elements : 100000
+Time taken to sort 100000 elements is 0.007286 seconds

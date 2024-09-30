@@ -50,15 +50,4 @@ db.catalog.find({
 	$text:{ $search: ' dbms ' }
 })
 
-db.catalog.find({
-	$text: { $search: 'ai -and dbms'}
-})
-
-db.catalog.find({
-	$text: {
-		$search: 'mongodb',
-		$caseSensitive: true
-	}
-})
-
 db.dropDatabase()

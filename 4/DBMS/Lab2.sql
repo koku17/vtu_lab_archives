@@ -24,7 +24,6 @@ insert into Employees values(
 select * from Employees;
 
 -- Update the column details of job
-Update the column details of job
 update Employees set Job='Trainee' where Empno=101;
 select * from Employees;
 

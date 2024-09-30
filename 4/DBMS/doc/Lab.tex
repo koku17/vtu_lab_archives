@@ -66,7 +66,16 @@
 		\answer \inputminted{mysql}{../Lab3.sql} \newpage
 		\item Create a row level trigger for the customers table that would fire for INSERT or UPDAT or
 			DELETE operations performed on the CUSTOMERS table. This trigger will display the salary
-		difference between the old \& new Salary. \texttt{CUSTOMERS(ID, NAME, AGE, ADDRESS, SALARY)}
-		\answer \inputminted{mysql}{../Lab4.sql}
+		difference between the old \& new Salary. \texttt{CUSTOMERS(ID,NAME,AGE,ADDRESS,SALARY)}
+		\answer \inputminted{mysql}{../Lab4.sql} \newpage
+		\item Create cursor for Employee table \& extract the values from the table.
+			Declare the variables, Open the cursor \& extrct the values from the cursor.
+			Close the cursor. \\ \texttt{Employee(E\_id,E\_name,Age,Salary)}
+		\answer \inputminted{mysql}{../Lab5.sql} \newpage
+		\item Write a PL/SQL block of code using parameterized Cursor, that will merge the data available in
+			the newly created table \texttt{N\_RollCall} with the data available in the table
+			\texttt{O\_RollCall}. \\
+			If the data in the first table already exist in the second table then that data should be skipped
+		\answer \inputminted{mysql}{Lab6.sql}
 	\end{enumerate}
 \end{document}

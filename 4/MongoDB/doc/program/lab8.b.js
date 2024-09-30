@@ -43,21 +43,7 @@ db.student.createIndex({
 })
 
 db.student.createIndex({
-	branch : 1
-},{
-	age : -1
-})
-
-db.student.createIndex({
 	usn : 1
-},{
-	unique : true
-})
-
-db.student.createIndex({
-	course : 1
-},{
-	sparse : true
 })
 
 db.student.createIndex({

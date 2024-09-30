@@ -51,7 +51,7 @@ db.catalog.find({
 })
 
 db.catalog.find({
-	$text: { $search: 'ai -and dbms'}
+	$text: { $search: 'ai and dbms'}
 })
 
 db.catalog.find({

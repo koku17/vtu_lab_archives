@@ -22,41 +22,37 @@ db.catalog.insertMany([{
 	views: 100 
 },{
 	_id: 5,
-	subject: 'ai and dbms',
+	subject: 'artificial intelligence and dbms',
 	author: 'abc',
 	views: 200
 },{
 	_id: 6,
-	subject: 'machine learning',
+	subject: 'data science and machine learning',
 	author: 'jkl',
 	views: 80
 },{
 	_id: 7,
-	subject: 'machine learning',
+	subject: 'artificial intelligence and machine learning',
 	author: 'efg',
 	views: 10 
 },{
 	_id: 8,
-	subject: 'operating system',
+	subject: 'econmics and machine learning',
 	author: 'xyz',
 	views: 10
 }])
 
 db.catalog.createIndex({
-		subject: 'text'
+        subject: 'text'
 })
 
 db.catalog.find({
-	$text:{ $search: ' dbms ' }
-})
-
-db.catalog.find({
-	$text: { $search: 'ai -and dbms'}
+	$text: { $search: 'ai -and dbms'} 
 })
 
 db.catalog.find({
 	$text: {
-		$search: 'mongodb',
+		$search: 'mongoDB',
 		$caseSensitive: true
 	}
 })

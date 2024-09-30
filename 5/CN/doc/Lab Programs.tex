@@ -1,0 +1,108 @@
+\documentclass{article}
+
+% package
+\usepackage[margin=.5in]{geometry}
+\usepackage{enumitem}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{minted}
+\usepackage{hyperref}
+
+% detailes
+\author{koku17}
+\title{Computer Networks Lab}
+
+% presets
+\hypersetup{
+	hidelinks
+}
+\pagecolor{black}
+\color{white}
+\usemintedstyle{one-dark}
+
+% variables
+\newcounter{program}
+
+% macros
+\newcommand{\question}[1]{
+	{
+		\centering
+		\stepcounter{program}
+		\section*{Program \arabic{program}}
+	}
+	\ifnum \value{program}>1 \vspace{-.8em} \fi
+	\addcontentsline{toc}{section}{Program \arabic{program}}
+	\item #1
+}
+\newcommand{\Out}[1]{
+	{\centering \section*{Output}}
+	\addcontentsline{toc}{subsection}{Output}
+	\item[] #1
+}
+\newcommand{\answer}{\item [$\rightarrow$]}
+
+\begin{document}
+	\pagenumbering{gobble} \maketitle \newpage
+	\pagenumbering{roman} \tableofcontents \newpage
+	\pagenumbering{arabic}
+	\begin{enumerate}[label=\arabic*. ]
+		\question{
+			Implement three nodes point -- to -- point network with duplex links between them. \\
+			Set the queue size, vary the bandwidth, and find the number of packets dropped.
+		}
+		\answer \inputminted{tcl}{../Lab1.tcl} \newpage
+		\newpage
+
+		\question{
+			Implement transmission of ping messages / trace route over a network topology consisting of 6 nodes.
+			\\ Find the number of packets dropped due to congestion.
+		}
+		\answer \inputminted{tcl}{../Lab2.tcl}
+		\newpage
+
+		\question{
+			Implement an Ethernet LAN using $n$ nodes and set multiple traffic nodes and plot congestion window
+			for different source / destination.
+		}
+		\answer \inputminted{tcl}{../Lab3.tcl}
+		\newpage
+
+		\question{Develop a program for error detecting code using CRC-CCITT (16-bits).}
+		\answer \inputminted{tcl}{../CRC.java}
+		\newpage
+
+		\question{Develop a program to implement a sliding window protocol in the data link layer.}
+		\answer \inputminted{tcl}{../Lab1.tcl}
+		\newpage
+
+		\question{
+			Develop a program to find the shortest path between vertices using the Bellman-Ford and path vector
+			routing algorithm.
+		}
+		\answer \inputminted{tcl}{../Lab1.tcl}
+		\newpage
+
+		\question{
+			Using TCP/IP sockets, write a client -- server program to make the client send the file name and to
+			make the server send back the contents of the requested file if present.
+		}
+		\answer \inputminted{tcl}{../Lab1.tcl}
+		\newpage
+
+		\question{
+			Develop a program on a datagram socket for client / server to display the messages on client side,
+			typed at the server side.
+		}
+		\answer \inputminted{tcl}{../UdpClient.java}
+		\newpage
+
+		\question{Develop a program for a simple RSA algorithm to encrypt and decrypt the data.}
+		\answer \inputminted{tcl}{../RSA.java}
+		\newpage
+
+		\question{Develop a program for congestion control using a leaky bucket algorithm.}
+		\answer \inputminted{tcl}{../LeakyBucket.java}
+		\newpage
+	\end{enumerate}
+\end{document}

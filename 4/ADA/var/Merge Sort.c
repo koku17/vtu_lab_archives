@@ -39,16 +39,12 @@ void mergeSort(int arr[],int lb,int ub){
 }
 
 int main(int argc,char *argv[]){
-	for(i=1;i<argc;i++){
+	for(int i=1;i<argc;i++){
 		n=atoi(argv[i]);
-		if(n==1){
-			printf("Time taken to sort %d elements is %f seconds\n",1,0.000001);
-			return 0;
-		}
     	int arr[n];
 		srand(time(0));
-		for(i=0;i<n;i++)
-			arr[i]=rand()%10000;
+		for(int j=0;j<n;j++)
+			arr[j]=rand()%10000;
 		clock_t start=clock();
 		mergeSort(arr,0,n-1);
 		clock_t end=clock();

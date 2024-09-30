@@ -60,28 +60,4 @@ db.student.createIndex({
 	sparse : true
 })
 
-db.student.createIndex({
-	grades : 1
-})
-
-db.student.find({
-	name  : 'jack'
-}).hint({
-	name  : 1
-})
-
-db.student.find({
-	name  : 'jack'
-}).explain()
-
-db.student.find({
-	usn : 48
-}).hint({
-	usn : 1
-})
-
-db.student.find({
-	usn : 48
-}).explain()
-
 db.dropDatabase()
