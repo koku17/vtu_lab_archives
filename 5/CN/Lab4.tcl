@@ -16,18 +16,18 @@ $ns namtrace-all-wireless $namfile 1500 1500
 
 
 # Mobile node parameter setup
-$ns node-config								\
-	-adhocRouting DSDV						\
-	-llType LL								\
-	-macType Mac/802_11						\
-	-ifqType Queue/DropTail					\
-	-ifqLen 20								\
-	-phyType Phy/WirelessPhy				\
-	-channelType Channel/WirelessChannel	\
-	-propType Propagation/TwoRayGround		\
-	-antType Antenna/OmniAntenna			\
-	-topoInstance $topo						\
-	-agentTrace ON							\
+$ns node-config                              \
+	-adhocRouting DSDV                   \
+	-llType LL                           \
+	-macType Mac/802_11                  \
+	-ifqType Queue/DropTail              \
+	-ifqLen 20                           \
+	-phyType Phy/WirelessPhy             \
+	-channelType Channel/WirelessChannel \
+	-propType Propagation/TwoRayGround   \
+	-antType Antenna/OmniAntenna         \
+	-topoInstance $topo                  \
+	-agentTrace ON                       \
 	-routerTrace ON
 
 # Nodes Definition
