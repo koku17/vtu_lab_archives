@@ -1,85 +1,65 @@
 import java.util.Scanner;
 
-public class BellmanFord {
-	int n, s;
-	int[][] a;
-	int[] d;
-	int[] p;
+ public class BellmanFord {
+	private int D[];
+	private int num_ver;
+	public static final int MAX_VALUE = 999;
 
-	public final static int INFTY = 999;
-
-	BellmanFord (int n) {
-		this.n = n;
-		a = new int[n][n];
-		d = new int[n];
-		p = new int[n];
-	}
-	
-	void bellmanFord () {
-		for (int i = 0; i < n; i++) {
-			d[i] = a[s][i];
-			p[i] = a[s][i] ==  INFTY ? -1 : s;
-		}
-
-		p[s] = -1;
-
-		for (int i = 0; i < n-1; i++)
-			for (int u = 0; u < n; u++)
-				for (int v = 0; v < n; v++)
-					if (d[v] > d[u] + a[u][v]) {
-						d[v] = d[u] + a[u][v];
-						p[v] = u;
-					}
+	public BellmanFord (int num_ver) {
+		this.num_ver = num_ver;
+		D = new int[num_ver + 1];
 	}
 
-	void input (Scanner scanner) {
-		System.out.println ("\nEnter G : ");
+	public void BellmanFordEvaluation (int source, int A[][]) {
+		for (int node = 1; node <= num_ver; node++)
+			D[node] = MAX_VALUE;
 
-		for (int i = 0; i < n; i++) {
-			for (int j=0; j<n; j++) {
-				a[i][j] = scanner.nextInt();
+		D[source] = 0;
 
-				if (i != j && a[i][j] == 0)
-					a[i][j] = INFTY;
-			}
-		}
+		for (int node = 1; node <= num_ver - 1; node++)
+			for (int sn = 1; sn <= num_ver; sn++)
+				for (int dn = 1; dn <= num_ver; dn++)
+					if (A[sn][dn] != MAX_VALUE && (D[dn] > D[sn] + A[sn][dn]))
+							D[dn] = D[sn] + A[sn][dn];
+		
+		for (int sn = 1; sn <= num_ver; sn++)
+			for (int dn = 1; dn <= num_ver; dn++)
+				if (A[sn][dn] != MAX_VALUE && (D[dn] > D[sn]+ A[sn][dn]))
+					System.out.println ("\nThe Graph contains negative egde cycle");
 
-		System.out.print ("\nEnter the source vertex : ");
-		s = scanner.nextInt ();
+		System.out.println("");
 
-		scanner.close ();
-	}
-
-	void path (int v) {
-		if (v == -1)
-			return ;
-
-		path (p[v]);
-
-		System.out.print("." + v);
-	}
-
-	void output () {
-		int i;
-
-		for (i = 0; i < n; i++) {
-			System.out.print ("d(" + s + ", " + i + ") = " + d[i] + ": p");
-			path (i);
-			System.out.println ();
-		}
-	}
+		for (int vertex = 1; vertex <= num_ver; vertex++)
+			System.out.println ("Distance of source "+ source + " to " + vertex + " is " + D[vertex]);
+}
 
 	public static void main (String[] args) {
-		int n;
+		int num_ver = 0, source;
 		Scanner scanner = new Scanner (System.in);
 
-		System.out.print ("Enter n : ");
-		n = scanner.nextInt ();
+		System.out.print ("Enter the number of vertices : ");
+		num_ver = scanner.nextInt ();
 
-		BellmanFord bf = new BellmanFord (n);
+		int A[][] = new int[num_ver + 1][num_ver + 1];
+		System.out.println ("\nEnter the adjacency matrix :");
 
-		bf.input (scanner);
-		bf.bellmanFord ();
-		bf.output ();
+		for (int sn = 1; sn <= num_ver; sn++)
+			for (int dn = 1; dn <= num_ver; dn++) {
+				A[sn][dn] = scanner.nextInt ();
+
+				if (sn == dn) {
+					A[sn][dn] = 0;
+					continue;
+			 	}
+
+				if (A[sn][dn] == 0)
+					 A[sn][dn] = MAX_VALUE;
+			}
+
+		System.out.print ("\nEnter the source vertex : ");
+		source = scanner.nextInt ();
+		BellmanFord b = new BellmanFord (num_ver);
+		b.BellmanFordEvaluation (source, A);
+		scanner.close ();
 	}
 }
