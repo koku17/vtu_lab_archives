@@ -1,0 +1,33 @@
+\documentclass{article}
+%!TEX program=xelatex
+
+% packages
+\usepackage[a4paper,margin=.5in,paperheight=17.5in]{geometry}
+\usepackage{minted}
+\usepackage{enumitem}
+\usepackage{pagecolor}
+
+% presets
+\pagestyle{empty}
+\pagecolor{black}
+\usemintedstyle{one-dark}
+\color{white}
+
+% commands
+\newcommand{\answer}{\item [$\rightarrow$]}
+
+\begin{document}
+	\begin{itemize}
+		\item [6.] Develop a menu driven Program in C for the following operations on Circular QUEUE of Characters \\
+		(Array Implementation of Queue with maximum size MAX)
+		\begin{enumerate}[label=\alph*.]
+			\item Insert an Element on to Circular QUEUE
+			\item Delete an Element from Circular QUEUE
+			\item Demonstrate Overflow and Underflow situations on Circular QUEUE
+			\item Display the status of Circular QUEUE
+			\item Exit
+		\end{enumerate}
+		Support the program with appropriate functions for each of the above operations
+		\answer \inputminted{c}{../Program6.c}
+	\end{itemize}
+\end{document}

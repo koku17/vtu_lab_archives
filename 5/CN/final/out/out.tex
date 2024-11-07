@@ -1,0 +1,52 @@
+\documentclass{article}
+
+\usepackage[margin=.4in]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{minted}
+\usemintedstyle{perldoc}
+
+\begin{document}
+	\begin{tabular}{cc}
+		\textbf{Lab 1} & \textbf{Lab 2} \\ & \\
+		\begin{minipage}{.45\textwidth}
+			\inputminted{text}{1.out}
+		\end{minipage} &
+		\begin{minipage}{.45\textwidth}
+			\inputminted{text}{2.out}
+		\end{minipage} \\ & \\
+		\textbf{Lab 3} & \\ & \\
+		\begin{minipage}{.45\textwidth}
+			\inputminted{text}{3.out}
+		\end{minipage} &
+		\includegraphics[scale=.5]{out3.png}
+	\end{tabular} \newpage
+
+	\begin{tabular}{cc}
+		\textbf{Lab 1 trace} & \textbf{Lab 2 Trace} \\ & \\
+		\begin{minipage}{.45\textwidth}
+			\inputminted{text}{out1.tr.drop}
+		\end{minipage} &
+		\begin{minipage}{.45\textwidth}
+			\inputminted{text}{out2.tr.drop}
+		\end{minipage} \\ & \\
+	\end{tabular}
+
+	\begin{center}
+	~ \\ \vspace{2em}
+	\textbf{Lab 1} \\ ~ \\
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=.5]{out1.png} ~
+			\includegraphics[scale=.5]{out1.1.png} ~
+			\includegraphics[scale=.5]{out1.2.png}
+		\end{figure}
+
+	~ \\ \vspace{2em}
+	\textbf{Lab 3} \\ ~ \\
+		\begin{center}
+			\includegraphics[scale=.5]{out2.png}
+		\end{center}
+	\end{center}
+\end{document}

@@ -1,0 +1,34 @@
+\documentclass{article}
+%!TEX program=xelatex
+
+% packages
+\usepackage{calc}
+\usepackage[a4paper,margin=.5in,paperheight=\paperheight+18in+15em]{geometry}
+\usepackage{minted}
+\usepackage{enumitem}
+\usepackage{pagecolor}
+
+% presets
+\pagestyle{empty}
+\pagecolor{black}
+\usemintedstyle{one-dark}
+\color{white}
+
+% commands
+\newcommand{\answer}{\item [$\rightarrow$]}
+
+\begin{document}
+	\begin{itemize}
+		\item [8.] Develop a menu driven Program in C for the following operations on Doubly Linked List (DLL) of Employee Data with the fields : \\ SSN, Name, Dept, Designation, Sal, PhNo
+
+		\begin{enumerate}[label=\alph*.]
+			\item Create a DLL of N Employees Data by using end insertion.
+			\item Display the status of DLL and count the number of nodes in it
+			\item Perform Insertion and Deletion at End of DLL
+			\item Perform Insertion and Deletion at Front of DLL
+			\item Demonstrate how this DLL can be used as Double Ended Queue.
+			\item Exit
+		\end{enumerate}
+		\answer \inputminted{c}{../Program8.c}
+	\end{itemize}
+\end{document}

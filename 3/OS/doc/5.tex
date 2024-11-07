@@ -1,0 +1,31 @@
+\documentclass{article}
+
+%!TEX program=xelatex
+
+% packages
+\usepackage{calc}
+\usepackage[a4paper,margin=.5in,paperheight=\paperheight+4in+2em]{geometry}
+\usepackage{minted}
+\usepackage{enumitem}
+\usepackage{verbatim}
+
+% prestes
+\pagestyle{empty}
+
+% command
+\newcommand{\question}[2]{
+	\item [#1.] #2
+}
+
+\newcommand{\ttt}[1]{\texttt{#1}}
+\newcommand{\answer}[1]{\item [$\rightarrow$] \inputminted{c}{#1}}
+
+\begin{document}
+	\begin{itemize}
+		\question{5}{
+			Develop a C program to simulate Bankers Algorithm for Dead Lock Avoidance.
+		}
+
+		\answer{lab5.c}
+	\end{itemize}
+\end{document}

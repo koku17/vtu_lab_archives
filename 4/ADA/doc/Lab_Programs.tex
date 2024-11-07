@@ -1,0 +1,200 @@
+\documentclass{article}
+
+% packages
+\usepackage[margin=.5in]{geometry}
+\usepackage{enumitem}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{minted}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{verbatim}
+\usepackage{calc}
+
+% detailes
+\author{koku17}
+\title{ADA Lab Programs}
+
+% presets
+\urlstyle{same}
+\pagecolor{black}
+\color{white}
+\pagestyle{fancy}
+\usemintedstyle{one-dark}
+\hypersetup{
+	colorlinks,
+	linkcolor=white
+}
+\renewcommand{\headrulewidth}{0pt}
+
+% macro
+\newcommand{\addtotoc}[2]{\addcontentsline{toc}{#1}{#2}}
+
+\newcommand{\Ans}[1]{
+	\item [$\longrightarrow$] \inputminted{c}{#1}
+}
+
+\newcommand{\answer}{\item [$\longrightarrow$] }
+
+\newcounter{pnum}
+\newcommand{\question}[1]{
+	\item[]
+	\begin{center}
+		\setcounter{pnum}{\value{enumi}+1}
+		{\Large Program \arabic{pnum}} \phantomsection
+		\addtotoc{section}{Program \arabic{pnum}}
+	\end{center}
+	\item #1
+}
+
+\newcommand{\program}[1]{
+	\phantomsection \addtotoc{subsection}{#1}
+}
+
+\newcommand{\algorithm}[2]{
+	\item []
+		\begin{center}
+			{\Large #1 algorithm} \phantomsection
+			\addtotoc{subsection}{#1 algorithm}
+			\input{#2}
+		\end{center}
+}
+
+\newcommand{\Out}[1]{
+	\item[]
+		\begin{center}
+			{\Large \vspace{.25em} Output} \phantomsection
+			\addtotoc{subsection}{Output}
+		\end{center}
+		\inputminted{text}{#1}
+}
+
+\begin{document}
+	\phantomsection \maketitle \thispagestyle{empty}
+	\addtotoc{section}{Title Page} \newpage
+	\setcounter{page}{1} \pagenumbering{roman} \fancyhf{} \fancyfoot[C]{(\thepage)}
+	\phantomsection \tableofcontents \addtotoc{section}{Contents} \newpage
+	\setcounter{page}{1} \pagenumbering{arabic} \fancyhf{} \fancyfoot[C]{\thepage}
+
+	\begin{enumerate}[label=\arabic*. ]
+		\question{
+			\program{Kruskal's Program}
+			Design and implement C/C++ Program to find Minimum Cost Spanning Tree of a given connected
+			undirected graph using Kruskal's algorithm
+		}
+		\Ans{../Kruskal*s*algorithm.c} \newpage
+		\algorithm{Kruskal's}{algorithm/1.tex}
+		\Out{output/1.out} \newpage
+
+		\question{
+			\program{Prim's Program}
+			Design and implement C/C++ Program to find Minimum Cost Spanning Tree of a given connected
+			undirected graph using Prim's algorithm
+		}
+		\Ans{../Prim*s*algorithm.c} \newpage
+		\algorithm{Prim's}{algorithm/2.tex}
+		\Out{output/2.out} \newpage
+
+		\question{Design and implement C/C++ Program
+			\begin{enumerate}[label=\alph*.]
+				\program{Floyd's Program}
+				\item To solve All-Pairs Shortest Paths problem using Floyd's algorithm
+				\Ans{../Floyd*s*algorithm.c}
+				\Out{output/3.a.out} \newpage
+				\program{Warshal's Program}
+				\item To find the transitive closure using Warshal's algorithm
+				\Ans{../Warshal*s*algorithm.c}
+				\Out{output/3.b.out} \newpage
+			\end{enumerate}
+		}
+
+		\question{
+			\program{Dijkstra's Program}
+			Design and implement C/C++ Program to find shortest paths from a given vertex in a weighted
+			connected graph to other vertices using Dijkstra's algorithm
+		}
+		\Ans{../Dijikstra*s*algorithm.c} \newpage
+		\Out{output/4.out} \newpage
+
+		\question{
+			\program{Topological order}
+			Design and implement C/C++ Program to obtain the Topological ordering of vertices in a given digraph
+		}
+		\Ans{../Topology.c} \newpage
+		\Out{output/5.out} \newpage
+
+		\question{
+			\program{Knapsack Dynamic Program}
+			Design and implement C/C++ Program to solve 0/1 Knapsack problem using Dynamic Programming method
+		}
+		\Ans{../Knapsack.dynamic.c}
+		\Out{output/6.out} \newpage
+
+		\question{
+			\program{Discrete Knapsack Program}
+			Design and implement C/C++ Program to solve discrete Knapsack and continuous Knapsack problems using
+			greedy approximation method
+		}
+		\Ans{../Knapsack.c} \newpage
+		\Out{output/7.out} \newpage
+
+		\question{
+			\program{Sum of Subset Program}
+			Design and implement C/C++ Program to find a subset of a given set $\text{S}=\{s1,s2,\cdots,sn\}$ of
+			$n$ positive integers whose sum is equal to a given positive integer $d$
+		}
+		\Ans{../SumSubset.c}
+		\Out{output/8.out} \newpage
+
+		\question{
+			\program{Selection Sort}
+			Design and implement C/C++ Program to sort a given set of $n$ integer elements using Selection Sort
+			method and compute its time complexity. \\
+			Run the program for varied values of $n>5000$ and record the time taken to sort. \\
+			Plot a graph of the time taken versus $n$. \\
+			The elements can be read from a file or can be generated using the random number generator.
+		}
+		\Ans{../Selection*Sort.c} \newpage
+		\Out{output/9.out} \newpage
+
+		\question{
+			\program{Quick Sort}
+			Design and implement C/C++ Program to sort a given set of $n$ integer elements using Quick Sort
+			method and compute its time complexity. \\
+			Run the program for varied values of $n>5000$ and record the time taken to sort. \\
+			Plot a graph of the time taken versus $n$. \\
+			The elements can be read from a file or can be generated using the random number generator.
+		}
+		\Ans{../Quick*Sort.c} \newpage
+		\Out{output/10.out} \newpage
+
+		\question{
+			Design and implement C/C++ Program to sort a given set of $n$ integer elements using Merge Sort
+			method and compute its time complexity. \\
+			Run the program for varied values of $n>5000$ and record the time taken to sort. \\
+			Plot a graph of the time taken versus $n$. \\
+			The elements can be read from a file or can be generated using the random number generator.
+		}
+		\Ans{../Merge*Sort.c} \newpage
+		\Out{output/11.out} \newpage
+
+		\question{
+			Design and implement C/C++ Program for N Queen's problem using Backtracking
+		}
+		\Ans{../Queens.c} \newpage
+		\Out{output/12.out} \newpage
+	\end{enumerate}
+
+	\section*{Viva Questions} \phantomsection \addtotoc{section}{Viva Questions}
+	\begin{center}
+		\large Program 1 \phantomsection
+	\end{center}
+	\addtotoc{subsection}{Kruskal's algorithm}
+	\input{viva/1.tex}
+
+	\begin{center}
+		\large Program 2 \phantomsection
+	\end{center}
+	\addtotoc{subsection}{Prim's algorithm}
+	\input{viva/2.tex}
+\end{document}

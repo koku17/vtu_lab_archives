@@ -1,0 +1,14 @@
+Enter the no. of queens : 4
+Count : 1
+
+ - Q - -
+ - - - Q
+ Q - - -
+ - - Q -
+
+Count : 2
+
+ - - Q -
+ Q - - -
+ - - - Q
+ - Q - -

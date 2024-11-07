@@ -1,0 +1,98 @@
+test> use MoviesDB
+switched to db MoviesDB
+
+MoviesDB> db.Movies.insertMany([
+...     {
+...             title : "Inception",
+...             director : "Christopher Nolan",
+...             genre : "Science Fiction",
+...             year : 2010,
+...             ratings : {
+...                     imdb : 8.8,
+...                     rottenTomatoes : 87
+...             }
+...     },{
+...             title : "The Matrix",
+...             director : "Wachowskis",
+...             genre : "Science Fiction",
+...             year : 1999,
+...             ratings : {
+...                     imdb : 8.7,
+...                     rottenTomatoes : 87
+...             }
+...     },{
+...             title : "The Godfather",
+...             director : "Francis Ford Coppola",
+...             genre : "Crime",
+...             year : 1972,
+...             ratings : {
+...                     imdb : 9.2,
+...                     rottenTomatoes : 97
+...             }
+...     }
+... ]);
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('66afb234e1feeaf4aa838726'),
+    '1': ObjectId('66afb234e1feeaf4aa838727'),
+    '2': ObjectId('66afb234e1feeaf4aa838728')
+  }
+}
+
+MoviesDB> // To select only the title and director fields from the Movies collection
+
+MoviesDB> db.Movies.find({},{
+...     title : 1,
+...     director : 1,
+...     _id : 0
+... })
+[
+  { title: 'Inception', director: 'Christopher Nolan' },
+  { title: 'The Matrix', director: 'Wachowskis' },
+  { title: 'The Godfather', director: 'Francis Ford Coppola' }
+]
+
+
+MoviesDB> // To exclude the ratings field from the results
+
+MoviesDB> db.Movies.find({},{
+...     ratings : 0
+... })
+[
+  {
+    _id: ObjectId('66afb234e1feeaf4aa838726'),
+    title: 'Inception',
+    director: 'Christopher Nolan',
+    genre: 'Science Fiction',
+    year: 2010
+  },
+  {
+    _id: ObjectId('66afb234e1feeaf4aa838727'),
+    title: 'The Matrix',
+    director: 'Wachowskis',
+    genre: 'Science Fiction',
+    year: 1999
+  },
+  {
+    _id: ObjectId('66afb234e1feeaf4aa838728'),
+    title: 'The Godfather',
+    director: 'Francis Ford Coppola',
+    genre: 'Crime',
+    year: 1972
+  }
+]
+
+MoviesDB> // Combining Filter and Projection
+
+MoviesDB> db.Movies.find({
+...     director : "Christopher Nolan"
+... },{
+...     title : 1,
+...     year : 1,
+...     _id : 0
+... })
+[ { title: 'Inception', year: 2010 } ]
+
+MoviesDB> db.dropDatabase()
+{ ok: 1, dropped: 'MoviesDB' }

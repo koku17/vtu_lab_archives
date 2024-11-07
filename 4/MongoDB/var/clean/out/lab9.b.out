@@ -1,0 +1,85 @@
+test> use lab9
+switched to db lab9
+
+lab9> db.catalog.insertMany([{
+...     _id: 1,
+...     subject: 'mongoDB',
+...     author: 'xyz',
+...     views: 50
+... },{
+...     _id: 2,
+...     subject: 'mongoDB',
+...     author: 'efg',
+...     views: 5 
+... },{
+...     _id: 3,
+...     subject: 'dbms',
+...     author: 'abc',
+...     views: 90 
+... },{
+...     _id: 4,
+...     subject: 'dbms',
+...     author: 'xyz',
+...     views: 100 
+... },{
+...     _id: 5,
+...     subject: 'artificial intelligence and dbms',
+...     author: 'abc',
+...     views: 200
+... },{
+...     _id: 6,
+...     subject: 'data science and machine learning',
+...     author: 'jkl',
+...     views: 80
+... },{
+...     _id: 7,
+...     subject: 'artificial intelligence and machine learning',
+...     author: 'efg',
+...     views: 10 
+... },{
+...     _id: 8,
+...     subject: 'econmics and machine learning',
+...     author: 'xyz',
+...     views: 10
+... }])
+{
+  acknowledged: true,
+  insertedIds: { '0': 1, '1': 2, '2': 3, '3': 4, '4': 5, '5': 6, '6': 7, '7': 8 }
+}
+
+lab9> db.catalog.createIndex({
+...     subject: 'text'
+... })
+subject_text
+
+
+
+
+
+lab9> db.catalog.find({
+...     $text: { $search: 'ai -and dbms'}
+... })
+[
+  { _id: 4, subject: 'dbms', author: 'xyz', views: 100 },
+  { _id: 3, subject: 'dbms', author: 'abc', views: 90 },
+  {
+    _id: 5,
+    subject: 'artificial intelligence and dbms',
+    author: 'abc',
+    views: 200
+  }
+]
+
+lab9> db.catalog.find({
+...     $text: {
+...             $search: 'mongoDB',
+...             $caseSensitive: true
+...     }
+... })
+[
+  { _id: 2, subject: 'mongoDB', author: 'efg', views: 5 },
+  { _id: 1, subject: 'mongoDB', author: 'xyz', views: 50 }
+]
+
+lab9> db.dropDatabase()
+{ ok: 1, dropped: 'lab9' }

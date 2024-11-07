@@ -1,0 +1,33 @@
+\begin{enumerate}[label=\arabic*. ]
+	\item What Is Prim's Minimum Spanning Tree Algorithm ?
+		\begin{itemize}
+			\item Prim's algorithm is a greedy algorithm that finds the minimum spanning tree for a
+				weighted undirected graph
+			\item The main idea behind this algorithm is that we want to take all the nodes of the
+				graph and greedily connect them with minimum-weight edges
+			\item We start with an empty MST and keep track of two sets of nodes
+			\begin{itemize}
+				\item In the first set, we'll keep all the nodes added in the MST
+				\item In the second set, we'll store all the nodes that are not added to the MST
+			\end{itemize}
+		\end{itemize}
+	
+	\item What are the differences between Prim's and Dijkstra's algorithms ?
+		\begin{itemize}
+			\item Both Prim's and Dijkstra's algorithms are used to find the shortest path between
+				two nodes in a graph
+			\item However, Dijkstra's algorithm is used when all the edge weights are non-negative,
+				while Prim's algorithm can be used with any kind of edge weights
+			\item Prim's algorithm is also faster than Dijkstra's algorithm when the graph is dense
+		\end{itemize}
+	
+	\item How does Prim's algorithm differ from Kruskal's algorithm ?
+		\begin{itemize}
+			\item Prim's algorithm is a greedy algorithm that builds the minimum spanning tree by
+				starting with a single vertex and adding in edges until all vertices are
+				included
+			\item Kruskal's algorithm is also a greedy algorithm, but it builds the minimum
+				spanning tree by starting with all edges and adding them in until there is a
+				tree that includes all vertices
+		\end{itemize}
+\end{enumerate}
