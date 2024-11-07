@@ -5,13 +5,21 @@ The programs are a integral part of the subject **COMPUTER NETWORKS**
 ## Output
 
 #### Lab 1
-<img align="center" src="final/out/out1.gif">
+<p align="center">
+	![]("final/out/out1.gif")
+</p>
 
 #### Lab 2
-<img align="center" src="final/out/out2.gif">
+<p align="center">
+	![]("final/out/out2.gif")
+</p>
 
 #### Lab 3
-<img align="center" src="final/out/out3.gif">
+<p align="center">
+	![]("final/out/out3.gif")
+</p>
 
 #### Lab 5
-<img align="center" src="final/out/out5.gif" width="500">
+<p align="center">
+	![]("final/out/out5.gif")
+</p>
