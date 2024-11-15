@@ -1,11 +1,11 @@
-#!/usr/bin/ns
+#!/bin/ns
 
 # Create Simulator
 set ns [new Simulator]
 
 # Open Trace file and NAM file
-set ntrace [open /tmp/out1.tr w]
-set namfile [open /tmp/out1.nam w]
+set ntrace [open out/out1.tr w]
+set namfile [open out/out1.nam w]
 
 $ns trace-all $ntrace
 $ns namtrace-all $namfile
@@ -21,8 +21,8 @@ proc finish {} {
 
 	# Show the number of packets dropped
 	exec printf "The number of packet drops is " &
-	exec grep -c "^d" /tmp/out1.tr &
-	exec nam /tmp/out1.nam &
+	exec grep -c "^d" out/out1.tr &
+	exec nam out/out1.nam &
 	exit 0
 }
 

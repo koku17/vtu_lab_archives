@@ -1,90 +1,68 @@
-#!/usr/bin/ns
+#!/bin/ns
 
-# Create Simulator
 set ns [new Simulator]
+set nf [open out/out2.nam w]
+set tf [open out/out2.tr w]
 
-# Use colors to differentiate the traffic
-$ns color 1 Blue
-$ns color 2 Red
+$ns namtrace-all $nf
+$ns trace-all $tf
 
-# Set Trace and NAM file
-set ntrace [open /tmp/out3.tr w]
-set namfile [open /tmp/out3.nam w]
+for {set i 0} {$i < 6} {incr i} {
+	set n$i [$ns node]
+}
 
-$ns trace-all $ntrace
-$ns namtrace-all $namfile
+$n4 shape box
+$ns duplex-link $n0 $n4 1005Mb 1ms DropTail
+$ns duplex-link $n1 $n4 50Mb 1ms DropTail
+$ns duplex-link $n2 $n4 2000Mb 1ms DropTail
+$ns duplex-link $n3 $n4 200Mb 1ms DropTail
+$ns duplex-link $n4 $n5 1Mb 1ms DropTail
 
-# Finish Procedure
-proc finish {} {
-	global ns ntrace namfile
-	
-	# Dump all trace data and close the file
+set p1 [new Agent/Ping]
+$ns attach-agent $n0 $p1
+$p1 set packetSize_ 50000
+$p1 set interval_ .0001
+
+set p2 [new Agent/Ping]
+$ns attach-agent $n1 $p2
+
+set p3 [new Agent/Ping]
+$ns attach-agent $n2 $p3
+$p3 set packetSize_ 30000
+$p3 set interval_ .00001
+
+set p4 [new Agent/Ping]
+$ns attach-agent $n3 $p4
+
+set p5 [new Agent/Ping]
+$ns attach-agent $n5 $p5
+$ns queue-limit $n0 $n4 5
+$ns queue-limit $n2 $n4 3
+$ns queue-limit $n4 $n5 2
+
+Agent/Ping instproc recv {from rtt} {
+	$self instvar node_
+	puts "node [$node_ id] received answer from $from with round trip time $rtt ms"
+}
+
+$ns connect $p1 $p5
+$ns connect $p3 $p4
+
+proc finish { } {
+	global ns nf tf
 	$ns flush-trace
-	close $ntrace
-	close $namfile
-		
-	exec printf "The number of ping packets dropped are " &
-	exec grep "^d" /tmp/out3.tr | cut -d " " -f 5 | grep -c "ping" &
-	exec nam /tmp/out3.nam &
+	close $nf
+	close $tf
+	exec awk -f awk/out2.awk out/out2.tr &
+	exec nam out/out2.nam &
 	exit 0
 }
 
-# Create six nodes
-for {set i 0} {$i < 6} {incr i} {
-	set n($i) [$ns node]
+foreach i [list $p1 $p3] {
+	for {set j 1} {$j < 30} {incr j} {
+		$ns at [format "%1.1f" [expr {$j * .1}]] "$i send"
+	}
 }
 
-# Connect the nodes
-for {set j 0} {$j < 5} {incr j} {
-	$ns duplex-link $n($j) $n([expr ($j + 1)]) .1Mb 10ms DropTail
-}
-
-# Define the recv function for the class 'Agent/Ping' 
-Agent/Ping instproc recv {from rtt} {
-	$self instvar node_
-	puts "node [$node_ id] received ping answer from $from with round trip time $rtt ms"
-}
-
-# Create two ping agents and attach them to n(0) and n(5)
-set p0 [new Agent/Ping]
-$p0 set class_ 1
-$ns attach-agent $n(0) $p0
-
-set p1 [new Agent/Ping]
-$p1 set class_ 1
-$ns attach-agent $n(5) $p1
-$ns connect $p0 $p1
-
-# Set queue size and monitor the queue
-# Queue size is set to 2 to observe the drop in ping packets
-$ns queue-limit $n(2) $n(3) 2
-$ns duplex-link-op $n(2) $n(3) queuePos .5
-
-# Create Congestion
-# Generate a Huge CBR traffic between n(2) and n(4) 
-set tcp0 [new Agent/TCP]
-set sink0 [new Agent/TCPSink]
-$tcp0 set class_ 2
-$ns attach-agent $n(2) $tcp0
-$ns attach-agent $n(4) $sink0
-$ns connect $tcp0 $sink0
-
-# Apply CBR traffic over TCP
-set cbr0 [new Application/Traffic/CBR]
-$cbr0 set packetSize_ 500
-$cbr0 set rate_ 1Mb
-$cbr0 attach-agent $tcp0
-
-# Schedule events
-$ns at .2 "$p0 send"
-$ns at .4 "$p1 send"
-$ns at .4 "$cbr0 start"
-$ns at .8 "$p0 send"
-$ns at 1 "$p1 send"
-$ns at 1.2 "$cbr0 stop"
-$ns at 1.4 "$p0 send"
-$ns at 1.6 "$p1 send"
-$ns at 1.8 "finish"
-
-# Run the Simulation
+$ns at 3 "finish"
 $ns run

@@ -1,101 +1,47 @@
-#!/usr/bin/ns
+#!/bin/ns
 
-#set Parameters
-set stop 100
-
-# Topology
-set type gsm
-
-# AQM parameters
-set minth 30
-set maxth 0
-set adaptive 1
-
-# Traffic generation
-set flows 0
-set window 30
-
-# Plotting statistics
-set opt(wrap) 100
-set opt(srcTrace) is
-set opt(dstTrace) bs2
-
-#default downlink bandwidth in bps
-set bwDL(gsm)  9600
-
-#default downlink propagation delay in seconds
-set propDL(gsm)  .5
 set ns [new Simulator]
-set tf [open Mlab5.tr w]
+set tf [open out/out5.tr w]
+set nf [open out/out5.nam w]
+
 $ns trace-all $tf
+$ns namtrace-all $nf
 
-set nodes(is)  [$ns node]
-set nodes(ms)  [$ns node]
-set nodes(bs1) [$ns node]
-set nodes(bs2) [$ns node]
-set nodes(lp)  [$ns node]
+set n0 [$ns node]
+set n1 [$ns node]
 
+$n0 label "Sender"
+$n1 label "Receiver"
 
-proc cell_topo {} {
-  global ns nodes
-    $ns duplex-link $nodes(lp) $nodes(bs1) 3Mbps 10ms DropTail
-    $ns duplex-link $nodes(bs1) $nodes(ms) 1 1 RED
-    $ns duplex-link $nodes(ms) $nodes(bs2) 1 1 RED
-    $ns duplex-link $nodes(bs2) $nodes(is) 3Mbps 50ms DropTail
-    puts "GSM Cell Topology"
-}
+$ns duplex-link $n0 $n1 .2Mb 200ms DropTail
+$ns queue-limit $n0 $n1 10
 
-proc set_link_params {t} {
-	global ns nodes bwDL propDL
-	$ns bandwidth $nodes(bs1) $nodes(ms) $bwDL($t) duplex
-	$ns bandwidth $nodes(bs2) $nodes(ms) $bwDL($t) duplex
-	
-	$ns delay $nodes(bs1) $nodes(ms) $propDL($t) duplex
-	$ns delay $nodes(bs2) $nodes(ms) $propDL($t) duplex
-	
-	$ns queue-limit $nodes(bs1) $nodes(ms) 10
-	$ns queue-limit $nodes(bs2) $nodes(ms) 10
-}
+$ns duplex-link-op $n0 $n1 orient right
 
-# RED and TCP parameter
-Queue/RED set adaptive_ $adaptive
-Queue/RED set thresh_ $minth
-Queue/RED set maxthresh_ $maxth
-Agent/TCP set window_ $window
+set tcp1 [new Agent/TCP]
+set sink2 [new Agent/TCPSink]
+set ftp0 [new Application/FTP]
 
-#Create topology
-switch $type {
-	gsm {cell_topo}
-}
+$tcp1 set windowInit_ 4
+$tcp1 set maxcwnd_ 4
+$tcp1 set packetSize_ 500
 
-set_link_params $type
-$ns insert-delayer $nodes(ms) $nodes(bs1) [new Delayer]
-$ns insert-delayer $nodes(ms) $nodes(bs2) [new Delayer]
+$ns attach-agent $n0 $tcp1
+$ns attach-agent $n1 $sink2
+$ns connect $tcp1 $sink2
+$ftp0 attach-agent $tcp1
 
-# Set up forward TCP connection
-if {$flows == 0} {
-	set tcp1 [$ns create-connection TCP/Sack1 $nodes(is) TCPSink/Sack1 $nodes(lp) 0]
-	set ftp1 [[set tcp1] attach-app FTP]
-	$ns at .8 "[set ftp1] start"
-}
+$ns at .1 "$ftp0 start"
+$ns at 3.5 "$ftp0 stop"
 
-proc  stop {} {
-	global nodes opt tf
-	set wrap $opt(wrap)
-	set sid [$nodes($opt(srcTrace)) id]
-	set did [$nodes($opt(dstTrace)) id]
-	
-	set a "out/out5.tr"
-
-	exec getrc -s $sid -d $did -f 0 out/out5.tr |\
-		raw2xg -s .01 -m $wrap -r > out/plot5.xgr
-	
-	exec getrc -s $did -d $sid -f 0 out/out5.tr |\
-		raw2xg -a -s .01 -m $wrap >> plot5.xgr
-	
-	exec xgraph -x time -y packets out/plot5.xgr &
+proc finish {} {
+	global ns tf nf
+	$ns flush-trace
+	close $tf
+	close $nf
+	exec nam out/out5.nam &
 	exit 0
 }
 
-$ns at $stop "stop"
+$ns at 5 "finish"
 $ns run

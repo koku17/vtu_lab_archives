@@ -1,113 +1,86 @@
-#!/usr/bin/ns
+#!/bin/ns
 
-# Create Simulator
 set ns [new Simulator]
+set tf [open out/out3.tr w]
+set nf [open out/out3.nam w]
 
-# Use colors to differentiate the trafics
-$ns color 1 Blue
-$ns color 2 Red
+$ns trace-all $tf
+$ns namtrace-all $nf
 
-# Open Trace and NAM file
-set ntrace [open /tmp/out5.tr w]
-set namfile [open /tmp/out5.nam w]
+set n0 [$ns node]
+set n1 [$ns node]
+$n0 color "magenta"
+$n0 label "src1"
 
-$ns trace-all $ntrace
-$ns namtrace-all $namfile
+set n2 [$ns node]
+$n2 color "magenta"
+$n2 label "src2"
 
-# Create congestion graph windows
-set wf0 [open /tmp/wf0 w]
-set wf1 [open /tmp/wf1 w]
+set n3 [$ns node]
+set n4 [$ns node]
+$n3 color "blue"
+$n3 label "dest2"
 
-# Finish Procedure
+set n5 [$ns node]
+$n5 color "blue"
+$n5 label "dest1"
+
+$ns make-lan "$n0 $n1 $n2 $n3 $n4" 100Mb 100ms LL Queue/DropTail Mac/802_3
+$ns duplex-link $n4 $n5 1Mb 1ms DropTail
+
+set tcp0 [new Agent/TCP]
+$ns attach-agent $n0 $tcp0
+
+set ftp0 [new Application/FTP]
+$ftp0 attach-agent $tcp0
+$ftp0 set packetSize_ 500
+$ftp0 set interval_ 0.0001
+
+set sink5 [new Agent/TCPSink]
+$ns attach-agent $n5 $sink5
+$ns connect $tcp0 $sink5
+
+set tcp2 [new Agent/TCP]
+$ns attach-agent $n2 $tcp2
+
+set ftp2 [new Application/FTP]
+$ftp2 attach-agent $tcp2
+$ftp2 set packetSize_ 600
+$ftp2 set interval_ 0.001
+
+set sink3 [new Agent/TCPSink]
+$ns attach-agent $n3 $sink3
+$ns connect $tcp2 $sink3
+
+set file1 [open out/out3.1.tr w]
+$tcp0 attach $file1
+
+set file2 [open out/out3.2.tr w]
+$tcp2 attach $file2
+
+$tcp0 trace cwnd_
+$tcp2 trace cwnd_
+
 proc finish {} {
-	# Dump all trace data and Close the files
-	global ns ntrace namfile
+	global ns nf tf
 	$ns flush-trace
-	close $ntrace
-	close $namfile
-	
-	exec xgraph /tmp/wf0 /tmp/wf1 &
-	exec nam /tmp/out5.nam &
+	close $tf
+	close $nf
+	exec awk -f awk/out3.awk out/out3.1.tr > out/out3.1.dat &
+	exec awk -f awk/out3.awk out/out3.2.tr > out/out3.2.dat &
+	exec xgraph -color red out/out3.1.dat -color green out/out3.2.dat &
+	exec nam out/out3.nam &
 	exit 0
 }
 
-# Plot Window Procedure
-proc PlotWindow {tcpSource file} {
-	global ns
-	set time .1
-	set now [$ns now]
-	 
-	set cwnd [$tcpSource set cwnd_]
-	puts $file "$now $cwnd"
-	$ns at [expr $now + $time] "PlotWindow $tcpSource $file"
-}
-
-# Create 6 nodes
-for {set i 0} {$i<6} {incr i} {
-	set n($i) [$ns node]
-}
-
-# Create duplex links between the nodes
-$ns duplex-link $n(0) $n(2) 2Mb 10ms DropTail
-$ns duplex-link $n(1) $n(2) 2Mb 10ms DropTail
-$ns duplex-link $n(2) $n(3) .6Mb 100ms DropTail
-
-# Nodes n(3), n(4) and n(5) are considered in a LAN
-set lan [$ns newLan "$n(3) $n(4) $n(5)" .5Mb 40ms LL Queue/DropTail MAC/802_3 Channel]
-
-# Orientation to the nodes
-$ns duplex-link-op $n(0) $n(2) orient right-down
-$ns duplex-link-op $n(1) $n(2) orient right-up
-$ns duplex-link-op $n(2) $n(3) orient right
-
-# Setup queue between n(2) and n(3) and monitor the queue
-$ns queue-limit $n(2) $n(3) 20
-$ns duplex-link-op $n(2) $n(3) queuePos .5
-
-# Set error model on link n(2) to n(3)
-set loss_module [new ErrorModel]
-$loss_module ranvar [new RandomVariable/Uniform]
-$loss_module drop-target [new Agent/Null]
-$ns lossmodel $loss_module $n(2) $n(3)
-
-# Set up the TCP connection between n(0) and n(4)
-set tcp0 [new Agent/TCP/Newreno]
-$tcp0 set fid_ 1
-$tcp0 set window_ 8000
-$tcp0 set packetSize_ 552
-$ns attach-agent $n(0) $tcp0
-set sink0 [new Agent/TCPSink/DelAck]
-$ns attach-agent $n(4) $sink0
-$ns connect $tcp0 $sink0
-
-# Apply FTP Application over TCP
-set ftp0 [new Application/FTP]
-$ftp0 attach-agent $tcp0
-$ftp0 set type_ FTP
-
-# Set up another TCP connection between n(5) and n(1)
-set tcp1 [new Agent/TCP/Newreno]
-set sink1 [new Agent/TCPSink/DelAck]
-$tcp1 set fid_ 2
-$tcp1 set window_ 8000
-$tcp1 set packetSize_ 552
-$ns attach-agent $n(5) $tcp1
-$ns attach-agent $n(1) $sink1
-$ns connect $tcp1 $sink1
-
-# Apply FTP application over TCP
-set ftp1 [new Application/FTP]
-$ftp1 attach-agent $tcp1
-$ftp1 set type_ FTP
-
-# Schedule Events
 $ns at .1 "$ftp0 start"
-$ns at .1 "PlotWindow $tcp0 $wf0"
-$ns at .5 "$ftp1 start"
-$ns at .5 "PlotWindow $tcp1 $wf1"
-$ns at 25 "$ftp0 stop"
-$ns at 25.1 "$ftp1 stop"
-$ns at 25.2 "finish"
+$ns at 5 "$ftp0 stop"
+$ns at 7 "$ftp0 start"
+$ns at .2 "$ftp2 start"
+$ns at 8 "$ftp2 stop"
+$ns at 14 "$ftp0 stop"
+$ns at 10 "$ftp2 start"
+$ns at 15 "$ftp2 stop"
+$ns at 16 "finish"
 
-# Run the simulation
 $ns run
