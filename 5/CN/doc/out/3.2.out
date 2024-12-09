@@ -1,0 +1,8 @@
+Enter data stream : 100100
+Enter generator : 1101
+The CRC code is : 100100001
+Enter CRC code : 1100100001
+Enter generator : 1101
+
+Data stream is invalid !
+CRC error occured

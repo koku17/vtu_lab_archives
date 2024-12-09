@@ -10,7 +10,7 @@ public class TCPServer {
 		InputStream istream = sock.getInputStream ();
 		BufferedReader fileRead = new BufferedReader (new InputStreamReader (istream));
 		String fname = fileRead.readLine ();
-		BufferedReader contentRead = new BufferedReader (new FileReader (fname) );
+		BufferedReader contentRead = new BufferedReader (new FileReader (fname));
 		OutputStream ostream = sock.getOutputStream ();
 		PrintWriter pwrite = new PrintWriter (ostream, true);
 		String str;

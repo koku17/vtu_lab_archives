@@ -7,8 +7,9 @@
 \usepackage{pgffor}
 \usepackage{xcolor}
 \usepackage{graphicx}
-\usepackage{minted}
+\usepackage[outputdir=tmp,cache=false]{minted}
 \usepackage{hyperref}
+\usepackage[inkscapepath=tmp]{svg}
 
 % detailes
 \author{koku17}
@@ -53,21 +54,22 @@
 
 \begin{document}
 	\pagenumbering{gobble} \maketitle \newpage
-	\pagenumbering{roman} \tableofcontents \newpage
+	\pagenumbering{roman} \pdfbookmark[1]{Contents}{} \tableofcontents \newpage
 	\pagenumbering{arabic}
+
 	\begin{enumerate}[label=\arabic*. ]
 		\question{
 			Implement three nodes point -- to -- point network with duplex links between them. \\
 			Set the queue size, vary the bandwidth, and find the number of packets dropped.
 		}{~Implement three nodes point -- to -- point network with duplex links between them}
-		\answer \inputminted{tcl}{../final/Lab1.tcl} \newpage
+		\answer \inputminted{tcl}{../Lab1.tcl} \newpage
 		\Out
 			\inputminted{text}{out/1.out}
 			\begin{itemize}[label=,itemsep=1in]
 				\centering
-				\item \includegraphics[scale=.4]{../final/out/out1.dark.png}
-				\item \includegraphics[scale=.4]{../final/out/out1.1.dark.png}
-				\item \includegraphics[scale=.4]{../final/out/out1.2.dark.png}
+				\item \includegraphics[scale=.4]{../out/out1.dark.png}
+				\item \includegraphics[scale=.4]{../out/out1.1.dark.png}
+				\item \includegraphics[scale=.4]{../out/out1.2.dark.png}
 			\end{itemize}
 		\newpage
 
@@ -75,11 +77,11 @@
 			Implement transmission of ping messages/trace route over a network topology consisting of 6 nodes.
 			\\ Find the number of packets dropped due to congestion.
 		}{~Implement transmission of ping messages/trace route over a network topology consisting of 6 nodes}
-		\answer \inputminted{tcl}{../final/Lab2.tcl} \newpage
+		\answer \inputminted{tcl}{../Lab2.tcl} \newpage
 		\Out
 			\inputminted{text}{out/2.out}
 			\begin{center}
-				\includegraphics[scale=.5]{../final/out/out2.dark.png}
+				\includegraphics[scale=.5]{../out/out2.dark.png}
 			\end{center}
 		\newpage
 
@@ -87,22 +89,32 @@
 			Implement an Ethernet LAN using $n$ nodes and set multiple traffic nodes and plot congestion window
 			for different source/destination.
 		}{~Implement an Ethernet LAN using $n$ nodes and set multiple traffic nodes and plot congestion window}
-		\answer \inputminted{tcl}{../final/Lab3.tcl}
+		\answer \inputminted{tcl}{../Lab3.tcl}
+		\Out
+			\begin{center}
+				\includesvg[scale=1]{out/out3.svg}
+			\end{center}
 		\newpage
 
 		\question{Develop a program for error detecting code using CRC-CCITT (16-bits).}{ }
-		\answer \inputminted{java}{../final/CRC.java}
+		\answer \inputminted{java}{../CRC.java}
+		\Out \verb|$ java CRC|
+			\begin{enumerate}[label=\roman*)]
+				\item \inputminted{text}{out/3.1.out}
+				\item \inputminted{text}{out/3.2.out}
+			\end{enumerate}
 		\newpage
 
 		\question{Develop a program to implement a sliding window protocol in the data link layer.}{ }
-		\answer yet unknown
+		\answer \inputminted{java}{../SlidingWindow.java} \newpage
+		\Out \verb|$ java SlidingWindow| \inputminted{text}{out/5.out}
 		\newpage
 
 		\question{
 			Develop a program to find the shortest path between vertices using the Bellman-Ford and path vector
 			routing algorithm.
 		}{~Find the shortest path between vertices using the Bellman-Ford and path vector routing algorithm.}
-		\answer \inputminted{java}{../final/BellmanFord.java}
+		\answer \inputminted{java}{../BellmanFord.java}
 		\newpage
 
 		\question{
@@ -112,9 +124,9 @@
 			back the contents of the requested file.
 		}
 		\answer \subsection*{TCP Client}
-				\inputminted{java}{../final/TCPClient.java}
+				\inputminted{java}{../TCPClient.java}
 				\subsection*{TCP Server}
-				\inputminted{java}{../final/TCPServer.java}
+				\inputminted{java}{../TCPServer.java}
 		\newpage
 
 		\question{
@@ -122,17 +134,17 @@
 			typed at the server side.
 		}{~Datagram socket for client/server to display the messages on client side}
 		\answer \subsection*{UDP Client}
-				\inputminted{java}{../final/TCPClient.java}
+				\inputminted{java}{../UdpClient.java}
 				\subsection*{UPD Server}
-				\inputminted{java}{../final/TCPServer.java}
+				\inputminted{java}{../UdpServer.java}
 		\newpage
 
 		\question{Develop a program for a simple RSA algorithm to encrypt and decrypt the data.}{ }
-		\answer \inputminted{java}{../final/RSA.java}
+		\answer \inputminted{java}{../RSA.java}
 		\newpage
 
 		\question{Develop a program for congestion control using a leaky bucket algorithm.}{ }
-		\answer \inputminted{java}{../final/LeakyBucket.java}
+		\answer \inputminted{java}{../LeakyBucket.java}
 		\newpage
 	\end{enumerate}
 \end{document}

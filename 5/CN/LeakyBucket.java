@@ -1,58 +1,43 @@
 import java.util.Scanner;
+import java.lang.*;
 
 public class LeakyBucket {
-	static int random (int a) {
-		return (int) (Math.random () * a);
-	}
-
-	public static void main (String[] args) throws InterruptedException {
-		int[] packetSize = new int[5];
-
-		for (int i = 0; i < 5; i++) {
-			packetSize[i] = random (10);
-			System.out.println ("PacketSize[" + i + "] : " + packetSize[i]);
-		}
-
-		Scanner scanner = new Scanner (System.in);
-		System.out.print ("\nEnter output rate : ");
-		int outputRate = scanner.nextInt ();
-		System.out.print ("Enter bucket size : ");
-		int bucketSize = scanner.nextInt ();
-		scanner.close ();
-		int p_zsz_rm = 0;
-
-		for (int i = 0; i < 5; i++)
-			if (packetSize[i] + p_zsz_rm > bucketSize)
-				if (packetSize[i] > bucketSize)
-					System.out.println (
-						"\nIncoming packet " + i + " of size " + packetSize[i] +
-						" is greater than bucket capacity ! PACKET REJECTION"
-					);
-				else
-					System.out.println ("Packet " + i + " : Bucket capacity exceeded ! REJECTING new packet");
-			else {
-				p_zsz_rm += packetSize[i];
-				System.out.println ("\nIncoming packet " + i + " of size : " + packetSize[i]);
-				System.out.println ("\nBytes remaining for transmission : " + p_zsz_rm);
-				int p_time = random (6) * 10;
-				System.out.println ("Time left for transmission is " + p_time);
-
-				for (int clk = 10; clk <= p_time; clk += 10) {
-					Thread.sleep (1);
-
-					if (p_zsz_rm > 0)
-						if (p_zsz_rm <= outputRate) {
-							System.out.println ("Packet of size " + p_zsz_rm + " transmitted");
-							p_zsz_rm = 0;
-						} else {
-							System.out.println ("Packet of size " + outputRate + " transmitted");
-							p_zsz_rm -= outputRate;
-							System.out.println ("\nBytes remaining after transmission " + p_zsz_rm);
-							System.out.println ("Time left : " + (p_time - clk));
-						}
-					else
-						System.out.println ("\nNo packets to transmit");
+	public static void main (String[] args) {
+		int a[] = new int[20];
+		int i, buck_rem = 0, buck_cap = 4, rate = 3, sent, recv;
+		Scanner in = new Scanner (System.in);
+		System.out.print ("Enter the number of packets : ");
+		int n = in.nextInt ();
+		System.out.println ("Enter the packets :");
+		for (i = 1; i<=n; i++)
+			a[i]= in.nextInt ();
+		System.out.println ("Clock \t packet size \t accept \t sent \t remaining");
+		for (i = 1; i<=n; i++) {
+			if (a[i]!=0)
+				if (buck_rem+a[i]>buck_cap)
+					recv = -1;
+				else {
+					recv = a[i];
+					buck_rem+=a[i];
 				}
-			}
+			else
+				recv = 0;
+
+			if (buck_rem!=0)
+				if (buck_rem<rate) {
+					sent = buck_rem;
+					buck_rem = 0;
+				} else {
+					sent = rate;
+					buck_rem = buck_rem-rate;
+				}
+			else
+				sent = 0;
+
+			if (recv==-1)
+				System.out.println (i + "\t\t" + a[i] + "\t dropped \t" + sent + "\t" + buck_rem);
+			else
+				System.out.println (i + "\t\t" + a[i] + "\t\t" + recv + "\t" + sent + "\t" + buck_rem);
+		}
 	}
 }
