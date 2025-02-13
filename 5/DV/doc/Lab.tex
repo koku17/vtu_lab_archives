@@ -5,6 +5,7 @@
 % packages
 \usepackage[margin=.5in]{geometry}
 \usepackage{enumitem}
+\usepackage{xcolor}
 \usepackage{hyperref}
 
 % detailes
@@ -26,6 +27,13 @@
 	\item #1
 	\addcontentsline{toc}{subsection}{#1}
 }
+
+\def \darkmode{1}
+
+\if\darkmode1
+	\pagecolor{black}
+	\color{white}
+\fi
 
 \begin{document}
 	\pagenumbering{gobble} \maketitle \newpage

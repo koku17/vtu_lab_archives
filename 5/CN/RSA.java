@@ -12,15 +12,15 @@ public class RSA {
 		p = BigInteger.probablePrime (bitlength, r);
 		q = BigInteger.probablePrime (bitlength, r);
 		System.out.println ("Prime number p is " + p);
-		System.out.println ("prime number q is " + q);
+		System.out.println ("\nPrime number q is " + q);
 		N = p.multiply (q);
 		phi = p.subtract (BigInteger.ONE).multiply (q.subtract (BigInteger.ONE));
 		e = BigInteger.probablePrime (bitlength / 2, r);
 		while (phi.gcd (e).compareTo (BigInteger.ONE) > 0 && e.compareTo (phi) < 0)
 			e.add (BigInteger.ONE);
-		System.out.println ("Public key is " + e);
+		System.out.println ("\nPublic key is " + e);
 		d = e.modInverse (phi);
-		System.out.println ("Private key is " + d);
+		System.out.println ("\nPrivate key is " + d);
 	}
 
 	public RSA (BigInteger e, BigInteger d, BigInteger N) {
@@ -33,14 +33,13 @@ public class RSA {
 		RSA rsa = new RSA ();
 		DataInputStream in = new DataInputStream (System.in);
 		String testString;
-		System.out.print ("Enter the plain text : ");
+		System.out.print ("\nEncrypting string : ");
 		testString = in.readLine ();
-		System.out.println ("Encrypting string : " + testString);
-		System.out.println ("string in bytes : " + bytesToString (testString.getBytes ()));
+		System.out.println ("String in bytes   : " + bytesToString (testString.getBytes ()));
 		byte[] encrypted = rsa.encrypt (testString.getBytes ());
 		byte[] decrypted = rsa.decrypt (encrypted);
-		System.out.println ("Dcrypting Bytes : " + bytesToString (decrypted));
-		System.out.println ("Dcrypted string : " + new String (decrypted));
+		System.out.println ("Decrypting Bytes  : " + bytesToString (decrypted));
+		System.out.println ("Decrypted string  : " + new String (decrypted));
 	}
 
 	private static String bytesToString (byte[] encrypted) {

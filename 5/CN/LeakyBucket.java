@@ -8,10 +8,10 @@ public class LeakyBucket {
 		Scanner in = new Scanner (System.in);
 		System.out.print ("Enter the number of packets : ");
 		int n = in.nextInt ();
-		System.out.println ("Enter the packets :");
+		System.out.println ("\nEnter the packets :");
 		for (i = 1; i<=n; i++)
 			a[i]= in.nextInt ();
-		System.out.println ("Clock \t packet size \t accept \t sent \t remaining");
+		System.out.println ("\nClock \t packet size \t accept \t sent \t remaining");
 		for (i = 1; i<=n; i++) {
 			if (a[i]!=0)
 				if (buck_rem+a[i]>buck_cap)
