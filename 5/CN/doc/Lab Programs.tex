@@ -1,0 +1,204 @@
+\documentclass{article}
+
+% package
+\usepackage[a3paper,margin=.5in]{geometry}
+\usepackage{enumitem}
+\usepackage{amsmath,amssymb}
+\usepackage{pgffor}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage[outputdir=tmp,cache=false]{minted}
+\usepackage{hyperref}
+\usepackage[inkscapepath=tmp]{svg}
+
+% detailes
+\author{koku17}
+\title{Computer Networks Lab}
+
+% presets
+\hypersetup{
+	hidelinks
+}
+\setminted{
+	breaklines,
+	tabsize=4,
+	breakanywhere=true
+}
+
+% ricing
+\def \darkmode{1}
+
+\if\darkmode1
+    \pagecolor{black}
+    \color{white}
+    \usemintedstyle{one-dark}
+\else
+    \usemintedstyle{perldoc}
+\fi
+
+% variables
+\newcounter{program}
+
+% macros
+\newcommand{\question}[2]{
+	\stepcounter{program}
+	{
+		\centering \section*{Program \arabic{program}}
+	}
+	\addcontentsline{toc}{section}{Program \arabic{program}}
+	\ifx #2 \ 
+		\addcontentsline{toc}{subsection}{#1}
+	\else
+		\addcontentsline{toc}{subsection}{#2}
+	\fi
+	\item #1
+}
+\newcommand{\Out}{
+	\begin{center}
+		\section*{Output}
+	\end{center}
+	\addcontentsline{toc}{subsection}{~Output}
+}
+
+\newcommand{\answer}{\item [$\rightarrow$]}
+
+\begin{document}
+	\pagenumbering{gobble} \maketitle \newpage
+	\pagenumbering{roman} \pdfbookmark[1]{Contents}{} \tableofcontents \newpage
+	\pagenumbering{arabic}
+
+	\begin{enumerate}[label=\arabic*. ]
+		\question{
+			Implement three nodes point -- to -- point network with duplex links between them. \\
+			Set the queue size, vary the bandwidth, and find the number of packets dropped.
+		}{~Implement three nodes point -- to -- point network with duplex links between them}
+		\answer \inputminted{tcl}{../Lab1.tcl} \newpage
+		\Out
+			\inputminted{text}{out/1.out}
+			\begin{itemize}[label=,itemsep=1in]
+				\centering
+			\if\darkmode1
+				\item \includegraphics[scale=.4]{../out/out1.dark.png}
+				\item \includegraphics[scale=.4]{../out/out1.1.dark.png}
+				\item \includegraphics[scale=.4]{../out/out1.2.dark.png}
+			\else
+				\item \includegraphics[scale=.4]{../out/out1.png}
+				\item \includegraphics[scale=.4]{../out/out1.1.png}
+				\item \includegraphics[scale=.4]{../out/out1.2.png}
+			\fi
+			\end{itemize}
+		\newpage
+
+		\question{
+			Implement transmission of ping messages/trace route over a network topology consisting of 6 nodes.
+			\\ Find the number of packets dropped due to congestion.
+		}{~Implement transmission of ping messages/trace route over a network topology consisting of 6 nodes}
+		\answer \inputminted{tcl}{../Lab2.tcl} \newpage
+		\Out
+			\inputminted{text}{out/2.out}
+			\begin{center}
+			\if\darkmode1
+				\includegraphics[scale=.5]{../out/out2.dark.png}
+			\else
+				\includegraphics[scale=.5]{../out/out2.png}
+			\fi
+			\end{center}
+		\newpage
+
+		\question{
+			Implement an Ethernet LAN using $n$ nodes and set multiple traffic nodes and plot congestion window
+			for different source/destination.
+		}{~Implement an Ethernet LAN using $n$ nodes and set multiple traffic nodes and plot congestion window}
+		\answer \inputminted{tcl}{../Lab3.tcl}
+		\Out
+			\begin{center}
+				\includesvg[scale=1]{out/out3.svg}
+			\end{center}
+		\newpage
+
+		\question{Develop a program for error detecting code using CRC-CCITT (16-bits).}{ }
+		\answer \inputminted{java}{../CRC.java}
+		\Out \verb|$ java CRC|
+			\begin{enumerate}[label=\roman*)]
+				\item \inputminted{text}{out/3.1.out}
+				\item \inputminted{text}{out/3.2.out}
+			\end{enumerate}
+		\newpage
+
+		\question{Develop a program to implement a sliding window protocol in the data link layer.}{ }
+		\answer \inputminted{java}{../SlidingWindow.java}
+		\Out \verb|$ java SlidingWindow| \inputminted{text}{out/5.out}
+		\newpage
+
+		\question{
+			Develop a program to find the shortest path between vertices using the Bellman-Ford and path vector
+			routing algorithm.
+		}{~Find the shortest path between vertices using the Bellman-Ford and path vector routing algorithm.}
+		\answer \inputminted{java}{../BellmanFord.java}
+				\Out \verb|$ java BellmanFord| \inputminted{text}{out/6.out}
+		\newpage
+
+		\question{
+			Using TCP/IP sockets, write a client -- server program to make the client send the file name and to
+			make the server send back the contents of the requested file if present.
+		}{~Make the client send the file name and to make the server send
+			back the contents of the requested file.
+		}
+		\answer
+				\subsection*{TCP Server}
+				\inputminted{java}{../TCPServer.java}
+				\subsection*{TCP Client}
+				\inputminted{java}{../TCPClient.java}
+				\Out
+				\begin{table}[H]
+					\centering
+					\begin{tabular}{l|l}
+						\verb|$ java TCPServer| &~ \verb|$ java TCPClient| \\
+						\begin{minipage}{.35\columnwidth}
+							\inputminted{text}{out/7.1.out}
+						\end{minipage} &~
+						\begin{minipage}{.35\columnwidth}
+							\inputminted{text}{out/7.2.out}
+						\end{minipage}
+					\end{tabular}
+				\end{table}
+		\newpage
+
+		\question{
+			Develop a program on a datagram socket for client/server to display the messages on client side,
+			typed at the server side.
+		}{~Datagram socket for client/server to display the messages on client side}
+		\answer \subsection*{UPD Server}
+				\inputminted{java}{../UdpServer.java}
+				\subsection*{UDP Client}
+				\inputminted{java}{../UdpClient.java}
+				\Out
+				\begin{table}[H]
+					\centering
+					\begin{tabular}{l|l}
+						\verb|$ java UdpServer| &~ \verb|$ java UdpClient| \\
+						\begin{minipage}{.35\columnwidth}
+							\inputminted{text}{out/8.1.out}
+						\end{minipage} &~
+						\begin{minipage}{.35\columnwidth}
+							\inputminted{text}{out/8.2.out}
+						\end{minipage}
+					\end{tabular}
+				\end{table}
+		\newpage
+
+		\question{Develop a program for a simple RSA algorithm to encrypt and decrypt the data.}{ }
+		\answer \inputminted{java}{../RSA.java}
+		\Out \verb|$ java RSA| \inputminted{text}{out/9.out}
+		\newpage
+
+		\question{Develop a program for congestion control using a leaky bucket algorithm.}{ }
+		\answer \inputminted{java}{../LeakyBucket.java}
+		\Out \verb|$ java LeakyBucket| \inputminted{text}{out/10.out}
+	\end{enumerate}
+	\pagebreak
+		\hspace{0pt} \vfill
+			\centering \emph{This page is intentionally left blank}
+		\vfill \hspace{0pt}
+	\pagebreak
+\end{document}

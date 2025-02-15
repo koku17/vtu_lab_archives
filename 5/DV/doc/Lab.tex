@@ -1,0 +1,181 @@
+\documentclass{article}
+
+%!TEX program = xelatex
+
+% packages
+\usepackage[margin=.5in]{geometry}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+% detailes
+\title{Data Visualization Lab}
+\author{koku17}
+
+% presets
+\hypersetup{
+	hidelinks = true
+}
+
+% macro
+\newcommand{\question}[1]{
+	\item \textbf{#1}
+	\addcontentsline{toc}{section}{#1}
+}
+
+\newcommand{\subquestion}[1]{
+	\item #1
+	\addcontentsline{toc}{subsection}{#1}
+}
+
+\def \darkmode{1}
+
+\if\darkmode1
+	\pagecolor{black}
+	\color{white}
+\fi
+
+\begin{document}
+	\pagenumbering{gobble} \maketitle \newpage
+	\pagenumbering{roman} \tableofcontents \newpage
+	\pagenumbering{arabic}
+
+	\begin{enumerate}
+		\question{Getting Started}
+			\begin{enumerate}[label=\roman*)]
+				\subquestion{Tableau Workspace}
+				\subquestion{Tableau terminologies}
+				\subquestion{Basic functionalities}
+			\end{enumerate} \newpage
+
+		\question{Connecting to Data Source}
+			\begin{enumerate}[label=\roman*)]
+				\subquestion{Connecting to Database}
+				\subquestion{Different types of Tableau Joins}
+			\end{enumerate} \newpage
+
+		\question{Creating a View}
+			\begin{enumerate}[label=\roman*)]
+				\subquestion{Formatting charts}
+				\subquestion{Adding filters}
+				\subquestion{Creating calculated fields and defining parameters}
+			\end{enumerate} \newpage
+
+		\question{Dashboard Design and Storytelling}
+			\begin{enumerate}[label=\roman*)]
+				\subquestion{Components of Dashboard}
+				\subquestion{Understanding how to place worksheets in Containers}
+				\subquestion{Action filters and its types}
+			\end{enumerate} \newpage
+
+		\question{Introducing Power BI}
+			\begin{enumerate}[label=\roman*)]
+				\subquestion{Components and the flow of work}
+				\subquestion{Power BI Desktop Interface}
+				\subquestion{The Report has five main areas}
+			\end{enumerate} \newpage
+
+		\question{Querying Data from CSV}
+			\begin{enumerate}[label=\roman*)]
+				\subquestion{Query Editor}
+				\subquestion{Connecting the data from the Excel Source}
+				\subquestion{Clean}
+				\subquestion{Transform the data}
+			\end{enumerate} \newpage
+
+		\question{Creating Reports \& Visualizations}
+			\begin{enumerate}[label=\roman*)]
+				\subquestion{Different types of charts}
+				\subquestion{Formatting charts with Title}
+				\subquestion{Colors}
+			\end{enumerate} \newpage
+
+		\question{Dashboards}
+			\begin{enumerate}[label=\roman*)]
+				\subquestion{Filters in Power BI}
+				\subquestion{Formatting dashboards}
+			\end{enumerate} \newpage
+
+		\question{Analysis of revenue in sales dataset}
+			\begin{enumerate}[label=\roman*)]
+				\subquestion{
+					Create a choropleth map (fill the map) to spot the special trends to show the state
+					which has the highest revenue
+				}
+				\subquestion{Create a line chart to show the revenue based on the month of the year}
+				\subquestion{
+					Create a bin of size 10 for the age measure to create a new dimension to show the
+					revenue
+				}
+				\subquestion{
+					Create a donut chart view to show the percentage of revenue per region by creating zero
+					access in the calculated field
+				}
+				\subquestion{
+					Create a butterfly chart by reversing the bar chart to compare female \& male revenue based
+					on product category
+				}
+				\subquestion{
+					Create a calculated field to show the average revenue per state \& display profitable \&
+					non-profit table state
+				}
+				\subquestion{Build a dashboard}
+			\end{enumerate} \newpage
+
+		\question{Analysis of GDP dataset}
+			\begin{enumerate}[label=\roman*)]
+				\subquestion{
+					Visualize the countries data given in the dataset with respect to latitude and longitude
+					along with country name using symbol maps
+				}
+				\subquestion{Create a bar graph to compare GDP of Belgium between 2006 -- 2026}
+				\subquestion{
+					Using pie chart, visualize the GDP of India, Nepal, Romania, South Asia, Singapore by the
+					year 2010
+				}
+				\subquestion{Visualize the countries Bhutan \& Costa Rica competing in terms of GDP}
+				\subquestion{
+					Create a scatter plot or circle views of GDP of Mexico, Algeria, Fiji, Estonia from 2004 to
+					2006
+				}
+				\subquestion{Build an interactive dashboard}
+			\end{enumerate} \newpage
+
+		\question{Analysis of HR Dataset}
+			\begin{enumerate}[label=\roman*)]
+				\subquestion{
+					Create KPI to show employee count, attrition count, attrition rate, attrition count,
+					active employees, and average age
+				}
+				\subquestion{Create a Lollipop Chart to show the attrition rate based on gender category}
+				\subquestion{
+					Create a pie chart to show the attrition percentage based on Department Category --
+					Drag department into colours and change automatic to pie.
+					Entire view, Drag attrition count to angle.
+					Label attrition count, change to percent, add total also, edit label.
+				}
+				\subquestion{Create a bar chart to display the number of employees by Age group}
+				\subquestion{
+					Create a highlight table to show the Job Satisfaction Rating for each job role based on
+					employee count
+				}
+				\subquestion{
+					Create a horizontal bar chart to show the attrition count for each Education field
+					Education field wise attrition -- drag education field rows, sum attrition count to col
+				}
+				\subquestion{
+					Create multiple donut chart to show the Attrition Rate by Gender for different Age group
+				}
+			\end{enumerate} \newpage
+
+		\question{Analysis of HR Dataset}
+			\begin{enumerate}[label=\roman*)]
+				\subquestion{Create a Donut chart to show the percentage of movie and tv shows}
+				\subquestion{Create a area chart to shows by release year and type}
+				\subquestion{Create a horizontal bar chart to show Top 10 genre}
+				\subquestion{Create a map to display total shows by country}
+				\subquestion{Create a text sheet to show the description of any movie/movies}
+				\subquestion{Build an interactive Dashboard}
+			\end{enumerate}
+	\end{enumerate}
+\end{document}

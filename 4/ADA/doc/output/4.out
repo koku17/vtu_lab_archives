@@ -1,0 +1,18 @@
+Enter n value : 6
+
+Enter the graph data :
+0   15  10  999 45  999
+999 0   15  999 20  999
+20  999 0   20  999 999
+999 10  999 0   35  999
+999 999 999 30  0   999
+999 999 999 4   999 0
+
+Enter the souce node : 2
+
+Shortest distance from 2 to 1 is 35
+Shortest distance from 2 to 2 is 0
+Shortest distance from 2 to 3 is 15
+Shortest distance from 2 to 4 is 35
+Shortest distance from 2 to 5 is 20
+Shortest distance from 2 to 6 is 999

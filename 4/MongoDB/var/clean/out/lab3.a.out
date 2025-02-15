@@ -1,0 +1,345 @@
+test> use companyDB
+switched to db companyDB
+
+companyDB> // Create the Employees Collection and Insert Documents
+
+companyDB> db.Employees.insertMany([
+...     {
+...             name : "Alice",
+...             age : 30,
+...             department : "HR",
+...             salary : 50000,
+...             joinDate : new Date("2015-01-15")
+...     },{
+...             name : "Bob",
+...             age : 24,
+...             department : "Engineering",
+...             salary : 70000,
+...             joinDate : new Date("2019-03-10")
+...     },{
+...             name : "Charlie",
+...             age : 29,
+...             department : "Engineering",
+...             salary : 75000,
+...             joinDate : new Date("2017-06-23")
+...     },{
+...             name : "David",
+...             age : 35,
+...             department : "Marketing",
+...             salary : 60000,
+...             joinDate : new Date("2014-11-01")
+...     },{
+...             name : "Eve",
+...             age : 28,
+...             department : "Finance",
+...             salary : 80000,
+...             joinDate : new Date("2018-08-19")
+...     }
+... ])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('66afb2b05bda1d65f1838726'),
+    '1': ObjectId('66afb2b05bda1d65f1838727'),
+    '2': ObjectId('66afb2b05bda1d65f1838728'),
+    '3': ObjectId('66afb2b05bda1d65f1838729'),
+    '4': ObjectId('66afb2b05bda1d65f183872a')
+  }
+}
+
+
+
+
+
+
+
+
+companyDB> // $eq
+
+companyDB> db.Employees.find({
+...     department : { $eq: "Engineering" }
+... }).pretty()
+[
+  {
+    _id: ObjectId('66afb2b05bda1d65f1838727'),
+    name: 'Bob',
+    age: 24,
+    department: 'Engineering',
+    salary: 70000,
+    joinDate: ISODate('2019-03-10T00:00:00.000Z')
+  },
+  {
+    _id: ObjectId('66afb2b05bda1d65f1838728'),
+    name: 'Charlie',
+    age: 29,
+    department: 'Engineering',
+    salary: 75000,
+    joinDate: ISODate('2017-06-23T00:00:00.000Z')
+  }
+]
+
+companyDB> // $ne
+
+companyDB> db.Employees.find({
+...     department : { $ne: "HR" }
+... }).pretty()
+[
+  {
+    _id: ObjectId('66afb2b05bda1d65f1838727'),
+    name: 'Bob',
+    age: 24,
+    department: 'Engineering',
+    salary: 70000,
+    joinDate: ISODate('2019-03-10T00:00:00.000Z')
+  },
+  {
+    _id: ObjectId('66afb2b05bda1d65f1838728'),
+    name: 'Charlie',
+    age: 29,
+    department: 'Engineering',
+    salary: 75000,
+    joinDate: ISODate('2017-06-23T00:00:00.000Z')
+  },
+  {
+    _id: ObjectId('66afb2b05bda1d65f1838729'),
+    name: 'David',
+    age: 35,
+    department: 'Marketing',
+    salary: 60000,
+    joinDate: ISODate('2014-11-01T00:00:00.000Z')
+  },
+
+
+
+
+
+
+  {
+    _id: ObjectId('66afb2b05bda1d65f183872a'),
+    name: 'Eve',
+    age: 28,
+    department: 'Finance',
+    salary: 80000,
+    joinDate: ISODate('2018-08-19T00:00:00.000Z')
+  }
+]
+
+companyDB> // $gt
+
+companyDB> db.Employees.find({
+...     age : { $gt: 30 }
+... }).pretty()
+[
+  {
+    _id: ObjectId('66afb2b05bda1d65f1838729'),
+    name: 'David',
+    age: 35,
+    department: 'Marketing',
+    salary: 60000,
+    joinDate: ISODate('2014-11-01T00:00:00.000Z')
+  }
+]
+
+companyDB> // $lt
+
+companyDB> db.Employees.find({
+...     salary : { $lt: 70000 }
+... }).pretty()
+[
+  {
+    _id: ObjectId('66afb2b05bda1d65f1838726'),
+    name: 'Alice',
+    age: 30,
+    department: 'HR',
+    salary: 50000,
+    joinDate: ISODate('2015-01-15T00:00:00.000Z')
+  },
+  {
+    _id: ObjectId('66afb2b05bda1d65f1838729'),
+    name: 'David',
+    age: 35,
+    department: 'Marketing',
+    salary: 60000,
+    joinDate: ISODate('2014-11-01T00:00:00.000Z')
+  }
+]
+
+
+
+
+
+
+
+
+
+
+
+companyDB> // $gte
+
+companyDB> db.Employees.find({
+...     joinDate : { $gte: new Date("2018-01-01") }
+... }).pretty()
+[
+  {
+    _id: ObjectId('66afb2b05bda1d65f1838727'),
+    name: 'Bob',
+    age: 24,
+    department: 'Engineering',
+    salary: 70000,
+    joinDate: ISODate('2019-03-10T00:00:00.000Z')
+  },
+  {
+    _id: ObjectId('66afb2b05bda1d65f183872a'),
+    name: 'Eve',
+    age: 28,
+    department: 'Finance',
+    salary: 80000,
+    joinDate: ISODate('2018-08-19T00:00:00.000Z')
+  }
+]
+
+companyDB> // $lte
+
+companyDB> db.Employees.find({
+...     age : { $lte: 28 }
+... }).pretty()
+[
+  {
+    _id: ObjectId('66afb2b05bda1d65f1838727'),
+    name: 'Bob',
+    age: 24,
+    department: 'Engineering',
+    salary: 70000,
+    joinDate: ISODate('2019-03-10T00:00:00.000Z')
+  },
+  {
+    _id: ObjectId('66afb2b05bda1d65f183872a'),
+    name: 'Eve',
+    age: 28,
+    department: 'Finance',
+    salary: 80000,
+    joinDate: ISODate('2018-08-19T00:00:00.000Z')
+  }
+]
+
+companyDB> // $and
+
+companyDB> db.Employees.find({
+...     $and: [
+...             {
+...                     department : "Engineering"
+...             },{
+...                     salary : { $gt: 70000 }
+...             }
+...     ]
+... }).pretty()
+
+[
+  {
+    _id: ObjectId('66afb2b05bda1d65f1838728'),
+    name: 'Charlie',
+    age: 29,
+    department: 'Engineering',
+    salary: 75000,
+    joinDate: ISODate('2017-06-23T00:00:00.000Z')
+  }
+]
+
+companyDB> // $or
+
+companyDB> db.Employees.find({
+...     $or: [
+...             {
+...                     department : "HR"
+...             },{
+...                     salary : { $lt: 60000 }
+...             }
+...     ]
+... }).pretty()
+[
+  {
+    _id: ObjectId('66afb2b05bda1d65f1838726'),
+    name: 'Alice',
+    age: 30,
+    department: 'HR',
+    salary: 50000,
+    joinDate: ISODate('2015-01-15T00:00:00.000Z')
+  }
+]
+
+companyDB> // $not
+
+companyDB> db.Employees.find({
+...     department : { $not: { $eq: "Engineering" } }
+... }).pretty()
+[
+  {
+    _id: ObjectId('66afb2b05bda1d65f1838726'),
+    name: 'Alice',
+    age: 30,
+    department: 'HR',
+    salary: 50000,
+    joinDate: ISODate('2015-01-15T00:00:00.000Z')
+  },
+  {
+    _id: ObjectId('66afb2b05bda1d65f1838729'),
+    name: 'David',
+    age: 35,
+    department: 'Marketing',
+    salary: 60000,
+    joinDate: ISODate('2014-11-01T00:00:00.000Z')
+  },
+
+
+
+
+
+  {
+    _id: ObjectId('66afb2b05bda1d65f183872a'),
+    name: 'Eve',
+    age: 28,
+    department: 'Finance',
+    salary: 80000,
+    joinDate: ISODate('2018-08-19T00:00:00.000Z')
+  }
+]
+
+companyDB> // $nor
+
+companyDB> db.Employees.find({
+...     $nor : [
+...             {
+...                     department : "HR"
+...             },{
+...                     salary : { $gt: 75000 }
+...             }
+...     ]
+... }).pretty()
+[
+  {
+    _id: ObjectId('66afb2b05bda1d65f1838727'),
+    name: 'Bob',
+    age: 24,
+    department: 'Engineering',
+    salary: 70000,
+    joinDate: ISODate('2019-03-10T00:00:00.000Z')
+  },
+  {
+    _id: ObjectId('66afb2b05bda1d65f1838728'),
+    name: 'Charlie',
+    age: 29,
+    department: 'Engineering',
+    salary: 75000,
+    joinDate: ISODate('2017-06-23T00:00:00.000Z')
+  },
+  {
+    _id: ObjectId('66afb2b05bda1d65f1838729'),
+    name: 'David',
+    age: 35,
+    department: 'Marketing',
+    salary: 60000,
+    joinDate: ISODate('2014-11-01T00:00:00.000Z')
+  }
+]
+companyDB> db.dropDatabase()
+{ ok: 1, dropped: 'companyDB' }

@@ -1,0 +1,36 @@
+\documentclass{article}
+
+%!TEX program=xelatex
+
+% packages
+\usepackage{calc}
+\usepackage[a4paper,margin=.5in,paperheight=\paperheight+7in+5em]{geometry}
+\usepackage{minted}
+\usepackage{enumitem}
+\usepackage{verbatim}
+
+% prestes
+\pagestyle{empty}
+
+% command
+\newcommand{\question}[2]{
+	\item [#1.] #2
+}
+
+\newcommand{\ttt}[1]{\texttt{#1}}
+\newcommand{\answer}[1]{\item[$\rightarrow$] \inputminted{c}{#1}}
+
+\begin{document}
+	\begin{enumerate}[label=\roman*)]
+		\question{8}{
+			Simulate following File Organization Techniques
+			\begin{enumerate}
+				\item Single level directory
+				\item Two level directory
+			\end{enumerate}
+		}
+
+		\answer{lab8.c} \newpage
+
+	\end{enumerate}
+\end{document}

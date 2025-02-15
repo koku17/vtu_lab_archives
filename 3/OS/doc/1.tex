@@ -1,0 +1,30 @@
+\documentclass{article}
+
+%!TEX program=xelatex
+
+% packages
+\usepackage[a4paper,margin=.5in]{geometry}
+\usepackage{minted}
+\usepackage{enumitem}
+\usepackage{verbatim}
+
+% prestes
+\pagestyle{empty}
+
+% command
+\newcommand{\question}[2]{
+	\item [#1.] #2
+}
+
+\newcommand{\ttt}[1]{\texttt{#1}}
+\newcommand{\answer}[1]{\item [$\rightarrow$] \inputminted{c}{#1}}
+
+\begin{document}
+	\begin{itemize}
+		\question{1}{
+			Develop a C program to implement the process system calls \ttt{fork()}, \ttt{wait()} to create process and terminate process.
+		}
+
+		\answer{lab1.c}
+	\end{itemize}
+\end{document}

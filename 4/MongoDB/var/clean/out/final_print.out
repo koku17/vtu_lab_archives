@@ -1,0 +1,314 @@
+Lab 6
+
+// Insert sample documents into the restaurants collection
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('66afb439a97eb1a58c838726'),
+    '1': ObjectId('66afb439a97eb1a58c838727'),
+    '2': ObjectId('66afb439a97eb1a58c838728'),
+    '3': ObjectId('66afb439a97eb1a58c838729'),
+    '4': ObjectId('66afb439a97eb1a58c83872a')
+  }
+}
+
+// Run the aggregation pipeline query to display reviews summary
+restaurantDB> db.restaurants.aggregate([
+[
+  { averageRating: 4.5, totalReviews: 2, restaurant: 'Curry Palace' },
+  { averageRating: 4.5, totalReviews: 2, restaurant: 'Taco Stand' }
+]
+
+Lab 7a
+
+// Insertion of listings collection 
+{ acknowledged: true, insertedIds: { '0': 1, '1': 2, '2': 3, '3': 4 } }
+
+// Find all listings with listing url,name,address,host_picture_url
+[
+  {
+    name: 'prestige',
+    listing_url: 'http\\apartment\\details',
+    address: 'bangalore',
+    host_picture_url: 'http\\apartment\\images'
+  },
+  {
+    name: 'prestige',
+    listing_url: 'http\\apartment\\details',
+    address: 'mysore',
+    host_picture_url: 'http\\apartment\\images'
+  },
+  {
+    name: 'resort',
+    listing_url: 'http\\resorts\\details',
+    address: 'mysore',
+    host_picture_url: 'http\\resort\\images'
+  },
+  {
+    name: 'resort',
+    listing_url: 'http\\resort\\details',
+    address: 'bangalore',
+    host_picture_url: 'http\\resort\\images'
+  }
+]
+
+
+
+
+
+
+
+Lab 7b
+
+// Insertion of E-commerce collection 
+{
+  acknowledged: true,
+  insertedIds: { '0': 1, '1': 2, '2': 3, '3': 4, '4': 5 }
+}
+
+// Display reviews summary
+[
+  { _id: 's1pro', avgrating: 4.5, reviews_list: [ 'good', 'better' ] },
+  { _id: 'l1pro', avgrating: 4.5, reviews_list: [ 'good', 'better' ] },
+  { _id: 'l2pro', avgrating: 8, reviews_list: [ 'best' ] }
+]
+
+Lab 8a
+
+// Insertion of student collection 
+{
+  acknowledged: true,
+  insertedIds: { '0': 1, '1': 2, '2': 3, '3': 4, '4': 5, '5': 6 }
+}
+
+// Index for name
+name_1
+
+// Index for branch
+branch_1
+
+// Index for usn
+usn_1
+
+// Index for course
+course_1
+
+Lab 8b
+
+// Insertion of student collection 
+{
+  acknowledged: true,
+  insertedIds: { '0': 1, '1': 2, '2': 3, '3': 4, '4': 5, '5': 6 }
+}
+
+// Index for name
+name_1
+
+// Index for usn
+usn_1
+
+// Index for grades
+grades_1
+
+// find using name index
+[ { _id: 3, name: 'jack', branch: 'MECH', usn: 48, age: 21 } ]
+
+
+
+
+
+
+// explain using name index
+{
+  explainVersion: '1',
+  queryPlanner: {
+    namespace: 'lab8.student',
+    indexFilterSet: false,
+    parsedQuery: { name: { '$eq': 'jack' } },
+    queryHash: 'A2F868FD',
+    planCacheKey: 'A3E454E0',
+    maxIndexedOrSolutionsReached: false,
+    maxIndexedAndSolutionsReached: false,
+    maxScansToExplodeReached: false,
+    winningPlan: {
+      stage: 'FETCH',
+      inputStage: {
+        stage: 'IXSCAN',
+        keyPattern: { name: 1 },
+        indexName: 'name_1',
+        isMultiKey: false,
+        multiKeyPaths: { name: [] },
+        isUnique: false,
+        isSparse: false,
+        isPartial: false,
+        indexVersion: 2,
+        direction: 'forward',
+        indexBounds: { name: [ '["jack", "jack"]' ] }
+      }
+    },
+    rejectedPlans: []
+  },
+  command: { find: 'student', filter: { name: 'jack' }, '$db': 'lab8' },
+  serverInfo: {
+    host: 'computer',
+    port: 27017,
+    version: '7.0.12',
+    gitVersion: 'b6513ce0781db6818e24619e8a461eae90bc94fc'
+  },
+  serverParameters: {
+    internalQueryFacetBufferSizeBytes: 104857600,
+    internalQueryFacetMaxOutputDocSizeBytes: 104857600,
+    internalLookupStageIntermediateDocumentMaxSizeBytes: 104857600,
+    internalDocumentSourceGroupMaxMemoryBytes: 104857600,
+    internalQueryMaxBlockingSortMemoryUsageBytes: 104857600,
+    internalQueryProhibitBlockingMergeOnMongoS: 0,
+    internalQueryMaxAddToSetBytes: 104857600,
+    internalDocumentSourceSetWindowFieldsMaxMemoryBytes: 104857600,
+    internalQueryFrameworkControl: 'trySbeRestricted'
+  },
+  ok: 1
+}
+
+
+// find using usn index
+[ { _id: 3, name: 'jack', branch: 'MECH', usn: 48, age: 21 } ]
+
+
+
+
+
+
+// explain using usn index
+{
+  explainVersion: '1',
+  queryPlanner: {
+    namespace: 'lab8.student',
+    indexFilterSet: false,
+    parsedQuery: { usn: { '$eq': 48 } },
+    queryHash: 'BCD70A26',
+    planCacheKey: 'FB3FEBD5',
+    maxIndexedOrSolutionsReached: false,
+    maxIndexedAndSolutionsReached: false,
+    maxScansToExplodeReached: false,
+    winningPlan: {
+      stage: 'FETCH',
+      inputStage: {
+        stage: 'IXSCAN',
+        keyPattern: { usn: 1 },
+        indexName: 'usn_1',
+        isMultiKey: false,
+        multiKeyPaths: { usn: [] },
+        isUnique: false,
+        isSparse: false,
+        isPartial: false,
+        indexVersion: 2,
+        direction: 'forward',
+        indexBounds: { usn: [ '[48, 48]' ] }
+      }
+    },
+    rejectedPlans: []
+  },
+  command: { find: 'student', filter: { usn: 48 }, '$db': 'lab8' },
+  serverInfo: {
+    host: 'computer',
+    port: 27017,
+    version: '7.0.12',
+    gitVersion: 'b6513ce0781db6818e24619e8a461eae90bc94fc'
+  },
+  serverParameters: {
+    internalQueryFacetBufferSizeBytes: 104857600,
+    internalQueryFacetMaxOutputDocSizeBytes: 104857600,
+    internalLookupStageIntermediateDocumentMaxSizeBytes: 104857600,
+    internalDocumentSourceGroupMaxMemoryBytes: 104857600,
+    internalQueryMaxBlockingSortMemoryUsageBytes: 104857600,
+    internalQueryProhibitBlockingMergeOnMongoS: 0,
+    internalQueryMaxAddToSetBytes: 104857600,
+    internalDocumentSourceSetWindowFieldsMaxMemoryBytes: 104857600,
+    internalQueryFrameworkControl: 'trySbeRestricted'
+  },
+  ok: 1
+}
+
+Lab 9a
+
+// Insertion of catalog collection
+{
+  acknowledged: true,
+  insertedIds: { '0': 1, '1': 2, '2': 3, '3': 4, '4': 5, '5': 6, '6': 7, '7': 8 }
+}
+
+
+// Index for subject as text 
+subject_text
+
+// Search using subject index 'text'
+[
+  { _id: 4, subject: 'dbms', author: 'xyz', views: 100 },
+  { _id: 3, subject: 'dbms', author: 'abc', views: 90 },
+  { _id: 5, subject: 'ai and dbms', author: 'abc', views: 200 }
+]
+
+Lab 9b
+
+// Insertion of catalog collection
+{
+  acknowledged: true,
+  insertedIds: { '0': 1, '1': 2, '2': 3, '3': 4, '4': 5, '5': 6, '6': 7, '7': 8 }
+}
+
+// Index for subject as text 
+subject_text
+
+// Search using subject index 'text' excluding some terms
+[
+  { _id: 4, subject: 'dbms', author: 'xyz', views: 100 },
+  { _id: 3, subject: 'dbms', author: 'abc', views: 90 },
+  {
+    _id: 5,
+    subject: 'artificial intelligence and dbms',
+    author: 'abc',
+    views: 200
+  }
+]
+
+// Case Sensitive search
+db.catalog.find({
+[
+  { _id: 2, subject: 'mongoDB', author: 'efg', views: 5 },
+  { _id: 1, subject: 'mongoDB', author: 'xyz', views: 50 }
+]
+
+Lab 10
+
+// Insert Catalog collection
+{
+  acknowledged: true,
+  insertedIds: { '0': 1, '1': 2, '2': 3, '3': 4, '4': 5, '5': 6, '6': 7, '7': 8 }
+}
+
+
+// Index for subject as text 
+subject_text
+
+
+
+// Aggregate pipeline using $match and index 'text'
+[
+  { _id: 7, subject: 'machine learning', author: 'efg', views: 10 },
+  { _id: 6, subject: 'machine learning', author: 'jkl', views: 80 }
+]
+
+// Aggregate pipeline using $match and index 'text' along with $project
+[
+  { subject: 'machine learning', views: 10 },
+  { subject: 'machine learning', views: 80 }
+]
+
+// Aggregate pipeline using $match and index 'text' with $project and $sort
+[
+  { subject: 'machine learning', views: 80 },
+  { subject: 'machine learning', views: 10 }
+]
+
+// Aggregate pipeline using $match and index 'text' with $project,$sort and $skip
+[ { subject: 'machine learning', views: 10 } ]

@@ -1,0 +1,388 @@
+﻿\documentclass{article}
+
+%!TEX program=xelatex
+
+% packages
+\usepackage{amsmath,amssymb}
+\usepackage[margin=.5in]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+% detailes
+\author{koku17}
+\date{}
+\title{Viva Questions}
+
+% presets
+\urlstyle{same}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=white
+}
+\pagestyle{empty}
+\pagecolor{black}
+\color{white}
+
+% macros
+\newcommand{\answer}{\item [$\rightarrow$]}
+
+\begin{document}
+	\maketitle \newpage
+	\begingroup \color{white} \tableofcontents \endgroup \newpage
+
+	\section*{Program 1} \addcontentsline{toc}{section}{Program 1} \phantomsection
+	\begin{enumerate}[label=\arabic*. ]
+		\item Explain what is an algorithm in computing ?
+		\answer
+			\begin{itemize}[label=$\ast$]
+				\item An algorithm is a well-defined computational procedure that takes some value as
+					input and generates some value as output
+				\item In simple words, it's a sequence of computational steps that converts input into
+					the output
+			\end{itemize}
+
+		\item Explain what is time complexity of Algorithm ?
+		\answer
+			\begin{itemize}[label=$\ast$]
+				\item Time complexity of an algorithm indicates the total time needed by the program to
+					run to completion
+				\item It is usually expressed by using the big O notation
+			\end{itemize}
+
+		\item Explain the greedy method
+		\answer
+			\begin{itemize}[label=$\ast$]
+				\item Greedy method is the most important design technique, which makes a choice that
+					looks best at that moment
+				\item A given 'n' inputs are required us to obtain a subset that satisfies some
+					constraints that is the feasible solution
+				\item A greedy method suggests that one can device an algorithm that works in stages
+					considering one input at a time
+			\end{itemize}
+
+		\item Specify the algorithms used for constructing Minimum cost spanning tree
+			\begin{itemize}[label=$\ast$]
+				\item Prim's Algorithm
+				\item Kruskal's Algorithm
+			\end{itemize}
+
+		\item State Kruskal Algorithm
+		\answer The algorithm looks at a MST for a weighted connected graph as an acyclic subgraph with $|v|-1$
+			edges for which the sum of edge weights is the smallest
+
+		\item Difference between Prim's and Kruskal's Algorithm
+		\answer ~ \vspace{-2em}
+			\begin{center}
+				\begin{tabular}{|p{.4\columnwidth}|p{.4\columnwidth}|} \hline
+					\multicolumn{1}{|c|}{Prim's Algorithm} &
+					\multicolumn{1}{|c|}{Kruskal's Algorithm} \\ \hline
+					The tree that we are making or growing always remains connected &
+					The tree that we are making or growing usually remains disconnected \\ \hline
+					Prim's Algorithm grows a solution from a solution from a random vertex
+					by adding the next cheapest vertex to the existing tree &
+					Kruskal's Algorithm grows a solution from the cheapest edge to the next cheapest
+					edge to the existing tree/forest \\ \hline
+					Prim's algorithm is faster for dense graphs &
+					Kruskai's algorithm is faster for spars graphs \\ \hline
+				\end{tabular}
+			\end{center}
+
+		\item How efficient is the Kruskal algorithm ?
+		\answer
+			\begin{itemize}[label=$\ast$]
+				\item Kruskal performs better in typical situations (sparse graphs) because it uses
+					simpler data structures and its time complexity is
+					$\text{O}(\text{E}\log\text{V})$
+				\item Where E is the number of edges \\ V is number of vertices
+			\end{itemize}
+
+		\item What is a minimum spanning tree ?
+		\answer A minimum spanning tree is a subset of the edges of a connected, undirected graph that connects
+			all the vertices together with the minimum possible total weight
+
+		\item Can you explain what a graph is in the context of computer science and informatics ?
+		\answer
+			\begin{itemize}[label=$\ast$]
+				\item A graph is a collection of nodes, also called vertices, and the edges that connect
+					them
+				\item Graphs can be used to model many different types of relationships, including those
+					found in social networks, transportation systems, and computer networks
+			\end{itemize}
+
+		\item What is the difference between weighted and unweighted graphs ?
+		\answer
+			\begin{itemize}[label=$\ast$]
+				\item A weighted graph is a graph in which each edge has a weight or cost associated
+					with it
+				\item An unweighted graph is a graph in which the edges do not have weights associated
+					with them
+			\end{itemize}
+
+		\item When would you use Prim's algorithm over Kruskal's algorithm ?
+		\answer
+			\begin{itemize}[label=$\ast$]
+				\item Prim's algorithm is used when you want to find the minimum spanning tree of a
+					graph that is not necessarily connected
+				\item Kruskal's algorithm is used when you want to find the minimum spanning tree of a
+					graph that is already connected
+			\end{itemize}
+
+		\item What are the disadvantages of using Kruskal's algorithm on large graphs with many edges ?
+		\answer
+			\begin{itemize}[label=$\ast$]
+				\item Kruskal's algorithm can be slow on large graphs with many edges because it has to
+					consider all of the edges in the graph in order to find the minimum spanning
+					tree
+				\item This can be time-consuming, especially if the graph is very large
+				\item Additionally, Kruskal's algorithm can be difficult to implement on some types of
+					graphs
+			\end{itemize}
+
+		\item Can you give me examples of real-world applications where minimum spanning trees can be used ?
+		\answer
+			\begin{itemize}[label=$\ast$]
+
+				\item One example of where minimum spanning trees can be used is in network design
+				\item If you are trying to connect a set of computers or other devices together with the
+					minimum amount of cable or other wiring, then you can use a minimum spanning
+					tree algorithm to find the most efficient way to do so
+				\item Another example is in cluster analysis, where you might use a minimum spanning
+					tree to group together similar items in a dataset
+			\end{itemize}
+	\end{enumerate} \newpage
+
+	\section*{Program 2} \addcontentsline{toc}{section}{Program 2} \phantomsection
+	\begin{enumerate}[label=\arabic*. ]
+		\item What Is Prim's Minimum Spanning Tree Algorithm ?
+			\begin{itemize}
+				\item Prim's algorithm is a greedy algorithm that finds the minimum spanning tree for a
+					weighted undirected graph
+				\item The main idea behind this algorithm is that we want to take all the nodes of the
+					graph and greedily connect them with minimum-weight edges
+				\item We start with an empty MST and keep track of two sets of nodes
+				\begin{itemize}
+					\item In the first set, we'll keep all the nodes added in the MST
+					\item In the second set, we'll store all the nodes that are not added to the MST
+				\end{itemize}
+			\end{itemize}
+
+		\item What are the differences between Prim's and Dijkstra's algorithms ?
+			\begin{itemize}
+				\item Both Prim's and Dijkstra's algorithms are used to find the shortest path between
+					two nodes in a graph
+				\item However, Dijkstra's algorithm is used when all the edge weights are non-negative,
+					while Prim's algorithm can be used with any kind of edge weights
+				\item Prim's algorithm is also faster than Dijkstra's algorithm when the graph is dense
+			\end{itemize}
+
+		\item How does Prim's algorithm differ from Kruskal's algorithm ?
+			\begin{itemize}
+				\item Prim's algorithm is a greedy algorithm that builds the minimum spanning tree by
+					starting with a single vertex and adding in edges until all vertices are
+					included
+				\item Kruskal's algorithm is also a greedy algorithm, but it builds the minimum
+					spanning tree by starting with all edges and adding them in until there is a
+					tree that includes all vertices
+			\end{itemize}
+	\end{enumerate} \newpage
+
+	\section*{Program 3} \addcontentsline{toc}{section}{Program 3} \phantomsection
+	\begin{enumerate}
+		\item What are the Advantages of the Floyd-Warshall algorithm.
+		\answer \begin{itemize}
+			\item It can discover the shortest direction between all pairs of vertices in a weighted graph, such as graphs with negative edge weights.
+			\item It is an easy and smooth-to-put algorithm, making it accessible to developers of all skill ranges.
+			\item It is appropriate for both dense and sparse graphs.
+			\item It has a time complexity of $\text{O}(\text{N}^3)$, that is relatively efficient for most real-international applications.
+			\item It can be used to discover negative weight cycles in a graph.
+			\item It can discover the shortest direction between all pairs of vertices in a weighted graph, such as graphs with negative edge weights.
+		\end{itemize}
+		
+		\item What are the disadvantages of the Floyd-Warshall algorithm.
+		\answer \begin{itemize}
+			\item It calls for a matrix of size $\text{N}^2$ to store the intermediate results, which may be prohibitively large for extremely large graphs.
+			\item It is not the maximum green set of rules for fixing the all-pairs shortest path hassle in sure types of graphs, inclusive of sparse graphs or graphs with non-bad part weights.
+			\item It won't be suitable for real-time packages or packages with strict reminiscence constraints, as it is able to take a long term to compute the shortest paths in very huge graphs.
+			
+			\item Learn in detail to find all pair shortest path using Floyd and transitive closure using warshal's algorithm.
+		\end{itemize}
+	\end{enumerate} \newpage
+
+	\section*{Program 5} \addcontentsline{toc}{section}{Program 5} \phantomsection
+	\begin{enumerate}
+		\item What is a Topological Sort ?
+		A Topological Sort is a way of ordering a set of elements such that if element A comes before element B, then all of the elements that A depends on will also come before B.
+		This is often used as a way of ensuring that dependencies are satisfied before proceeding with a particular task
+		
+		\item Can you give me some examples where topological sorts are used in real projects ?
+		\answer \begin{itemize}
+			\item Topological sorts are often used in dependency management.
+			\item For example, if you are managing a project with a lot of dependencies, you may use a topological sort to ensure that all of the dependencies are met before you can begin work on the project.
+			\item This can help to avoid a lot of headaches down the road!
+		\end{itemize}
+		
+		\item What is the time complexity of the implementation of a topological sort in python ?
+		\answer The time complexity of a topological sort is $\text{O}(\text{V}+\text{E})$, where V is the number of vertices and E is the number of edges.
+		
+		\item What happens if we try to run a topological sort on an undirected graph ?
+		\answer \begin{itemize}
+			\item If we try to run a topological sort on an undirected graph, it will not work because topological sort only works on directed graphs.
+			\item This is because an undirected graph does not have a direction associated with its edges, so there is no way to determine which order the vertices should be visited in.
+		\end{itemize}
+		
+		\item What is the advantage of using a stack instead of a queue when running a topological sort ?
+		\answer The advantage of using a stack is that it allows you to process the vertices in the order that they are finished, which is the reverse of the order in which they are finished. \\
+		This is helpful because it means that you can process the vertices in the order that they are needed, which can make the algorithm more efficient.
+		
+		\item What is your understanding of a Directed Acyclic Graph (DAG) ?
+		\answer \begin{itemize}
+			\item A DAG is a graph with no cycles.
+			\item That is, there is no way to start at any node and follow a path that eventually loops back to the starting node.
+			\item DAGs are often used to model situations where there is a partial order between elements.
+			\item For example, a topological sort of a DAG G can be used to order the vertices of G so that if there is an edge from u to v, then u appears before v in the ordering.
+		\end{itemize}
+		
+		\item Give the Advantages,Disadvantages and Applications of Topological Sort:
+		\answer Advantages
+		\begin{itemize}
+			\item Helps in scheduling tasks or events based on dependencies.
+			\item Detects cycles in a directed graph.
+			\item Efficient for solving problems with precedence constraints.
+		\end{itemize}
+		
+		Disadvantages
+		\begin{itemize}
+			\item Only applicable to directed acyclic graphs (DAGs), not suitable for cyclic graphs.
+			\item May not be unique, multiple valid topological orderings can exist.
+			\item Inefficient for large graphs with many nodes and edges.
+		\end{itemize}
+		
+		Applications
+		\begin{itemize}
+			\item Task scheduling and project management.
+			\item Dependency resolution in package management systems.
+			\item Determining the order of compilation in software build systems.
+			\item Deadlock detection in operating systems.
+			\item Course scheduling in universities.
+		\end{itemize}
+		
+		\item A man wants to go different places in the world.
+		He has listed them down all. \\
+		But there are some places where he wants to visit before some other places. \\
+		What application of graph can he use to determine that ?
+		\begin{enumerate}[label=\alph*) ]
+			\item Depth First Search
+			\item Breadth First Search
+			\item Topological Sorting
+			\item Dijkstra's Shortest path algorithm
+		\end{enumerate}
+		\answer c \\
+		Explanation : As the definition of topological sorting suggests, it is the way to do tasks in prescribed order. \\
+		So, if he does topological sorting, it will be easy for him to recognize what should be the order to visit different places.
+		
+		\item Topological sort can be applied to which of the following graphs ?
+		\begin{enumerate}[label=\alph*) ]
+			\item Undirected Cyclic Graphs
+			\item Directed Cyclic Graphs
+			\item Undirected Acyclic Graphs
+			\item Directed Acyclic Graphs
+		\end{enumerate}
+		\answer d \\
+		Explanation : Every Directed Acyclic Graph has one or more topological ordering whereas Cyclic and Undirected graphs can't be ordered topologically.
+		
+		\item In most of the cases, topological sort starts from a node which has \underline{\hspace{5em}}
+		\begin{enumerate}[label=\alph*) ]
+			\item Maximum Degree
+			\item Minimum Degree
+			\item Any degree
+			\item Zero Degree
+		\end{enumerate}
+		
+		\item Most Efficient Time Complexity of Topological Sorting is ? (V – number of vertices, E – number of edges)
+		\begin{enumerate}[label=\alph*) ]
+			\item O(V+E)
+			\item O(V)
+			\item O(E)
+			\item O(V*E)
+		\end{enumerate}
+		\answer 
+	\end{enumerate} \newpage
+
+	\section*{Program 6} \addcontentsline{toc}{section}{Program 6} \phantomsection
+	\begin{enumerate}
+		\item Can we solve the 0/1 Knapsack Problem using Backtracking ?
+		\answer Yes, the recursive DP approach itself is the backtracking approach for 0/1 knapsack.
+		
+		\item What is the Time Complexity of 0/1 Knapsack Problem ?
+		\answer The time complexity for the 0/1 Knapsack problem solved using DP is O(N*W) where N denotes the number of items available and W denotes the capacity of the knapsack.
+		
+		\item Can we solve the 0/1 Knapsack Problem using Greedy Algorithm ?
+		\answer No, the 0/1 Knapsack Problem cannot be solved using a greedy approach.
+		
+		\item What is the 0/1 knapsack problem ?
+		\answer \begin{itemize}
+			\item The 0/1 knapsack problem means that the items are either completely or no items are filled in a knapsack.
+			\item For example, we have two items having weights 2kg and 3kg, respectively.
+			\item If we pick the 2 kg item then we cannot pick 1kg item from the 2 kg item (item is not divisible); we have to pick the 2 kg item completely.
+			\item This is a 0/1 knapsack problem in which either we pick the item completely or we will pick that item.
+			\item The 0/1 knapsack problem is solved by the dynamic programming.
+		\end{itemize}
+		
+		\item You are given a knapsack that can carry a maximum weight of 60. \\
+		There are 4 items with weights {20, 30, 40, 70} and values {70, 80, 90, 200}. \\
+		What is the maximum value of the items you can carry using the knapsack ?
+		\begin{enumerate}[label=\alph*) ]
+			\item 160
+			\item 200
+			\item 170
+			\item 90
+		\end{enumerate}
+		\answer a \\
+		Explanation : The maximum value you can get is 160. This can be achieved by choosing the items 1 and 3 that have a total weight of 60.
+		
+		\item The Knapsack problem is an example of \underline{\hspace{5em}}
+		\begin{enumerate}[label=\alph*) ]
+			\item Greedy algorithm
+			\item 2D dynamic programming
+			\item 1D dynamic programming
+			\item Divide and conquer
+		\end{enumerate}
+		\answer b \\
+		Explanation : Knapsack problem is an example of 2D dynamic programming.
+		
+		\item Which of the following methods can be used to solve the Knapsack problem ?
+		\begin{enumerate}[label=\alph*) ]
+			\item Brute force algorithm
+			\item Recursion
+			\item Dynamic programming
+			\item Brute force, Recursion and Dynamic Programming
+		\end{enumerate}
+		\answer d \\
+		Explanation : Brute force, Recursion and Dynamic Programming can be used to solve the knapsack problem.
+	\end{enumerate} \newpage
+		
+	\section*{Program 7} \addcontentsline{toc}{section}{Program 7} \phantomsection
+	\begin{enumerate}
+		\item What are Greedy Algorithms ?
+		\answer \begin{itemize}
+			\item Greedy algorithms are a class of algorithms that make a series of choices by selecting the best immediate option at each step in the hope of finding a global optimum.
+			\item They are used in various optimization problems where the goal is to find the best solution by making a sequence of choices.
+			\item Greedy algorithms work well for problems where choosing the locally optimal solution at each step leads to the globally optimal solution.
+		\end{itemize}
+		
+		\item What is the greedy choice property ? \\
+		How does it affect the decision-making process in a greedy algorithm ?
+		\answer \begin{itemize}
+			\item The greedy choice property is a key characteristic of greedy algorithms.
+			\item It states that at each step, a greedy algorithm makes the best choice available at that moment without considering the consequences of that choice on future steps.
+			\item This property ensures that the algorithm selects the locally optimal solution at each step.
+		\end{itemize}
+		
+		\item What are some practical scenarios where a greedy algorithm is particularly well-suited for solving real-world problems ?
+		\answer \begin{itemize}
+			\item Discuss practical applications where greedy algorithms are useful, such as task scheduling, job sequencing, and data compression.
+			\item That in these scenarios, making locally optimal choices often leads to globally optimal or near-optimal solutions.
+		\end{itemize}
+	\end{enumerate}
+\end{document}

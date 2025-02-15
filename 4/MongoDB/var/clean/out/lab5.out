@@ -1,0 +1,171 @@
+test> use salesDB
+switched to db salesDB
+
+salesDB> db.Sales.insertMany([
+...     {
+...             date : new Date("2024-01-01"),
+...             product : "Laptop",
+...             price : 1200,
+...             quantity : 1,
+...             customer : "Amar"
+...     },{
+...             date : new Date("2024-01-02"),
+...             product : "Laptop",
+...             price : 1200,
+...             quantity : 2,
+...             customer : "Babu"
+...     },{
+...             date : new Date("2024-01-03"),
+...             product : "Mouse",
+...             price : 25,
+...             quantity : 5,
+...             customer : "Chandra"
+...     },{
+...             date : new Date("2024-01-04"),
+...             product : "Keyboard",
+...             price : 45,
+...             quantity : 3,
+...             customer : "Amar"
+...     },{
+...             date : new Date("2024-01-05"),
+...             product : "Monitor",
+...             price : 300,
+...             quantity : 1,
+...             customer : "Babu"
+...     },{
+...             date : new Date("2024-01-06"),
+...             product : "Laptop",
+...             price : 1200,
+...             quantity : 1,
+...             customer : "Deva"
+...     }
+... ])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('66afb3e34bfbda95a0838726'),
+    '1': ObjectId('66afb3e34bfbda95a0838727'),
+    '2': ObjectId('66afb3e34bfbda95a0838728'),
+    '3': ObjectId('66afb3e34bfbda95a0838729'),
+    '4': ObjectId('66afb3e34bfbda95a083872a'),
+    '5': ObjectId('66afb3e34bfbda95a083872b')
+  }
+}
+
+
+salesDB> // Calculate the average price of each product.
+
+salesDB> db.Sales.aggregate([{
+...     $group: {
+...             _id : "$product",
+...             averagePrice : { $avg: "$price" }
+...     }
+... }]).pretty()
+[
+  { _id: 'Monitor', averagePrice: 300 },
+  { _id: 'Keyboard', averagePrice: 45 },
+  { _id: 'Laptop', averagePrice: 1200 },
+  { _id: 'Mouse', averagePrice: 25 }
+]
+
+salesDB> // Find the minimum price of each product.
+
+salesDB> db.Sales.aggregate([{
+...     $group: {
+...             _id : "$product",
+...             minPrice : { $min: "$price" }
+...     }
+... }]).pretty()
+[
+  { _id: 'Mouse', minPrice: 25 },
+  { _id: 'Laptop', minPrice: 1200 },
+  { _id: 'Keyboard', minPrice: 45 },
+  { _id: 'Monitor', minPrice: 300 }
+]
+
+salesDB> // Find the maximum price of each product.
+
+salesDB> db.Sales.aggregate([{
+...     $group: {
+...             _id : "$product",
+...             maxPrice : { $max: "$price" }
+...     }
+... }]).pretty()
+[
+  { _id: 'Laptop', maxPrice: 1200 },
+  { _id: 'Mouse', maxPrice: 25 },
+  { _id: 'Monitor', maxPrice: 300 },
+  { _id: 'Keyboard', maxPrice: 45 }
+]
+
+salesDB> // Group sales by customer and push each purchased product into an array.
+
+salesDB> db.Sales.aggregate([{
+...     $group: {
+...             _id : "$customer",
+...             products : { $push: "$product" }
+...     }
+... }]).pretty()
+[
+  { _id: 'Amar', products: [ 'Laptop', 'Keyboard' ] },
+  { _id: 'Chandra', products: [ 'Mouse' ] },
+  { _id: 'Deva', products: [ 'Laptop' ] },
+  { _id: 'Babu', products: [ 'Laptop', 'Monitor' ] }
+]
+
+salesDB> // Group sales by customer and add each unique purchased product to an array.
+
+salesDB> db.Sales.aggregate([{
+...     $group: {
+...             _id : "$customer",
+...             uniqueProducts : { $addToSet: "$product" }
+...     }
+... }]).pretty()
+[
+  { _id: 'Amar', uniqueProducts: [ 'Keyboard', 'Laptop' ] },
+  { _id: 'Chandra', uniqueProducts: [ 'Mouse' ] },
+  { _id: 'Deva', uniqueProducts: [ 'Laptop' ] },
+  { _id: 'Babu', uniqueProducts: [ 'Monitor', 'Laptop' ] }
+]
+
+salesDB> // Combining Aggregation Operations
+
+salesDB> db.Sales.aggregate([{
+...     $group: {
+...             _id : "$product",
+...             totalQuantity : { $sum: "$quantity"},
+...             totalSales : {
+...                     $sum: { $multiply: ["$price","$quantity"] }
+...             },
+...             customers : { $addToSet: "$customer" }
+...     }
+... }]).pretty()
+[
+  {
+    _id: 'Mouse',
+    totalQuantity: 5,
+    totalSales: 125,
+    customers: [ 'Chandra' ]
+  },
+  {
+    _id: 'Laptop',
+    totalQuantity: 4,
+    totalSales: 4800,
+    customers: [ 'Amar', 'Babu', 'Deva' ]
+  },
+  {
+    _id: 'Keyboard',
+    totalQuantity: 3,
+    totalSales: 135,
+    customers: [ 'Amar' ]
+  },
+  {
+    _id: 'Monitor',
+    totalQuantity: 1,
+    totalSales: 300,
+    customers: [ 'Babu' ]
+  }
+]
+
+salesDB> db.dropDatabase()
+{ ok: 1, dropped: 'salesDB' }

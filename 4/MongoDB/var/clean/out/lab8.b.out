@@ -1,0 +1,233 @@
+test> use lab8
+switched to db lab8
+
+lab8> db.student.insertMany([{
+...     _id : 1,
+...     name : 'xyz',
+...     branch : 'AIML',
+...     usn : 37,
+...     age : 19
+... },{
+...     _id : 2,
+...     name : 'sam',
+...     branch : 'CSE',
+...     usn : 49,
+...     age : 20
+... },{
+...     _id : 3,
+...     name : 'jack',
+...     branch : 'MECH',
+...     usn : 48,
+...     age : 21
+... },{
+...     _id : 4,
+...     name : 'viola',
+...     branch : 'AIML',
+...     usn : 60,
+...     age : 22
+... },{
+...     _id : 5,
+...     name : 'pqr',
+...     branch : 'AIML',
+...     usn : 50,
+...     age : 25,
+...     grades : [24,34,45,67]
+... },{
+...     _id : 6,
+...     name : 'uv',
+...     course : 'cs',
+...     age : 50
+... }])
+{
+  acknowledged: true,
+  insertedIds: { '0': 1, '1': 2, '2': 3, '3': 4, '4': 5, '5': 6 }
+}
+
+lab8> db.student.createIndex({
+...     name : 1
+... })
+name_1
+
+lab8> db.student.createIndex({
+...     usn : 1
+... })
+usn_1
+
+
+
+
+lab8> db.student.createIndex({
+...     grades : 1
+... })
+grades_1
+
+lab8> db.student.find({
+...     name  : 'jack'
+... }).hint({
+...     name  : 1
+... })
+[ { _id: 3, name: 'jack', branch: 'MECH', usn: 48, age: 21 } ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+lab8> db.student.find({
+...     name  : 'jack'
+... }).explain()
+{
+  explainVersion: '1',
+  queryPlanner: {
+    namespace: 'lab8.student',
+    indexFilterSet: false,
+    parsedQuery: { name: { '$eq': 'jack' } },
+    queryHash: 'A2F868FD',
+    planCacheKey: 'A3E454E0',
+    maxIndexedOrSolutionsReached: false,
+    maxIndexedAndSolutionsReached: false,
+    maxScansToExplodeReached: false,
+    winningPlan: {
+      stage: 'FETCH',
+      inputStage: {
+        stage: 'IXSCAN',
+        keyPattern: { name: 1 },
+        indexName: 'name_1',
+        isMultiKey: false,
+        multiKeyPaths: { name: [] },
+        isUnique: false,
+        isSparse: false,
+        isPartial: false,
+        indexVersion: 2,
+        direction: 'forward',
+        indexBounds: { name: [ '["jack", "jack"]' ] }
+      }
+    },
+    rejectedPlans: []
+  },
+  command: { find: 'student', filter: { name: 'jack' }, '$db': 'lab8' },
+  serverInfo: {
+    host: 'computer',
+    port: 27017,
+    version: '7.0.12',
+    gitVersion: 'b6513ce0781db6818e24619e8a461eae90bc94fc'
+  },
+  serverParameters: {
+    internalQueryFacetBufferSizeBytes: 104857600,
+    internalQueryFacetMaxOutputDocSizeBytes: 104857600,
+    internalLookupStageIntermediateDocumentMaxSizeBytes: 104857600,
+    internalDocumentSourceGroupMaxMemoryBytes: 104857600,
+    internalQueryMaxBlockingSortMemoryUsageBytes: 104857600,
+    internalQueryProhibitBlockingMergeOnMongoS: 0,
+    internalQueryMaxAddToSetBytes: 104857600,
+    internalDocumentSourceSetWindowFieldsMaxMemoryBytes: 104857600,
+    internalQueryFrameworkControl: 'trySbeRestricted'
+  },
+  ok: 1
+}
+
+lab8> db.student.find({
+...     usn : 48
+... }).hint({
+...     usn : 1
+... })
+[ { _id: 3, name: 'jack', branch: 'MECH', usn: 48, age: 21 } ]
+
+lab8> db.student.find({
+...     usn : 48
+... }).explain()
+{
+  explainVersion: '1',
+  queryPlanner: {
+    namespace: 'lab8.student',
+    indexFilterSet: false,
+    parsedQuery: { usn: { '$eq': 48 } },
+    queryHash: 'BCD70A26',
+    planCacheKey: 'FB3FEBD5',
+    maxIndexedOrSolutionsReached: false,
+    maxIndexedAndSolutionsReached: false,
+    maxScansToExplodeReached: false,
+    winningPlan: {
+      stage: 'FETCH',
+      inputStage: {
+        stage: 'IXSCAN',
+        keyPattern: { usn: 1 },
+        indexName: 'usn_1',
+        isMultiKey: false,
+        multiKeyPaths: { usn: [] },
+        isUnique: false,
+        isSparse: false,
+        isPartial: false,
+        indexVersion: 2,
+        direction: 'forward',
+        indexBounds: { usn: [ '[48, 48]' ] }
+      }
+    },
+    rejectedPlans: []
+  },
+  command: { find: 'student', filter: { usn: 48 }, '$db': 'lab8' },
+  serverInfo: {
+    host: 'computer',
+    port: 27017,
+    version: '7.0.12',
+    gitVersion: 'b6513ce0781db6818e24619e8a461eae90bc94fc'
+  },
+  serverParameters: {
+    internalQueryFacetBufferSizeBytes: 104857600,
+    internalQueryFacetMaxOutputDocSizeBytes: 104857600,
+    internalLookupStageIntermediateDocumentMaxSizeBytes: 104857600,
+    internalDocumentSourceGroupMaxMemoryBytes: 104857600,
+    internalQueryMaxBlockingSortMemoryUsageBytes: 104857600,
+    internalQueryProhibitBlockingMergeOnMongoS: 0,
+    internalQueryMaxAddToSetBytes: 104857600,
+    internalDocumentSourceSetWindowFieldsMaxMemoryBytes: 104857600,
+    internalQueryFrameworkControl: 'trySbeRestricted'
+  },
+  ok: 1
+}
+
+lab8> db.dropDatabase()
+{ ok: 1, dropped: 'lab8' }

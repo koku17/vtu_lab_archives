@@ -1,0 +1,81 @@
+\documentclass{article}
+
+%!TEX program=xelatex
+
+% packages
+\usepackage[margin=.5in]{geometry}
+\usepackage{minted}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+% detailes
+\author{koku17}
+\title{DBMS Lab Programs}
+\date{}
+
+% presets
+\urlstyle{same}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=white
+}
+\pagestyle{empty}
+\pagecolor{black}
+\color{white}
+\usemintedstyle{one-dark}
+
+% macros
+\newcommand{\answer}{\item[$\rightarrow$]}
+
+\begin{document}
+	\maketitle \newpage
+	\begin{enumerate}[label=\arabic*. ]
+		\item Create a table called Employee \& execute the following \\
+			\texttt{Employee(EMPNO,ENAME,JOB,MANAGER\_NO,SAL,COMMISSION)}
+		\begin{enumerate}[label=\roman*) ]
+			\item Create a user and grant all permissions to theuser.
+			\item Insert the any three records in the employee table contains attributes \\
+				\texttt{EMPNO,ENAME JOB,MANAGER\_NO,SAL,COMMISSION} and use rollback and
+				Check the result.
+			\item Add primary key constraint and not null constraint to the employee table.
+			\item Insert null values to the employee table and verify the result
+		\end{enumerate}
+		\answer \inputminted{mysql}{../Lab1.sql} \newpage
+		\item Create a table called Employee that contain attributes
+			\texttt{EMPNO,ENAME,JOB,MGR,SAL} \& execute the following
+		\begin{enumerate}[label=\alph*) ]
+			\item Add a column commission with domain to the Employeetable.
+			\item Insert any five records into the table.
+			\item Update the column details of job
+			\item Rename the column of Employ table using alter command.
+			\item Delete the employee whose Empno is 105.
+		\end{enumerate}
+		\answer \inputminted{mysql}{../Lab2.sql} \newpage
+		\item Queries using aggregate functions(COUNT,AVG,MIN,MAX,SUM), Group by, Orderby
+			\texttt{Employee(E\_id,E\_name,Age,Salary)}
+		\begin{enumerate}[label=\alph*) ]
+			\item Add a column commission with domain to the Employeetable.
+			\item Create Employee table containing all Records \texttt{E\_id,E\_name,Age,Salary}.
+			\item Count number of employee names from employeetable
+			\item Find the Maximum age from employee table.
+			\item Find the Minimum age from employeetable.
+			\item Find salaries of employee in Ascending Order.
+			\item Find grouped salaries of employees.
+		\end{enumerate}
+		\answer \inputminted{mysql}{../Lab3.sql} \newpage
+		\item Create a row level trigger for the customers table that would fire for INSERT or UPDAT or
+			DELETE operations performed on the CUSTOMERS table. This trigger will display the salary
+		difference between the old \& new Salary. \texttt{CUSTOMERS(ID,NAME,AGE,ADDRESS,SALARY)}
+		\answer \inputminted{mysql}{../Lab4.sql} \newpage
+		\item Create cursor for Employee table \& extract the values from the table.
+			Declare the variables, Open the cursor \& extrct the values from the cursor.
+			Close the cursor. \\ \texttt{Employee(E\_id,E\_name,Age,Salary)}
+		\answer \inputminted{mysql}{../Lab5.sql} \newpage
+		\item Write a PL/SQL block of code using parameterized Cursor, that will merge the data available in
+			the newly created table \texttt{N\_RollCall} with the data available in the table
+			\texttt{O\_RollCall}. \\
+			If the data in the first table already exist in the second table then that data should be skipped
+		\answer \inputminted{mysql}{Lab6.sql}
+	\end{enumerate}
+\end{document}

@@ -1,0 +1,11 @@
+Enter the number of packets : 5
+
+Enter the packets :
+1 5 3 4 2
+
+Clock    packet size     accept     sent    remaining
+  1           1             1         1         0
+  2           5          dropped      0         0
+  3           3             3         3         0
+  4           4             4         3         1
+  5           2             2         3         0

@@ -1,0 +1,238 @@
+test> use geoDatabase
+switched to db geoDatabase
+
+geoDatabase> db.Places.insertMany([
+...     {
+...             name : "Central Park",
+...             location : {
+...                     type : "Point",
+...                     coordinates : [ -73.9654,40.7829 ]
+...             }
+...     },{
+...             name : "Times Square",
+...             location : {
+...                     type : "Point",
+...                     coordinates : [ -73.9851,40.7580 ]
+...             }
+...     },{
+...             name : "Brooklyn Bridge",
+...             location : {
+...                     type : "Point",
+...                     coordinates : [ -73.9969,40.7061 ]
+...             }
+...     },{
+...             name : "Empire State Building",
+...             location : {
+...                     type : "Point",
+...                     coordinates : [ -73.9857,40.7488 ]
+...             }
+...     },{
+...             name : "Statue of Liberty",
+...             location : {
+...                     type : "Point",
+...                     coordinates : [ -74.0445,40.6892 ]
+...             }
+...     }
+... ])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('66afb30fa52913a0cb838726'),
+    '1': ObjectId('66afb30fa52913a0cb838727'),
+    '2': ObjectId('66afb30fa52913a0cb838728'),
+    '3': ObjectId('66afb30fa52913a0cb838729'),
+    '4': ObjectId('66afb30fa52913a0cb83872a')
+  }
+}
+
+geoDatabase> // Create a geospatial index
+
+geoDatabase> db.Places.createIndex({
+...     location : "2dsphere"
+... })
+location_2dsphere
+
+
+
+
+
+geoDatabase> // Find places near a specific coordinate, for example : near Times Square.
+
+geoDatabase> db.Places.find({
+...     location : {
+...             $near: {
+...                     $geometry: {
+...                             type : "Point",
+...                             coordinates : [ -73.9851,40.7580 ]
+...                     },
+...                     $maxDistance: 5000 // distance in meters
+...             }
+...     }
+... }).pretty()
+[
+  {
+    _id: ObjectId('66afb30fa52913a0cb838727'),
+    name: 'Times Square',
+    location: { type: 'Point', coordinates: [ -73.9851, 40.758 ] }
+  },
+  {
+    _id: ObjectId('66afb30fa52913a0cb838729'),
+    name: 'Empire State Building',
+    location: { type: 'Point', coordinates: [ -73.9857, 40.7488 ] }
+  },
+  {
+    _id: ObjectId('66afb30fa52913a0cb838726'),
+    name: 'Central Park',
+    location: { type: 'Point', coordinates: [ -73.9654, 40.7829 ] }
+  }
+]geoDatabase> // $geoWithin
+
+geoDatabase> db.Places.find({
+...     location: {
+...             $geoWithin: {
+...                     $geometry: {
+...                             type: "Polygon",
+...                             coordinates: [
+...                                     [
+...                                             [ -70.016, 35.715 ],
+...                                             [ -74.014, 40.717 ],
+...                                             [ -73.990, 40.730 ],
+...                                             [ -73.990, 40.715 ],
+...                                             [ -70.016, 35.715 ]
+...                                     ]
+...                             ]
+...                     }
+...             }
+...     }
+... }).pretty()
+[
+  {
+    _id: ObjectId('66afb30fa52913a0cb838728'),
+    name: 'Brooklyn Bridge',
+    location: { type: 'Point', coordinates: [ -73.9969, 40.7061 ] }
+  }
+]
+
+geoDatabase> db.dropDatabase()
+{ ok: 1, dropped: 'geoDatabase' }
+
+geoDatabase> // Bitwise Selectors
+
+geoDatabase> use techDB
+switched to db techDB
+
+techDB> db.Devices.insertMany([
+...     {
+...             name : "Device A",
+...             status : 5 // Binary : 0101
+...     },{
+...             name : "Device B",
+...             status : 3 // Binary : 0011
+...     },{
+...             name : "Device C",
+...             status : 12 // Binary : 1100
+...     },{
+...             name : "Device D",
+...             status : 10 // Binary : 1010
+...     },{
+...             name : "Device E",
+...             status : 7 // Binary : 0111
+...     }
+... ])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('66afb310a52913a0cb83872b'),
+    '1': ObjectId('66afb310a52913a0cb83872c'),
+    '2': ObjectId('66afb310a52913a0cb83872d'),
+    '3': ObjectId('66afb310a52913a0cb83872e'),
+    '4': ObjectId('66afb310a52913a0cb83872f')
+  }
+}
+
+techDB> // $bitsAllSet
+
+techDB> // Find devices where the binary status has both the 1st and 3rd bits set
+
+techDB> db.Devices.find({
+...     status : { $bitsAllSet: [ 0,2 ] }
+... }).pretty()
+[
+  {
+    _id: ObjectId('66afb310a52913a0cb83872b'),
+    name: 'Device A',
+    status: 5
+  },
+  {
+    _id: ObjectId('66afb310a52913a0cb83872f'),
+    name: 'Device E',
+    status: 7
+  }
+]
+
+
+
+
+
+
+
+techDB> // $bitsAnySet
+techDB> // Find devices where the binary status has at least the 2nd bit set
+
+techDB> db.Devices.find({
+...     status : { $bitsAnySet: [ 1 ] }
+... }).pretty()
+[
+  {
+    _id: ObjectId('66afb310a52913a0cb83872c'),
+    name: 'Device B',
+    status: 3
+  },
+  {
+    _id: ObjectId('66afb310a52913a0cb83872e'),
+    name: 'Device D',
+    status: 10
+  },
+  {
+    _id: ObjectId('66afb310a52913a0cb83872f'),
+    name: 'Device E',
+    status: 7
+  }
+]
+
+techDB> // $bitsAllClear
+techDB> // Find devices where the binary status has both the 2nd and 4th bits clear
+
+techDB> db.Devices.find({
+...     status : { $bitsAllClear: [ 1,3 ] }
+... }).pretty()
+[
+  {
+    _id: ObjectId('66afb310a52913a0cb83872b'),
+    name: 'Device A',
+    status: 5
+  }
+]
+
+techDB> // $bitsAnyClear
+
+techDB> // Find devices where the binary status has at least the 1st bit clear
+
+techDB> db.Devices.find({
+...     status : { $bitsAnyClear: [ 0 ] }
+... }).pretty()
+[
+  {
+    _id: ObjectId('66afb310a52913a0cb83872d'),
+    name: 'Device C',
+    status: 12
+  },
+  {
+    _id: ObjectId('66afb310a52913a0cb83872e'),
+    name: 'Device D',
+    status: 10
+  }
+]
+
+techDB> db.dropDatabase()
+{ ok: 1, dropped: 'techDB' }
