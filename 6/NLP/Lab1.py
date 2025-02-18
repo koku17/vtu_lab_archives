@@ -1,5 +1,4 @@
-import re
-import nltk
+import re, nltk
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
@@ -9,26 +8,37 @@ nltk.download ('punkt_tab')
 nltk.download ('stopwords')
 
 def preprocess_text (text):
+	# Original
+	print ("Original :\n", text, sep = "")
+
 	# Tokenization
 	tokens = word_tokenize (text)
+	print ("\nTokenization :\n", tokens, sep = "")
 	
 	# Filtration
-	filtered_tokens = [re.sub (r'[^a-zA-Z]', '', token) for token in tokens]
-	filtered_tokens = [token for token in filtered_tokens if token]
+	filtered_tokens = [word for word in tokens if word.isalpha ()]
+	print ("\nFiltration :\n", filtered_tokens, sep = "")
 	
 	# Script Validation
-	validated_tokens = [token for token in filtered_tokens if re.match (r'^[a-zA-Z]+$', token)]
+	valid_tokens = [word for word in filtered_tokens if re.match (r'^[a-zA-Z]+$', word)]
+	print ("\nScript Validation :\n", valid_tokens, sep = "")
 	
 	# Stop Word Removal
 	stop_words = set (stopwords.words ('english'))
-	filtered_tokens = [token.lower () for token in validated_tokens if token.lower () not in stop_words]
+	meaningful_words = [word.lower () for word in valid_tokens if word.lower () not in stop_words]
+	print ("\nStop Word Removal :\n", meaningful_words, sep = "")
 	
 	# Stemming
 	stemmer = PorterStemmer ()
-	stemmed_tokens = [stemmer.stem (token) for token in filtered_tokens]
-	
-	return stemmed_tokens
+	stemmed_words = [stemmer.stem (word) for word in meaningful_words]
+	print ("\nStemming :\n", meaningful_words, "\n", sep = "")
 
 # Example usage
-text = 'Hello! This is an example sentence to demonstrate txt processing in NLP, :) 123'
-print ('Processed text : ', preprocess_text (text))
+statements = [
+	'Hello! This is an example sentence to demonstrate txt processing in NLP, :) 123',
+	'Python is amazing! こんにちは (Hello in Japanese), नमस्ते (Hello in Hindi), Привет (Hello in Russian). NLP is fun! 123'
+
+]
+
+for text in statements:
+	preprocess_text (text)
