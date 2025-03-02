@@ -34,4 +34,5 @@ do
 
 	cd tmp/lab*/ && flutter run
 	flutter clean tmp/lab_programs
+	cd -
 done

@@ -35,9 +35,9 @@ def preprocess_text (text):
 
 # Example usage
 statements = [
-	'Hello! This is an example sentence to demonstrate txt processing in NLP, :) 123',
-	'Python is amazing! こんにちは (Hello in Japanese), नमस्ते (Hello in Hindi), Привет (Hello in Russian). NLP is fun! 123'
-
+	'Hey there! Whats up? I\'m just telling this NLP pipeline, BTW do you like AI powered Chat bots',
+	'The stock market saw a 5% rise today with major tech companies like Apple & Google leading the rally, \
+		Experts predect continued growth!'
 ]
 
 for text in statements:
