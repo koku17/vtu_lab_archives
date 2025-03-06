@@ -1,0 +1,18 @@
+\documentclass{article}
+
+\usepackage[margin=.05in]{geometry}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{svg}
+\usepackage{lscape}
+
+\begin{document}
+	\begin{center}
+		\includesvg[scale=.7]{feature_distribution.svg}
+		\includesvg[scale=.7]{outliers.svg}
+		\includesvg[scale=.9]{scatter_plot.svg}
+		\includesvg[scale=.9]{heatmap.svg} \newpage
+		\vspace*{5em}
+		\includesvg[scale=.45]{kde.svg}
+	\end{center}
+\end{document}

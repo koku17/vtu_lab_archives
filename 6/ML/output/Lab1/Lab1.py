@@ -31,7 +31,7 @@ plt.figure (figsize = (5,5))
 plt.ylabel ('Frequency')
 
 for i in Numerical:
-	Data[i].plot (kind = 'hist', title = i, bins = 50, edgecolor = 'black')
+	Data[i].plot (kind = 'pie', title = i)
 	plt.savefig (i + '.svg')
 	plt.show ()
 
