@@ -1,0 +1,5 @@
+svg-inkscape/
+tmp/
+*.svg
+*.pdf
+*.bak

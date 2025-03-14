@@ -1,0 +1,30 @@
+\documentclass{article}
+
+%!TEX program=xelatex
+
+% packages
+\usepackage[a4paper,margin=.5in]{geometry}
+\usepackage{minted}
+\usepackage{enumitem}
+\usepackage{verbatim}
+
+% prestes
+\pagestyle{empty}
+
+% command
+\newcommand{\question}[2]{
+	\item [#1.] #2
+}
+
+\newcommand{\ttt}[1]{\texttt{#1}}
+\newcommand{\answer}[1]{\item [$\rightarrow$] \inputminted{c}{#1}}
+
+\begin{document}
+	\begin{itemize}
+		\question{9}{
+			Develop a C program to simulate the Linked file allocation strategies
+		}
+
+		\answer{lab9.c}
+	\end{itemize}
+\end{document}

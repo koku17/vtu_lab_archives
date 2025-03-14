@@ -1,0 +1,38 @@
+\documentclass{article}
+
+\usepackage[margin=.05in]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{minted}
+\usepackage{pgffor}
+\usepackage{rotating}
+\usepackage{adjustbox}
+
+
+\begin{document}
+	\immediate\write18{head -n 20 out5.tr > 5.tr}
+	~ \\
+	\begin{table}[H]
+		\centering
+		\foreach \i in {1,...,3}{
+			\begin{tabular}{lll}
+					\begin{minipage}{.4\textwidth}
+						\inputminted{text}{5.tr}
+					\end{minipage} & &
+					\begin{minipage}{.4\textwidth}
+						\inputminted{text}{5.tr}
+					\end{minipage} \\ & & \\
+			\end{tabular}
+		}
+	\end{table}
+
+	\begin{figure}[H]
+		\foreach \i in {1,...,11}{
+			\foreach \i in {1,2}{
+				\includegraphics[scale=.5]{out5.dark.png}
+			}
+		}
+	\end{figure}
+	\immediate\write18{rm -rf 5.tr}
+\end{document}

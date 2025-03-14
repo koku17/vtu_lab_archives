@@ -1,0 +1,46 @@
+\documentclass{article}
+
+% packages
+\usepackage[margin=.5in]{geometry}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{minted}
+
+% detailes
+\author{koku17}
+\title{AI Lab Programs}
+
+% presets
+\pagecolor{black}
+\color{white}
+\usemintedstyle{one-dark}
+
+% macro
+\newcommand{\Program}[2]{
+	\begin{center}
+        \large Program #1 \vspace{-.5em}
+	\end{center}
+	\inputminted{python}{#2}
+}
+\newcommand{\Out}[1]{
+    \begin{center}
+        \large Output \vspace{-.5em}
+    \end{center}
+    \inputminted{text}{#1}
+}
+
+\begin{document}
+	\maketitle \thispagestyle{empty} \newpage
+	\Program{1}{../lab1.py}
+	\Out{../out/lab1.out} \newpage
+	\Program{2}{../lab2.var.py}
+	\Out{../out/lab2.out} \newpage
+	\Program{3}{../lab3.py}
+	\Out{../out/lab3.out} \newpage
+	\Program{4}{../lab4.py}
+	\Out{../out/lab4.out} \newpage
+	\Program{5}{../lab5.py}
+	\Out{../out/lab5.out} \newpage
+	\Program{6}{../lab6.py}
+	\Out{../out/lab6.out}
+\end{document}

@@ -1,0 +1,119 @@
+\begin{enumerate}[label=\arabic*. ]
+	\item Explain what is an algorithm in computing ?
+	\answer
+		\begin{itemize}[label=$\ast$]
+			\item An algorithm is a well-defined computational procedure that takes some value as
+				input and generates some value as output
+			\item In simple words, it's a sequence of computational steps that converts input into
+				the output
+		\end{itemize}
+
+	\item Explain what is time complexity of Algorithm ?
+	\answer
+		\begin{itemize}[label=$\ast$]
+			\item Time complexity of an algorithm indicates the total time needed by the program to
+				run to completion
+			\item It is usually expressed by using the big O notation
+		\end{itemize}
+
+	\item Explain the greedy method
+	\answer
+		\begin{itemize}[label=$\ast$]
+			\item Greedy method is the most important design technique, which makes a choice that
+				looks best at that moment
+			\item A given 'n' inputs are required us to obtain a subset that satisfies some
+				constraints that is the feasible solution
+			\item A greedy method suggests that one can device an algorithm that works in stages
+				considering one input at a time
+		\end{itemize}
+	
+	\item Specify the algorithms used for constructing Minimum cost spanning tree
+		\begin{itemize}[label=$\ast$]
+			\item Prim's Algorithm
+			\item Kruskal's Algorithm
+		\end{itemize}
+	
+	\item State Kruskal Algorithm
+	\answer The algorithm looks at a MST for a weighted connected graph as an acyclic subgraph with $|v|-1$
+		edges for which the sum of edge weights is the smallest
+	
+	\item Difference between Prim's and Kruskal's Algorithm
+	\answer ~ \vspace{-2em}
+		\begin{center}
+			\begin{tabular}{|p{.4\columnwidth}|p{.4\columnwidth}|} \hline
+				\multicolumn{1}{|c|}{Prim's Algorithm} &
+				\multicolumn{1}{|c|}{Kruskal's Algorithm} \\ \hline
+				The tree that we are making or growing always remains connected &
+				The tree that we are making or growing usually remains disconnected \\ \hline
+				Prim's Algorithm grows a solution from a solution from a random vertex
+				by adding the next cheapest vertex to the existing tree &
+				Kruskal's Algorithm grows a solution from the cheapest edge to the next cheapest
+				edge to the existing tree/forest \\ \hline
+				Prim's algorithm is faster for dense graphs &
+				Kruskai's algorithm is faster for spars graphs \\ \hline
+			\end{tabular}
+		\end{center}
+
+	\item How efficient is the Kruskal algorithm ?
+	\answer
+		\begin{itemize}[label=$\ast$]
+			\item Kruskal performs better in typical situations (sparse graphs) because it uses
+				simpler data structures and its time complexity is
+				$\text{O}(\text{E}\log\text{V})$
+			\item Where E is the number of edges \\ V is number of vertices
+		\end{itemize}
+	
+	\item What is a minimum spanning tree ?
+	\answer A minimum spanning tree is a subset of the edges of a connected, undirected graph that connects
+		all the vertices together with the minimum possible total weight
+	
+	\item Can you explain what a graph is in the context of computer science and informatics ?
+	\answer
+		\begin{itemize}[label=$\ast$]
+			\item A graph is a collection of nodes, also called vertices, and the edges that connect
+				them
+			\item Graphs can be used to model many different types of relationships, including those
+				found in social networks, transportation systems, and computer networks
+		\end{itemize}
+	
+	\item What is the difference between weighted and unweighted graphs ?
+	\answer
+		\begin{itemize}[label=$\ast$]
+			\item A weighted graph is a graph in which each edge has a weight or cost associated
+				with it
+			\item An unweighted graph is a graph in which the edges do not have weights associated
+				with them
+		\end{itemize}
+	
+	\item When would you use Prim's algorithm over Kruskal's algorithm ?
+	\answer
+		\begin{itemize}[label=$\ast$]
+			\item Prim's algorithm is used when you want to find the minimum spanning tree of a
+				graph that is not necessarily connected
+			\item Kruskal's algorithm is used when you want to find the minimum spanning tree of a
+				graph that is already connected
+		\end{itemize}
+	
+	\item What are the disadvantages of using Kruskal's algorithm on large graphs with many edges ?
+	\answer
+		\begin{itemize}[label=$\ast$]
+			\item Kruskal's algorithm can be slow on large graphs with many edges because it has to
+				consider all of the edges in the graph in order to find the minimum spanning
+				tree
+			\item This can be time-consuming, especially if the graph is very large
+			\item Additionally, Kruskal's algorithm can be difficult to implement on some types of
+				graphs
+		\end{itemize}
+	
+	\item Can you give me examples of real-world applications where minimum spanning trees can be used ?
+	\answer
+		\begin{itemize}[label=$\ast$]
+
+			\item One example of where minimum spanning trees can be used is in network design
+			\item If you are trying to connect a set of computers or other devices together with the
+				minimum amount of cable or other wiring, then you can use a minimum spanning
+				tree algorithm to find the most efficient way to do so
+			\item Another example is in cluster analysis, where you might use a minimum spanning
+				tree to group together similar items in a dataset
+		\end{itemize}
+\end{enumerate}

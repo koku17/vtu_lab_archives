@@ -1,0 +1,265 @@
+// Insert document
+
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('668a412b1915553034149f48'),
+    '1': ObjectId('668a412b1915553034149f49'),
+    '2': ObjectId('668a412b1915553034149f4a'),
+    '3': ObjectId('668a412b1915553034149f4b'),
+    '4': ObjectId('668a412b1915553034149f4c'),
+    '5': ObjectId('668a412b1915553034149f4d'),
+    '6': ObjectId('668a412b1915553034149f4e')
+  }
+}
+
+// Comparison selector gt
+
+[
+  {
+    _id: ObjectId('668a412b1915553034149f48'),
+    name: 'Ananth',
+    age: 32,
+    gender: 'male'
+  },
+  {
+    _id: ObjectId('668a412b1915553034149f49'),
+    name: 'Adithi',
+    age: 35,
+    gender: 'female'
+  }
+]
+
+// Comparison selector lt
+
+[
+  {
+    _id: ObjectId('668a412b1915553034149f4a'),
+    name: 'Ananya',
+    age: 27,
+    gender: 'female'
+  },
+  {
+    _id: ObjectId('668a412b1915553034149f4c'),
+    name: 'Bharat',
+    age: 25,
+    gender: 'male'
+  },
+  {
+    _id: ObjectId('668a412b1915553034149f4d'),
+    name: 'Rahul',
+    age: 28,
+    gender: 'male'
+  },
+  {
+    _id: ObjectId('668a412b1915553034149f4e'),
+    name: 'Revathi',
+    age: 25,
+    gender: 'female'
+  }
+]
+
+// Comparison selector gte
+
+[
+  {
+    _id: ObjectId('668a412b1915553034149f48'),
+    name: 'Ananth',
+    age: 32,
+    gender: 'male'
+  },
+  {
+    _id: ObjectId('668a412b1915553034149f49'),
+    name: 'Adithi',
+    age: 35,
+    gender: 'female'
+  },
+  {
+    _id: ObjectId('668a412b1915553034149f4b'),
+    name: 'Aditya',
+    age: 30,
+    gender: 'male'
+  }
+]
+
+// Comparison selector lte
+
+[
+  {
+    _id: ObjectId('668a412b1915553034149f4a'),
+    name: 'Ananya',
+    age: 27,
+    gender: 'female'
+  },
+  {
+    _id: ObjectId('668a412b1915553034149f4b'),
+    name: 'Aditya',
+    age: 30,
+    gender: 'male'
+  },
+  {
+    _id: ObjectId('668a412b1915553034149f4c'),
+    name: 'Bharat',
+    age: 25,
+    gender: 'male'
+  },
+  {
+    _id: ObjectId('668a412b1915553034149f4d'),
+    name: 'Rahul',
+    age: 28,
+    gender: 'male'
+  },
+  {
+    _id: ObjectId('668a412b1915553034149f4e'),
+    name: 'Revathi',
+    age: 25,
+    gender: 'female'
+  }
+]
+
+// Logical and selector
+
+[
+  {
+    _id: ObjectId('668a412b1915553034149f48'),
+    name: 'Ananth',
+    age: 32,
+    gender: 'male'
+  },
+  {
+    _id: ObjectId('668a412b1915553034149f4b'),
+    name: 'Aditya',
+    age: 30,
+    gender: 'male'
+  },
+  {
+    _id: ObjectId('668a412b1915553034149f4d'),
+    name: 'Rahul',
+    age: 28,
+    gender: 'male'
+  }
+]
+
+// Logical or selector
+
+[
+  {
+    _id: ObjectId('668a412b1915553034149f48'),
+    name: 'Ananth',
+    age: 32,
+    gender: 'male'
+  },
+  {
+    _id: ObjectId('668a412b1915553034149f49'),
+    name: 'Adithi',
+    age: 35,
+    gender: 'female'
+  },
+  {
+    _id: ObjectId('668a412b1915553034149f4a'),
+    name: 'Ananya',
+    age: 27,
+    gender: 'female'
+  },
+  {
+    _id: ObjectId('668a412b1915553034149f4b'),
+    name: 'Aditya',
+    age: 30,
+    gender: 'male'
+  },
+  {
+    _id: ObjectId('668a412b1915553034149f4c'),
+    name: 'Bharat',
+    age: 25,
+    gender: 'male'
+  },
+  {
+    _id: ObjectId('668a412b1915553034149f4d'),
+    name: 'Rahul',
+    age: 28,
+    gender: 'male'
+  }
+]
+
+// Geographical data
+
+{ ok: 1 }
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('668a412c1915553034149f4f'),
+    '1': ObjectId('668a412c1915553034149f50'),
+    '2': ObjectId('668a412c1915553034149f51')
+  }
+}
+
+// Create Index
+
+Location_2dsphere
+
+// Geospatial selectors
+
+[
+  {
+    _id: ObjectId('668a412c1915553034149f4f'),
+    Name: 'Central Park',
+    Location: { type: 'Point', coordinates: [ -73.97, 40.77 ] },
+    category: 'Parks',
+    flag: 6
+  },
+  {
+    _id: ObjectId('668a412c1915553034149f51'),
+    Name: 'Polo Grounds',
+    Location: { type: 'Point', coordinates: [ -73.9928, 40.7193 ] },
+    category: 'Stadiums',
+    flag: 8
+  }
+]
+
+// Bitwise selector AllSet
+
+[
+  {
+    _id: ObjectId('668a412c1915553034149f50'),
+    Name: 'Sara D. Roosevelt Park',
+    Location: { type: 'Point', coordinates: [ -73.9928, 40.193 ] },
+    category: 'Parks',
+    flag: 7
+  }
+]
+
+// Bitwise selector AnySet
+
+[
+  {
+    _id: ObjectId('668a412c1915553034149f50'),
+    Name: 'Sara D. Roosevelt Park',
+    Location: { type: 'Point', coordinates: [ -73.9928, 40.193 ] },
+    category: 'Parks',
+    flag: 7
+  }
+]
+
+// Bitwise selector AllClear
+
+[
+  {
+    _id: ObjectId('668a412c1915553034149f51'),
+    Name: 'Polo Grounds',
+    Location: { type: 'Point', coordinates: [ -73.9928, 40.7193 ] },
+    category: 'Stadiums',
+    flag: 8
+  }
+]
+
+// Bitwise selector AnyClear
+
+[
+  {
+    _id: ObjectId('668a412c1915553034149f51'),
+    Name: 'Polo Grounds',
+    Location: { type: 'Point', coordinates: [ -73.9928, 40.7193 ] },
+    category: 'Stadiums',
+    flag: 8
+  }
+]

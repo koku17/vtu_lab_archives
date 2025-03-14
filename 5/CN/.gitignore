@@ -1,0 +1,10 @@
+*.tgz
+*.nam
+*.tr
+*.xgraph
+*.xgr
+*.png
+*.pl
+*.pm
+*.drop
+bin/

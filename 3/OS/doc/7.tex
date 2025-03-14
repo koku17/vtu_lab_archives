@@ -1,0 +1,38 @@
+\documentclass{article}
+
+%!TEX program=xelatex
+
+% packages
+\usepackage[a4paper,margin=.5in]{geometry}
+\usepackage{minted}
+\usepackage{enumitem}
+\usepackage{verbatim}
+
+% prestes
+\pagestyle{empty}
+
+% command
+\newcommand{\question}[2]{
+	\item [#1.] #2
+}
+
+\newcommand{\ttt}[1]{\texttt{#1}}
+\newcommand{\answer}[1]{\item[] \inputminted{c}{#1}}
+
+\begin{document}
+	\begin{enumerate}[label=\roman*)]
+		\question{7}{
+			Develop a C program to simulate page replacement algorithms
+			\begin{enumerate}
+				\item FIFO
+				\item LRU
+			\end{enumerate}
+		}
+
+		\item FIFO
+		\answer{lab7.fifo.c} \newpage
+
+		\item LRU
+		\answer{lab7.lru.c}
+	\end{enumerate}
+\end{document}

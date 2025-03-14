@@ -1,0 +1,21 @@
+Enter window size : 4
+
+Enter number of frames to transmit : 6
+
+Enter 6 frames :
+1000
+1001
+1100
+1011
+1110
+1010
+
+With sliding window protocol the frames will be sent in the following manner (assuming no corruption of frames)
+
+After sending 4 frames at each stage sender waits for acknowledgement sent by the receiver
+
+1000 1001 1100 1011 
+Acknowledgement of above frames sent is received by sender
+
+1110 1010 
+Acknowledgement of above frames sent is received by sender

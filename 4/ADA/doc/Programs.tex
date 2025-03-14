@@ -1,0 +1,89 @@
+\documentclass{article}
+
+%!TEX program=xelatex
+
+% packages
+\usepackage[margin=.5in]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{minted}
+\usepackage{calc}
+
+% detailes
+\author{koku17}
+\date{}
+\title{ADA Lab Programs}
+
+% presets
+\urlstyle{same}
+\pagecolor{black}
+\color{white}
+\usemintedstyle{one-dark}
+\hypersetup{
+	colorlinks,
+	linkcolor=white
+}
+\newcounter{pcounter}
+
+% macros
+\newcommand{\answer}{\item [$\rightarrow$]}
+\newcommand{\program}[1]{
+	\inputminted{c}{#1}
+}
+\newcommand{\phead}{
+	\setcounter{pcounter}{\value{enumi}+1}
+	{
+		\centering \section*{Program \arabic{pcounter}}
+		\addcontentsline{toc}{section}{Program \arabic{pcounter}}
+		\phantomsection
+	}
+}
+\newcommand{\op}[2]{
+	{
+		\centering \subsection*{Output}
+		\addcontentsline{toc}{subsection}{#1}
+		\phantomsection
+	}
+	\item [] \inputminted{text}{#2}
+}
+\begin{document}
+	\maketitle \thispagestyle{empty} \newpage
+	\begingroup \color{white} \tableofcontents \endgroup
+	\thispagestyle{empty} \newpage
+	\begin{enumerate}
+		\phead
+		\item Design and implement C/C++ Program to find Minimum Cost Spanning Tree of a given connected undirected graph using Kruskal’s algorithm
+		\answer \program{../Kruskal*s*algorithm.c} \newpage
+		\op{Kruskal’s algorithm}{output/1.out} \newpage
+		\phead
+		\item Design and implement C/C++ Program to find Minimum Cost Spanning Tree of a given connected undirected graph using Prim’s algorithm
+		\answer \program{../Prim*s*algorithm.c} \newpage
+		\op{Prim’s algorithm}{output/2.out} \newpage
+		\phead
+		\item Design and implement C/C++ Program
+		\begin{enumerate}[label=\alph*.]
+			\item To solve All-Pairs Shortest Paths problem using Floyd's algorithm
+			\item To find the transitive closure using Warshal's algorithm
+		\end{enumerate}
+		\answer
+			\begin{enumerate}[label=\alph*. ]
+				\item \program{../Floyd*s*algorithm.c}
+				\op{Floyd's algorithm}{output/3.a.out} \newpage
+				\item \program{../Warshal*s*algorithm.c}
+				\op{Warshal's algorithm}{output/3.b.out}
+			\end{enumerate} \newpage \setcounter{enumi}{\value{enumi}+1}
+		\phead
+		\item Design and implement C/C++ Program to obtain the Topological ordering of vertices in a given digraph
+		\answer \program{../Topology.c} \newpage
+		\op{Topological ordering}{output/5.out} \newpage
+		\phead
+		\item Design and implement C/C++ Program to solve 0/1 Knapsack problem using Dynamic Programming method
+		\answer \program{../Knapsack.dynamic.c}
+		\op{Dynamic Knapsack problem}{output/6.out} \newpage
+		\phead
+		\item Design and implement C/C++ Program to solve discrete Knapsack and continuous Knapsack problems using greedy approximation method
+		\answer \program{../Knapsack.c} \newpage
+		\op{Knapsack problem}{output/7.out}
+	\end{enumerate}
+\end{document}

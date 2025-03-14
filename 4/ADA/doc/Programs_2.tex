@@ -1,0 +1,85 @@
+\documentclass{article}
+
+%!TEX program=xelatex
+
+% packages
+\usepackage[margin=.5in]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{minted}
+\usepackage{calc}
+
+% detailes
+\author{koku17}
+\date{}
+\title{ADA Lab Programs}
+
+% presets
+\urlstyle{same}
+\pagecolor{black}
+\color{white}
+\usemintedstyle{one-dark}
+\hypersetup{
+	colorlinks,
+	linkcolor=white
+}
+\newcounter{pcounter}
+
+% macros
+\newcommand{\answer}{\item [$\rightarrow$]}
+\newcommand{\program}[1]{
+	\inputminted{c}{#1}
+}
+\newcommand{\phead}{
+	\setcounter{pcounter}{\value{enumi}+1}
+	{
+		\centering \section*{Program \arabic{pcounter}}
+		\addcontentsline{toc}{section}{Program \arabic{pcounter}}
+		\phantomsection
+	}
+}
+
+\begin{document}
+	\maketitle \thispagestyle{empty} \newpage
+	\begingroup \color{white} \tableofcontents \endgroup
+	\thispagestyle{empty} \newpage
+	\begin{enumerate}[start=4]
+		\phead
+		\item Design and implement C/C++ Program to find shortest paths from a given vertex in a weighted
+			connected graph to other vertices using Dijkstra's algorithm
+		\answer \program{../Dijikstra*s*algorithm.c} \newpage
+		\setcounter{enumi}{7}
+		\phead
+		\item Design and implement C/C++ Program to find a subset of a given set S$=\{s1,s2,\cdots,sn\}$ of $n$
+			positive integers whose sum is equal to a given positive integer $d$
+		\answer \program{../SumSubset.c} \newpage
+		\phead
+		\item Design and implement C/C++ Program to sort a given set of $n$ integer elements using
+			Selection Sort method and compute its time complexity. \\
+			Run the program for varied values of $n>5000$ and record the time taken to sort. \\
+			Plot a graph of the time taken versus $n$. \\
+			The elements can be read from a file or can be generated using the random number
+			generator.
+		\answer \program{../Selection*Sort.c} \newpage
+		\phead
+		\item Design and implement C/C++ Program to sort a given set of $n$ integer elements using
+			Quick Sort method and compute its time complexity. \\
+			Run the program for varied values of $n>5000$ and record the time taken to sort. \\
+			Plot a graph of the time taken versus $n$. \\
+			The elements can be read from a file or can be generated using the random number
+			generator.
+		\answer \program{../Quick*Sort.c} \newpage
+		\phead
+		\item Design and implement C/C++ Program to sort a given set of $n$ integer elements using
+			Merge Sort method and compute its time complexity. \\
+			Run the program for varied values of $n>5000$ and record the time taken to sort. \\
+			Plot a graph of the time taken versus $n$. \\
+			The elements can be read from a file or can be generated using the random number
+			generator.
+		\answer \program{../Merge*Sort.c} \newpage
+		\phead
+		\item Design and implement C/C++ Program for N Queen's problem using Backtracking
+		\answer \program{../Queens.c}
+	\end{enumerate}
+\end{document}

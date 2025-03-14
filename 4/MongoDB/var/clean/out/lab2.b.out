@@ -1,0 +1,109 @@
+test> use MoviesDB
+switched to db MoviesDB
+
+MoviesDB> db.Movies.insertMany([
+...     {
+...             title : "Inception",
+...             director : "Christopher Nolan",
+...             genre : "Science Fiction",
+...             year : 2010,
+...             ratings : {
+...                     imdb : 8.8,
+...                     rottenTomatoes : 87
+...             }
+...     },{
+...             title : "The Matrix",
+...             director : "Wachowskis",
+...             genre : "Science Fiction",
+...             year : 1999,
+...             ratings : {
+...                     imdb : 8.7,
+...                     rottenTomatoes : 87
+...             }
+...     },{
+...             title : "The Godfather",
+...             director : "Francis Ford Coppola",
+...             genre : "Crime",
+...             year : 1972,
+...             ratings : {
+...                     imdb : 9.2,
+...                     rottenTomatoes : 97
+...             }
+...     },{
+...             title : "Pulp Fiction",
+...             director : "Quentin Tarantino",
+...             genre : "Crime",
+...             year : 1994,
+...             ratings : {
+...                     imdb : 8.9,
+...                     rottenTomatoes : 92
+...             }
+...     },{
+...             title : "The Shawshank Redemption",
+...             director : "Frank Darabont",
+...             genre : "Drama",
+...             year : 1994,
+...             ratings : {
+...                     imdb : 9.3,
+...                     rottenTomatoes : 91
+...             }
+...     },{
+...             title : "The Dark Knight",
+...             director : "Christopher Nolan",
+...             genre : "Action",
+...             year : 2008,
+...             ratings : {
+...                     imdb : 9.0,
+...                     rottenTomatoes : 94
+...             }
+... 
+...     },{
+...             title : "Fight Club",
+...             director : "David Fincher",
+...             genre : "Drama",
+...             year : 1999,
+...             ratings : {
+...                     imdb : 8.8,
+...                     rottenTomatoes : 79
+...             }
+...     }
+... ]);
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('66afb275c6a21da41d838726'),
+    '1': ObjectId('66afb275c6a21da41d838727'),
+    '2': ObjectId('66afb275c6a21da41d838728'),
+    '3': ObjectId('66afb275c6a21da41d838729'),
+    '4': ObjectId('66afb275c6a21da41d83872a'),
+    '5': ObjectId('66afb275c6a21da41d83872b'),
+    '6': ObjectId('66afb275c6a21da41d83872c')
+  }
+}
+
+MoviesDB> // Query with Projection and Limit
+
+MoviesDB> db.Movies.find({},{
+...     title : 1,
+...     director : 1,
+...     year : 1,
+...     _id : 0
+... }).limit(5)
+[
+  { title: 'Inception', director: 'Christopher Nolan', year: 2010 },
+  { title: 'The Matrix', director: 'Wachowskis', year: 1999 },
+  {
+    title: 'The Godfather',
+    director: 'Francis Ford Coppola',
+    year: 1972
+  },
+  { title: 'Pulp Fiction', director: 'Quentin Tarantino', year: 1994 },
+  {
+    title: 'The Shawshank Redemption',
+    director: 'Frank Darabont',
+    year: 1994
+  }
+]
+
+MoviesDB> db.dropDatabase()
+{ ok: 1, dropped: 'MoviesDB' }

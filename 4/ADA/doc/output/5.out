@@ -1,0 +1,11 @@
+Enter the number of nodes : 5
+
+Enter the adjacency matrix :
+0 1 1 0 0
+0 0 0 0 0
+0 0 0 1 0
+0 0 0 0 1
+0 0 0 0 0
+
+Topological Ordering :
+0 2 3 4 1

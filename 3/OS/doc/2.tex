@@ -1,0 +1,39 @@
+\documentclass{article}
+
+%!TEX program=xelatex
+
+% packages
+\usepackage[a4paper,margin=.5in]{geometry}
+\usepackage{minted}
+\usepackage{enumitem}
+\usepackage{verbatim}
+
+% prestes
+\pagestyle{empty}
+
+% command
+\newcommand{\question}[2]{
+	\item [#1.] #2
+}
+
+\newcommand{\ttt}[1]{\texttt{#1}}
+\newcommand{\answer}[1]{\item \inputminted{c}{#1}}
+
+\begin{document}
+	\begin{itemize}
+		\question{2}{Simulate the following CPU scheduling algorithm to bind turnaround time waiting time}
+		\begin{enumerate}[label=\alph*)]
+			\item FCFS
+			\item SJF
+			\item Round Robin
+			\item Priority
+		\end{enumerate}
+
+		\begin{enumerate}[label=\alph*)]
+			\answer{lab2.fcfs.c} \newpage
+			\answer{lab2.sjf.c} \newpage
+			\answer{lab2.rr.c} \newpage
+			\answer{lab2.pr.c}
+		\end{enumerate}
+	\end{itemize}
+\end{document}

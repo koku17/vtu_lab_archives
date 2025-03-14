@@ -1,0 +1,33 @@
+\documentclass{article}
+%!TEX program=xelatex
+
+% packages
+\usepackage[a4paper,margin=.5in,paperheight=13in]{geometry}
+\usepackage{minted}
+\usepackage{enumitem}
+\usepackage{pagecolor}
+
+% presets
+\pagestyle{empty}
+\pagecolor{black}
+\usemintedstyle{one-dark}
+\color{white}
+
+% commands
+\newcommand{\answer}{\item [$\rightarrow$]}
+
+\begin{document}
+	\begin{itemize}
+		\item [5.] Develop a Program in C for the following Stack applications
+		\begin{enumerate}[label=\alph*.]
+			\item Evaluation of Suffix expression with single digit operands and operators : \\
+			\verb|+ - * / % ^|
+			\item Solving Tower of Hanoi problem with $n$ disks.
+		\end{enumerate}
+		\answer
+		\begin{enumerate}[label=\alph*.]
+			\item \inputminted{c}{../Program5.P.c}
+			\item \inputminted{c}{../Program5.H.c}
+		\end{enumerate}
+	\end{itemize}
+\end{document}

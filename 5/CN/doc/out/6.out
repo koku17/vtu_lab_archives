@@ -1,0 +1,18 @@
+Enter the number of vertices : 6
+
+Enter the adjacency matrix
+0   3   2   5   999 999
+3   0   999 1   4   999
+2   999 0   2   999 1
+5   1   2   0   3   999
+999 4   999 3   0   2
+999 999 1   999 2   999
+
+Enter the source vertex : 1
+
+Distance of source 1 to 1 is 0
+Distance of source 1 to 2 is 3
+Distance of source 1 to 3 is 2
+Distance of source 1 to 4 is 4
+Distance of source 1 to 5 is 5
+Distance of source 1 to 6 is 3

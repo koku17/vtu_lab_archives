@@ -1,0 +1,8 @@
+Enter the n value : 6
+
+Enter the set in increasing order : 5 10 12 13 15 18
+
+Enter the max subset value : 30
+  5  10  15
+  5  12  13
+ 12  18

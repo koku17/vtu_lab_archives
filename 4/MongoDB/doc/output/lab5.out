@@ -1,0 +1,58 @@
+// Insert document
+
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('668aa1d650b15d1563149f48'),
+    '1': ObjectId('668aa1d650b15d1563149f49'),
+    '2': ObjectId('668aa1d650b15d1563149f4a'),
+    '3': ObjectId('668aa1d650b15d1563149f4b'),
+    '4': ObjectId('668aa1d650b15d1563149f4c'),
+    '5': ObjectId('668aa1d650b15d1563149f4d'),
+    '6': ObjectId('668aa1d650b15d1563149f4e')
+  }
+}
+
+// Aggregation operation Average
+
+[ { _id: null, avgAge: 28.857142857142858 } ]
+
+// Aggregation operation Minimum
+
+[ { _id: null, minAge: 25 } ]
+
+// Aggregation operation Maximum
+
+[ { _id: null, maxAge: 35 } ]
+
+// Aggregation operation Push
+
+[
+  {
+    _id: null,
+    allNames: [
+      'Ananth',  'Adithi',
+      'Ananya',  'Aditya',
+      'Bharat',  'Rahul',
+      'Revathi'
+    ]
+  }
+]
+
+// Aggregation operation addToSet
+
+[
+  {
+    _id: null,
+    uniqueNames: [
+      'Ananya',  'Aditya',
+      'Bharat',  'Rahul',
+      'Revathi', 'Ananth',
+      'Adithi'
+    ]
+  }
+]
+
+// RIP DB
+
+true

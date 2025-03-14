@@ -1,0 +1,42 @@
+\documentclass{article}
+
+% packages
+\usepackage[a4paper,margin=.25in]{geometry}
+\usepackage{svg}
+\usepackage{lscape}
+
+% details
+\title{Lab Outputs}
+\author{koku17}
+
+\begin{document}
+	\maketitle \pagenumbering{gobble} \newpage
+	\begin{landscape}
+	\begin{table}
+		\centering
+		\begin{tabular}{lll}
+			\includesvg[scale=.5]{HouseAge.svg} &
+			\includesvg[scale=.5]{AveRooms.svg} &
+			\includesvg[scale=.5]{AveBedrms.svg} \\
+			\includesvg[scale=.5]{Population.svg} &
+			\includesvg[scale=.5]{AveOccup.svg} &
+			\includesvg[scale=.5]{Latitude.svg} \\
+			\includesvg[scale=.5]{Longitude.svg} &
+			\includesvg[scale=.5]{MedInc_sns.svg} &
+		\end{tabular}
+	\end{table}
+
+	\begin{table}
+		\centering
+		\begin{tabular}{lll}
+			\includesvg[scale=.5]{HouseAge_sns.svg} &
+			\includesvg[scale=.5]{AveRooms_sns.svg} &
+			\includesvg[scale=.5]{AveBedrms_sns.svg} \\
+			\includesvg[scale=.5]{Population_sns.svg} &
+			\includesvg[scale=.5]{AveOccup_sns.svg} &
+			\includesvg[scale=.5]{Latitude_sns.svg} \\
+			\includesvg[scale=.5]{Longitude_sns.svg}
+		\end{tabular}
+	\end{table}
+	\end{landscape}
+\end{document}
