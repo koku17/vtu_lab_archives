@@ -1,0 +1,20 @@
+\documentclass{article}
+
+\usepackage[margin=.5in]{geometry}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{svg}
+\usepackage{minted}
+\usepackage{lscape}
+\usepackage{rotating}
+
+\begin{document}
+	\begin{center}
+		\includesvg[scale=.6]{distribution.svg}
+		\includesvg[scale=.6]{boxplot.svg} \newpage
+		\includesvg[scale=.6]{corr_matrix.svg}
+	\end{center}
+		\inputminted{text}{output}
+		%\begin{tabular}{cc}
+		%\end{tabular}
+\end{document}
