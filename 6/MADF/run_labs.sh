@@ -17,11 +17,11 @@ run_labs () {
 		"10. Logo Animation  [10]" \
 		"11. Expenses report [11]" \
 		"12. Quiz            [12]" \
-		"13. Exit            [E]"
+		"13. Exit            [E|Q]"
 	
 	read PROGRAM
 	case $PROGRAM in
-		E|e)
+		E|e|Q|q)
 			exit 0
 		;;
 		1|2|3|4|5|6|7|8|9|"10"|"11"|"12")

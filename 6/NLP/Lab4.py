@@ -1,8 +1,7 @@
 import nltk
 from nltk import CFG
 
-# Define the context-free grammar (CFG)
-grammar = CFG.fromstring("""
+grammar = CFG.fromstring ("""
 	S -> NP VP
 	NP -> Det N | Det Adj N | PN
 	VP -> V NP | V
@@ -13,7 +12,6 @@ grammar = CFG.fromstring("""
 	PN -> 'John' | 'Mary'
 """)
 
-# List of test sentences
 test_sentences = [
 	'the cat chased the dog',
 	'John saw the dog',
@@ -22,29 +20,27 @@ test_sentences = [
 ]
 
 for sent in test_sentences:
-	sentence = sent.split()
-	print(f"\n=== Parsing : {' '.join(sentence)} ===")
+	sentence = sent.split ()
+	print (f"\n=== Parsing : {' '.join (sentence)} ===")
 
-	# **Top-Down Parsing (Recursive Descent)**
-	print('\n**Top-Down Parsing (Recursive Descent)**')
-	rd_parser = nltk.RecursiveDescentParser(grammar)
+	print ('\n** Top-Down Parsing (Recursive Descent) **')
+	rd_parser = nltk.RecursiveDescentParser (grammar)
 	found_parse = False
-	for tree in rd_parser.parse(sentence):
+	for tree in rd_parser.parse (sentence):
 		found_parse = True
-		print(tree)
+		print (tree)
+		
+	tree.pretty_print ()
+	if not found_parse:
+		print ('No valid parse tree found using Top-Down Parsing')
 
-tree.pretty_print()
-if not found_parse:
-	print('No valid parse tree found using Top-Down Parsing')
+	print ('\n** Bottom-Up Parsing (Chart Parser) **')
+	chart_parser = nltk.ChartParser (grammar)
+	found_parse = False
+	for tree in chart_parser.parse (sentence):
+		found_parse = True
+		print (tree)
 
-# **Bottom-Up Parsing (Chart Parser)**
-print('\n**Bottom-Up Parsing (Chart Parser)**')
-chart_parser = nltk.ChartParser(grammar)
-found_parse = False
-for tree in chart_parser.parse(sentence):
-	found_parse = True
-	print(tree)
-	tree.pretty_print()
-
-if not found_parse:
-	print('No valid parse tree found using Bottom-Up Parsing')
+	tree.pretty_print ()
+	if not found_parse:
+		print ('No valid parse tree found using Bottom-Up Parsing')

@@ -61,7 +61,6 @@ yes | sdkmanager --licenses 1>&2> /dev/null && \
 success "All SDK licenses are accepted" || \
 die "All SDK licenses are not accepted !"
 
-
 # Install flutter sdk requierments
 echo "Installing android requierements ..."
 sdkmanager --install   \
