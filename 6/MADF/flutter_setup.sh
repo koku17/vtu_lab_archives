@@ -18,8 +18,8 @@ success () {
 BROWSWER=chrome
 
 # SDK version and sha256-checksum
-SDK_VERSION=11076708
-SDK_SUM='2d2d50857e4eb553af5a6dc3ad507a17adf43d115264b1afc116f95c92e5e258'
+SDK_VERSION=13114758
+SDK_SUM='8e51f50bde7faf53edabf968dc365f10e699b9d7562d98f064d0a6111548e16f'
 
 # Download commandline-tools and verify
 wget -nc -c "https://dl.google.com/android/repository/commandlinetools-linux-${SDK_VERSION}_latest.zip" \
