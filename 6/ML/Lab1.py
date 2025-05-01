@@ -4,7 +4,7 @@ import numpy as np
 import seaborn as sns
 import warnings
 
-#warnings.filterwarnings ('ignore')
+warnings.filterwarnings ('ignore')
 
 from sklearn.datasets import fetch_california_housing
 
@@ -60,3 +60,21 @@ outliers_dict=detect_outliers_iqr(Data)
 
 for feature,outliers in outliers_dict.items():
 	print(f'{feature} : {len(outliers)} outliers found')
+
+np.random.seed (42)
+numerical_data = np.random.randint (20, 80, size=95).tolist ()
+outliers = [150, 160, 170, 5, 10]
+numerical_data.extend (outliers)
+categories = ['A', 'B', 'C', 'D']
+categorical_data = np.random.choice (categories, size=100)
+Data = pd.DataFrame ({
+'numerical_column': numerical_data,
+'categorical_column': categorical_data
+})
+cat_col = Data.select_dtypes(include=['object']).columns
+category_counts = Data[cat_col].value_counts()
+plt.figure(figsize=(8,5))
+category_counts.plot(kind='pie', autopct='%1.1f%%')
+plt.title('Pie Chart of Categories')
+plt.ylabel('')
+plt.show()
