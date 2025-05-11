@@ -1,0 +1,137 @@
+\documentclass{article}
+
+% package
+\usepackage[a3paper,margin=.5in]{geometry}
+\usepackage{enumitem}
+\usepackage{amsmath,amssymb}
+\usepackage{pgffor}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage[outputdir=tmp,cache=false]{minted}
+\usepackage{hyperref}
+
+% detailes
+\author{koku17}
+\title{Natural Language Processing Lab}
+
+% presets
+\hypersetup{
+	hidelinks
+}
+\setminted{
+	breaklines,
+	tabsize=4,
+	breakanywhere=true
+}
+
+% ricing
+\def \darkmode{1}
+
+\if\darkmode1
+    \pagecolor{black}
+    \color{white}
+    \usemintedstyle{one-dark}
+\else
+    \usemintedstyle{perldoc}
+\fi
+
+% macros
+\def \question#1{\item #1 \addcontentsline{toc}{section}{\arabic{enumi}. #1}}
+\def \answer{\item [$\rightarrow$]}
+\def \Out{
+	\begin{center}
+		\Large Output
+	\end{center}
+}
+
+\begin{document}
+	\pagenumbering{gobble} \maketitle \newpage
+	\pagenumbering{roman} \pdfbookmark[1]{Contents}{} \tableofcontents \newpage
+	\pagenumbering{arabic}
+
+	\begin{enumerate}[label=\arabic*. ]
+		\question{Write a Python program for the following preprocessing of text in NLP}
+			\begin{itemize}
+				\item Tokenization
+				\item Filtration
+				\item Script Validation
+				\item Stop Word Removal
+				\item Stemming
+			\end{itemize}
+		\answer \inputminted{python}{../Lab1.py} \newpage
+		\Out \inputminted{text}{out/Lab1.out} \newpage
+
+		\question{
+			Demonstrate the N-gram modeling to analyze and establish the probability distribution across
+			sentences and explore the utilization of unigrams, bigrams, and trigrams in diverse English
+			sentences to illustrate the impact of varying n-gram orders on the calculated probabilities.
+		}
+		\answer \inputminted{python}{../Lab2.py} \newpage
+		\Out \inputminted{text}{out/Lab2.out} \newpage
+
+		\question{
+			Investigate the Minimum Edit Distance (MED) algorithm and its application in string comparison
+			and the goal is to understand how the algorithm efficiently computes the minimum number of edit
+			operations required to transform one string into another.
+		}
+			\begin{itemize}
+				\item Test the algorithm on strings with different type of variations
+					(e.g, typos, substitutions, insertions, deletions)
+				\item Evaluate its adaptability to different types of input variations
+			\end{itemize}
+		\answer \inputminted{python}{../Lab3.py}
+		\Out \inputminted{text}{out/Lab3.out} \newpage
+
+		\question{
+			Write a program to implement top-down and bottom-up parser using appropriate context free grammar
+		}
+		\answer \inputminted{python}{../Lab4.py}
+		\Out \inputminted{text}{out/Lab4.out} \newpage
+
+		\question{Given the following short movie reviews, each labeled with a genre, either comedy or action :}
+			\begin{itemize}
+				\item \texttt{fun, couple, love, love comedy}
+				\item \texttt{fast, furious, shoot action}
+				\item \texttt{couple, fly, fast, fun, fun comedy}
+				\item \texttt{furious, shoot, shoot, fun action}
+				\item \texttt{fly, fast, shoot, love action and}
+			\end{itemize}
+			A new document D: \texttt{fast, couple, shoot, fly} \\
+			Compute the most likely class for D. Assume a Naive Bayes classifier and use add-1 smoothing for the
+			likelihoods.
+		\answer \inputminted{python}{../Lab5.py}
+		\Out \inputminted{text}{out/Lab5.out} \newpage
+
+		\question{
+			Demonstrate the following using appropriate programming tool which illustrates the use of
+			information retrieval in NLP :
+		}
+			\begin{itemize}
+				\item Study the various Corpus – Brown, Inaugural, Reuters, udhr with various methods like
+					filelds, raw, words, sents, categories 3
+				\item Create and use your own corpora (plaintext, categorical)
+				\item Study Conditional frequency distributions
+				\item Study of tagged corpora with methods like tagged\_sents,
+				\item gged\_words
+				\item Write a program to find the most frequent noun tags
+				\item Map Words to Properties Using Python Dictionaries
+				\item Study Rule based tagger, Unigram Tagger
+			\end{itemize}
+			Find different words from a given plain text without any space by comparing this text with a given
+			corpus of words. Also find the score of words.
+		\answer \inputminted{python}{../Lab6.py} \newpage
+		\Out \inputminted{text}{out/Lab6.out} \newpage
+
+		\question{Write a Python program to find synonyms and antonyms of the word "active" using WordNet.}
+		\answer \inputminted{python}{../Lab7.py}
+		\Out \inputminted{text}{out/Lab7.out} \newpage
+
+		\question{
+			Implement the machine translation application of NLP where it needs to train a machine translation
+			model for a language with limited parallel corpora.
+			Investigate and incorporate techniques to improve performance in low-resource scenarios.
+		}
+		\answer \inputminted{python}{../Lab8.py}
+		\Out \inputminted{text}{out/Lab8.out} \newpage
+	\end{enumerate}
+\end{document}

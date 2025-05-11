@@ -1,0 +1,31 @@
+BROWN : 
+['adventure', 'belles_lettres', 'editorial', 'fiction', 'government']
+['The', 'Fulton', 'County', 'Grand', 'Jury', 'said', 'Friday', 'an', 'investigation', 'of']
+INAUGURAL : 
+['1789-Washington.txt', '1793-Washington.txt']
+['My', 'fellow', 'citizens', ':', 'I', 'stand', 'here', 'today', 'humbled', 'by']
+REUTERS : 
+['acq', 'alum', 'barley']
+['JAPAN', 'TO', 'REVISE', 'LONG', '-', 'TERM', 'ENERGY', 'DEMAND', 'DOWNWARDS', 'The']
+UDHR : 
+['Abkhaz-Cyrillic+Abkh', 'Abkhaz-UTF8']
+['Universal', 'Declaration', 'of', 'Human', 'Rights', 'Preamble', 'Whereas', 'recognition', 'of', 'the']
+Custom Corpus Words : 
+['This', 'is', 'a', 'custom', 'corpus', '.', 'Testing', ...]
+Tagged Sents : 
+[[('Pierre', 'NNP'), ('Vinken', 'NNP'), (',', ','), ('61', 'CD'), ('years', 'NNS'), ('old', 'JJ'), (',', ','), ('will', 'MD'), ('join', 'VB'), ('the', 'DT'), ('board', 'NN'), ('as', 'IN'), ('a', 'DT'), ('nonexecutive', 'JJ'), ('director', 'NN'), ('Nov.', 'NNP'), ('29', 'CD'), ('.', '.')]]
+Tagged Words : 
+[('Pierre', 'NNP'), ('Vinken', 'NNP'), (',', ','), ('61', 'CD'), ('years', 'NNS')]
+Top NOUN Tags : 
+[('NN', 13166), ('NNP', 9410), ('NNS', 6047)]
+cat → {'type': 'animal'}
+apple → {'type': 'fruit'}
+UnigramTagger Accuracy : 
+0.8741204403194475
+Segmented Words : 
+-> themanrantosave | Count :  5
+-> themanrantosave | Count :  5
+-> themanrantosave | Count :  5
+-> themanrantosave | Count :  5
+-> themanrantosave | Count :  6
+-> themanrantosave | Count :  6

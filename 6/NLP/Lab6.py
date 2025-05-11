@@ -1,120 +1,64 @@
-import os
-from collections import Counter
 import nltk
-from nltk.tag import DefaultTagger, UnigramTagger
-from nltk import ConditionalFreqDist
-from nltk.corpus import brown, inaugural, reuters, udhr, PlaintextCorpusReader, treebank, words
+from nltk.corpus import brown, inaugural, reuters, udhr, treebank, words
+from nltk.corpus import PlaintextCorpusReader
+from nltk import ConditionalFreqDist, UnigramTagger, DefaultTagger
+from collections import Counter
+import os
 
 for i in [ \
-    'brown', 'inaugural', 'reuters', 'udhr', 'punkt', 'averaged_perceptron_tagger', \
-    'universal_tagset', 'tagsets', 'treebank', 'words' \
-]:
-    nltk.download(i)
+	'brown', 'inaugural', 'reuters', 'udhr', 'punkt', 'averaged_perceptron_tagger', \
+	'universal_tagset', 'tagsets', 'treebank', 'words' \
+] :
+	nltk.download (i)
 
-print (
-    '\n=== Brown Corpus ===',
-    '\nCategories : ', brown.categories (),
-    '\nWords : ', brown.words (categories = 'news')[:10],
-    '\nSents : ', brown.sents (categories = 'news')[:2],
+os.makedirs ('tmp', exist_ok = True)
+with open ('tmp/sample.txt', 'w') as f:
+	f.write ('This is a custom corpus. Testing custom data.')
+custom = PlaintextCorpusReader ('tmp', '.*\.txt')
 
-    '\n\n=== Inaugural Corpus ===',
-    '\nFile IDs : ', inaugural.fileids ()[:5],
-    '\nWords : ', inaugural.words ('2009-Obama.txt')[:10],
-
-    '\n\n=== Reuters Corpus ===',
-    '\nCategories : ', reuters.categories ()[:5],
-    '\nWords : ', reuters.words (categories = 'crude')[:10],
-    '\nSents : ', reuters.sents (categories = 'crude')[:2],
-
-    '\n\n=== Udhr Corpus ===',
-    '\nLanguages : ', udhr.fileids ()[:5],
-    '\nWords : ', udhr.words ('English-Latin1')[:10],
-    sep = '\n'
-)
-
-corpus_root = 'my_corpus'
-os.makedirs (corpus_root, exist_ok = True)
-with open (os.path.join (corpus_root, 'sample.txt'), 'w') as f:
-    f.write ('This is the custom corpus file. It can be used for testing.')
-custom_corpus = PlaintextCorpusReader (corpus_root, '.*\.txt')
-
-print (
-    '\n\n=== Custom Corpus Words ===',
-    '\nCustom Corpus Words :', custom_corpus.words (),
-    sep = '\n'
-)
-
-word_category_pairs = [
-    (word.lower (), cat)
-    for cat in brown.categories ()
-    for word in brown.words (categories = cat)
-]
-
-cfd = ConditionalFreqDist (word_category_pairs)
-
-print (
-    '\n\n=== CFD ===',
-    "\nCFD Example (words 'news') : ", cfd['news'].most_common (3),
-    '\nTagged Sents : ', treebank.tagged_sents ()[:2],
-    '\nTagged Words : ', treebank.tagged_words ()[:10],
-    sep = '\n'
-)
-
-tags = [tag for (word, tag) in treebank.tagged_words ()]
-tag_freq = Counter (tags)
+tags = [tag for _, tag in treebank.tagged_words ()]
 noun_tags = [tag for tag in tags if tag.startswith ('NN')]
-noun_freq = Counter (noun_tags)
 
-print (
-    '\nMost Frequent POS Tags : ', tag_freq.most_common(5),
-    '\nMost Frequent NOUN Tags : ', noun_freq.most_common(5),
-    sep = '\n'
-)
+props = {'cat': {'type': 'animal'}, 'apple': {'type': 'fruit'}}
 
-word_properties = {
-    'cat': {'type': 'animal', 'sound': 'meow'},
-    'car': {'type': 'vehicle', 'fuel': 'petrol'},
-    'apple': {'type': 'fruit', 'color': 'red'}
-}
-
-print ('\nWord Properties :\n')
-for word, props in word_properties.items ():
-    print (f'{word.title ()} -> {props}')
-
-default_tagger = DefaultTagger('NN')
-train_data = treebank.tagged_sents()[:3000]
-test_data = treebank.tagged_sents()[3000:]
-unigram_tagger = UnigramTagger (train_data, backoff = default_tagger)
-
-print (
-    '\nDefault Tagger test : ', default_tagger.tag (['Hello', 'World']),
-    '\nUnigramTagger Accuracy : ', unigram_tagger.evaluate (test_data),
-    sep = '\n'
-)
-
+default_tagger = DefaultTagger ('NN')
+unigram_tagger = UnigramTagger (treebank.tagged_sents ()[:3000], backoff=default_tagger)
 wordlist = set (words.words ())
 
-def score_by_fewest_words (segmented_list):
-    return [(words, len (words)) for words in segmented_list]
+def segment (text, min_len = 2):
+	results = []
+	def backtrack (t, path = []):
+		if not t:
+			results.append (path)
+			return
+		for i in range (min_len, len (t) + 1):
+			w = t[:i]
+			if w in wordlist:
+				backtrack (t[i:], path + [w])
+	backtrack (text)
+	return sorted ([(seg, len (seg)) for seg in results], key = lambda x: x[1])
 
-def segment_filtered (text, min_len = 2):
-    results = []
+segments = segment('themanrantosave')
 
-    def helper (text, sentence):
-        if not text:
-            results.append (sentence)
-            return
-        for i in range (1, len(text) + 1):
-            word = text[:i]
-            if len (word) >= min_len and word in wordlist:
-                helper (text[i:], sentence + [word])
-    helper (text, [])
-    return results
+print (
+	'BROWN : ', brown.categories ()[ : 5], brown.words (categories = 'news')[:10],
+	'INAUGURAL : ', inaugural.fileids ()[ : 2], inaugural.words ('2009-Obama.txt')[:10],
+	'REUTERS : ', reuters.categories ()[ : 3], reuters.words (categories = 'crude')[:10],
+	'UDHR : ', udhr.fileids ()[ : 2], udhr.words ('English-Latin1')[:10],
 
-results = segment_filtered ('themanrantosave', min_len = 2)
-scored = score_by_fewest_words (results)
-scored.sort (key = lambda x: x[1])
+	'Custom Corpus Words : ', custom.words (),
+	'Tagged Sents : ', treebank.tagged_sents ()[:1],
+	'Tagged Words : ', treebank.tagged_words ()[:5],
+	'Top NOUN Tags : ', Counter (noun_tags).most_common (3), sep = '\n'
+)
 
-print ('\nFiltered & Scored Segmentations : ')
-for words, score in scored:
-    print ('->', ' '.join (words), '|Word Count : ', score)
+for w, p in props.items ():
+	print (f'{w} → {p}')
+
+print (
+	'UnigramTagger Accuracy : ', unigram_tagger.evaluate (treebank.tagged_sents()[3000:]),
+	'Segmented Words : ', sep = '\n'
+)
+
+for s, sc in segments:
+	print ('->', ''.join (s), '| Count : ', sc)

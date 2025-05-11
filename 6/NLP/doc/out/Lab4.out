@@ -1,0 +1,112 @@
+
+=== Parsing : the cat chased the dog ===
+
+** Top-Down Parsing (Recursive Descent) **
+(S (NP (Det the) (N cat)) (VP (V chased) (NP (Det the) (N dog))))
+              S               
+      ________|_____           
+     |              VP        
+     |         _____|___       
+     NP       |         NP    
+  ___|___     |      ___|___   
+Det      N    V    Det      N 
+ |       |    |     |       |  
+the     cat chased the     dog
+
+
+** Bottom-Up Parsing (Chart Parser) **
+(S (NP (Det the) (N cat)) (VP (V chased) (NP (Det the) (N dog))))
+              S               
+      ________|_____           
+     |              VP        
+     |         _____|___       
+     NP       |         NP    
+  ___|___     |      ___|___   
+Det      N    V    Det      N 
+ |       |    |     |       |  
+the     cat chased the     dog
+
+
+=== Parsing : John saw the dog ===
+
+** Top-Down Parsing (Recursive Descent) **
+(S (NP (PN John)) (VP (V saw) (NP (Det the) (N dog))))
+          S             
+  ________|___           
+ |            VP        
+ |     _______|___       
+ NP   |           NP    
+ |    |        ___|___   
+ PN   V      Det      N 
+ |    |       |       |  
+John saw     the     dog
+
+
+** Bottom-Up Parsing (Chart Parser) **
+(S (NP (PN John)) (VP (V saw) (NP (Det the) (N dog))))
+          S             
+  ________|___           
+ |            VP        
+ |     _______|___       
+ NP   |           NP    
+ |    |        ___|___   
+ PN   V      Det      N 
+ |    |       |       |  
+John saw     the     dog
+
+
+=== Parsing : Mary ate ===
+
+** Top-Down Parsing (Recursive Descent) **
+(S (NP (PN Mary)) (VP (V ate)))
+      S     
+  ____|___   
+ NP       VP
+ |        |  
+ PN       V 
+ |        |  
+Mary     ate
+
+
+** Bottom-Up Parsing (Chart Parser) **
+(S (NP (PN Mary)) (VP (V ate)))
+      S     
+  ____|___   
+ NP       VP
+ |        |  
+ PN       V 
+ |        |  
+Mary     ate
+
+
+=== Parsing : the big dog saw a cat ===
+
+** Top-Down Parsing (Recursive Descent) **
+(S
+  (NP (Det the) (Adj big) (N dog))
+  (VP (V saw) (NP (Det a) (N cat))))
+         S                 
+      ___|_______           
+     |           VP        
+     |        ___|___       
+     NP      |       NP    
+  ___|___    |    ___|___   
+Det Adj  N   V  Det      N 
+ |   |   |   |   |       |  
+the big dog saw  a      cat
+
+
+** Bottom-Up Parsing (Chart Parser) **
+(S
+  (NP (Det the) (Adj big) (N dog))
+  (VP (V saw) (NP (Det a) (N cat))))
+         S                 
+      ___|_______           
+     |           VP        
+     |        ___|___       
+     NP      |       NP    
+  ___|___    |    ___|___   
+Det Adj  N   V  Det      N 
+ |   |   |   |   |       |  
+the big dog saw  a      cat
+

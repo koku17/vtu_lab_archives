@@ -1,0 +1,36 @@
+Original :
+Hey there! Whats up? I'm just telling this NLP pipeline, BTW do you like AI powered Chat bots
+
+Tokenization :
+['Hey', 'there', '!', 'Whats', 'up', '?', 'I', "'m", 'just', 'telling', 'this', 'NLP', 'pipeline', ',', 'BTW', 'do', 'you', 'like', 'AI', 'powered', 'Chat', 'bots']
+
+Filtration :
+['Hey', 'there', 'Whats', 'up', 'I', 'just', 'telling', 'this', 'NLP', 'pipeline', 'BTW', 'do', 'you', 'like', 'AI', 'powered', 'Chat', 'bots']
+
+Script Validation :
+['Hey', 'there', 'Whats', 'up', 'I', 'just', 'telling', 'this', 'NLP', 'pipeline', 'BTW', 'do', 'you', 'like', 'AI', 'powered', 'Chat', 'bots']
+
+Stop Word Removal :
+['hey', 'whats', 'telling', 'nlp', 'pipeline', 'btw', 'like', 'ai', 'powered', 'chat', 'bots']
+
+Stemming :
+['hey', 'whats', 'telling', 'nlp', 'pipeline', 'btw', 'like', 'ai', 'powered', 'chat', 'bots']
+
+Original :
+The stock market saw a 5% rise today with major tech companies like Apple & Google leading the rally, 		Experts predect continued growth!
+
+Tokenization :
+['The', 'stock', 'market', 'saw', 'a', '5', '%', 'rise', 'today', 'with', 'major', 'tech', 'companies', 'like', 'Apple', '&', 'Google', 'leading', 'the', 'rally', ',', 'Experts', 'predect', 'continued', 'growth', '!']
+
+Filtration :
+['The', 'stock', 'market', 'saw', 'a', 'rise', 'today', 'with', 'major', 'tech', 'companies', 'like', 'Apple', 'Google', 'leading', 'the', 'rally', 'Experts', 'predect', 'continued', 'growth']
+
+Script Validation :
+['The', 'stock', 'market', 'saw', 'a', 'rise', 'today', 'with', 'major', 'tech', 'companies', 'like', 'Apple', 'Google', 'leading', 'the', 'rally', 'Experts', 'predect', 'continued', 'growth']
+
+Stop Word Removal :
+['stock', 'market', 'saw', 'rise', 'today', 'major', 'tech', 'companies', 'like', 'apple', 'google', 'leading', 'rally', 'experts', 'predect', 'continued', 'growth']
+
+Stemming :
+['stock', 'market', 'saw', 'rise', 'today', 'major', 'tech', 'companies', 'like', 'apple', 'google', 'leading', 'rally', 'experts', 'predect', 'continued', 'growth']
+
