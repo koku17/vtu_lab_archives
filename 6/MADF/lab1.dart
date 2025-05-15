@@ -11,10 +11,7 @@ class HelloWorld extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('Hello World Lab 1'),
-          centerTitle: true,
-        ),
+        appBar: AppBar(title: Text('Hello World Lab 1'), centerTitle: true),
         body: Center(
           child: Text(
             'Hello World and Hello Flutter',

@@ -12,30 +12,30 @@ class _CounterAppState extends State<CounterApp> {
 
   @override
   Widget build(BuildContext context) {
-	return Scaffold(
-	  appBar: AppBar(title: const Text('Counter Application'),),
-	  body: Center(
-		child: Column(
-		  mainAxisAlignment: MainAxisAlignment.center,
-		  children: [
-			Text('$_counter', style: const TextStyle(fontSize: 40)),
-			Row(
-			  mainAxisAlignment: MainAxisAlignment.center,
-			  children: [
-				ElevatedButton(
-				  onPressed: () => setState(() => _counter--),
-				  child: const Text('-')
-				),
-				const SizedBox(width: 20),
-				ElevatedButton(
-				  onPressed: () => setState(() => _counter++),
-				  child: const Text('+')
-				),
-			  ],
-			),
-		  ],
-		),
-	  ),
-	);
+    return Scaffold(
+      appBar: AppBar(title: const Text('Counter Application')),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('$_counter', style: const TextStyle(fontSize: 40)),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  onPressed: () => setState(() => _counter--),
+                  child: const Text('-'),
+                ),
+                const SizedBox(width: 20),
+                ElevatedButton(
+                  onPressed: () => setState(() => _counter++),
+                  child: const Text('+'),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

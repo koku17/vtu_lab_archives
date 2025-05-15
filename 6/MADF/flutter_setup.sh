@@ -19,10 +19,10 @@ BROWSWER=chrome
 
 # SDK version and sha256-checksum
 SDK_VERSION=13114758
-SDK_SUM='8e51f50bde7faf53edabf968dc365f10e699b9d7562d98f064d0a6111548e16f'
+SDK_SUM='7ec965280a073311c339e571cd5de778b9975026cfcbe79f2b1cdcb1e15317ee'
 
 # Download commandline-tools and verify
-wget -nc -c "https://dl.google.com/android/repository/commandlinetools-linux-${SDK_VERSION}_latest.zip" \
+wget -c "https://dl.google.com/android/repository/commandlinetools-linux-${SDK_VERSION}_latest.zip" \
 	-O ~/"commandlinetools-linux-${SDK_VERSION}_latest.zip"
 printf "$SDK_SUM  $HOME/commandlinetools-linux-${SDK_VERSION}_latest.zip" | shasum -a 256 -c - && \
 success "File verified successfully" "0" || \
