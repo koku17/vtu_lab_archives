@@ -78,7 +78,7 @@ class _weatherAppState extends State<weatherApp> {
             controller: c,
             decoration: InputDecoration(hintText: 'Enter city'),
           ),
-          ElevatedButton(onPressed: fetchWeather, child: Text('Check_weather')),
+          ElevatedButton(onPressed: fetchWeather, child: Text('Check weather')),
           if (l) CircularProgressIndicator(),
           if (r.isNotEmpty) Text(r, style: TextStyle(fontSize: 18)),
         ],
