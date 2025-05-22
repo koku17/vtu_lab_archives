@@ -1,0 +1,21 @@
+\documentclass{article}
+
+\usepackage{lscape}
+\usepackage[margin=.15in]{geometry}
+\usepackage{graphicx}
+\usepackage{svg}
+\usepackage{float}
+
+\begin{document}
+	\pagenumbering{gobble}
+	\begin{table}[H]
+		\centering
+		\includesvg[scale=.5]{boxplot.svg} \\ ~\vspace{1em} \\
+		\begin{tabular}{cc}
+			\hspace{4em} \includesvg[scale=.5]{confusion.svg} &
+			\includesvg[scale=.5]{feat_corr.svg} \\
+		\end{tabular}
+		\\ ~\vspace{1em} \\
+		\includesvg[scale=.5]{feat_dist.svg}
+	\end{table}
+\end{document}

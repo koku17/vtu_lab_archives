@@ -1,0 +1,113 @@
+\documentclass{article}
+
+% package
+\usepackage[a3paper,margin=.5in]{geometry}
+\usepackage{enumitem}
+\usepackage{amsmath,amssymb}
+\usepackage{pgffor}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{minted}
+\usepackage{hyperref}
+
+% detailes
+\author{koku17}
+\title{Machine Learning Lab}
+
+% presets
+\hypersetup{
+	hidelinks
+}
+
+\setminted{
+	breaklines,
+	tabsize=4,
+	breakanywhere=true
+}
+
+% ricing
+\def \darkmode{1}
+
+\if\darkmode1
+    \pagecolor{black}
+    \color{white}
+    \usemintedstyle{one-dark}
+\else
+    \usemintedstyle{perldoc}
+\fi
+
+% macros
+\def \question#1{\item #1 \addcontentsline{toc}{section}{Lab \arabic{enumi}}}
+\def \answer{\item [$\rightarrow$]}
+
+\begin{document}
+	\pagenumbering{gobble} \maketitle \newpage
+	\pagenumbering{roman} \pdfbookmark[1]{Contents}{} \tableofcontents \newpage
+	\pagenumbering{arabic}
+
+	\begin{enumerate}[label=\arabic*. ]
+		\question{Develop a program to}
+			\begin{itemize}
+				\item Load a dataset and select one numerical column.
+				\item Compute mean, median, mode, standard deviation, variance, and range for a given numerical column in a dataset.
+				\item Generate a histogram and boxplot to understand the distribution of the data.
+				\item Identify any outliers in the data using IQR.
+				\item Select a categorical variable from a dataset.
+				\item Compute the frequency of each category and display it as a bar chart or pie chart.
+			\end{itemize}
+		\answer \inputminted{python}{../Lab1.py} \newpage
+
+		\question{Develop a program to}
+			\begin{itemize}
+				\item Load a dataset with at least two numerical columns (e.g., Iris, Titanic).
+				\item Plot a scatter plot of two variables and calculate their Pearson correlation coefficient.
+				\item Write a program to compute the covariance and correlation matrix for a dataset.
+				\item Visualize the correlation matrix using a heatmap to know which variables have strong positive / negative correlations.
+			\end{itemize}
+		\answer \inputminted{python}{../Lab2.py} \newpage
+
+		\question{Develop a program to implement Principal Component Analysis (PCA) for reducing the dimensionality of the Iris dataset from 4 features to 2.}
+		\answer \inputminted{python}{../Lab3.py} \newpage
+
+		\question{Develop a program to}
+			\begin{itemize}
+				\item Load the Iris dataset.
+				\item Implement the $k$-Nearest Neighbors ($k$-NN) algorithm for classifying flowers based on their features.
+				\item Split the dataset into training and testing sets and evaluate the model using metrics like accuracy and F1-score.
+				\item Test it for different values of $k$ (e.g., $k=1,3,5$) and evaluate the accuracy.
+				\item Extend the $k$-NN algorithm to assign weights based on the distance of neighbors (e.g., $\text{weight}=\frac{1}{d^2}$).
+				\item Compare the performance of weighted $k$-NN and regular $k$-NN on a synthetic or real-world dataset.
+			\end{itemize}
+		\answer \inputminted{python}{../Lab4.py} \newpage
+
+		\stepcounter{enumi}
+		\question{
+			Implement the non-parametric Locally Weighted Regression algorithm in order to fit data points. \\
+			Select appropriate data set for your experiment and draw graphs.
+		}
+		\answer \inputminted{python}{../Lab6.py} \newpage
+
+		\question{Develop a program to}
+			\begin{itemize}
+				\item Demonstrate the working of Linear Regression and Polynomial Regression.
+				\item Use Boston Housing Dataset for Linear Regression and Auto MPG Dataset (for vehicle fuel efficiency prediction) for Polynomial Regression.
+			\end{itemize}
+		\answer \inputminted{python}{../Lab7.py} \newpage
+
+		\question{Develop a program to}
+			\begin{itemize}
+				\item Load the Titanic dataset.
+				\item Split the data into training and test sets.
+				\item Train a decision tree classifier.
+				\item Visualize the tree structure.
+				\item Evaluate accuracy, precision, recall, and F1-score.
+			\end{itemize}
+		\answer \inputminted{python}{../Lab8.py} \newpage
+
+		\question{
+			Develop a program to implement the Naive Bayesian classifier considering Iris dataset for training. \\
+			Compute the accuracy of the classifier, considering the test data.
+		}
+		\answer \inputminted{python}{../Lab9.py}
+	\end{enumerate}
+\end{document}
