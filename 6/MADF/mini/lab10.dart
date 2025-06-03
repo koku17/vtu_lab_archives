@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
-void main() => runApp(MaterialApp(home: RotatingLogo()));
+void main() => runApp(MaterialApp(home: RotatingLogo(), debugShowCheckedModeBanner: false));
 
 class RotatingLogo extends StatefulWidget {
   @override
@@ -23,7 +23,7 @@ class _RotatingLogoState extends State<RotatingLogo>
           animation: _controller,
           builder: (_, child) =>
               Transform.rotate(angle: _controller.value * 2 * pi, child: child),
-          child: Image.asset('assets/OIP.jpg', width: 150),
+          child: Image.asset('chrome-like-logo.png', width: 150),
         ),
       ),
     );

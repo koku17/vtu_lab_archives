@@ -31,11 +31,10 @@
 
 % macro
 \def \answer{\item [$\rightarrow$]}
-\newcounter{xcounter}
+
 \def \question#1{
 	\item \phantomsection #1
-	\stepcounter{xcounter}
-	\addcontentsline{toc}{section}{\arabic{xcounter}. #1}
+	\addcontentsline{toc}{section}{\arabic{enumi}. #1}
 }
 
 \begin{document}
@@ -49,7 +48,7 @@
 			Develop an application using Flutter to print ``Hello world and
 			Hello Flutter".
 		}
-		\answer \inputminted{dart}{../lab1.dart} \newpage
+		\answer \inputminted{dart}{../mini/lab1.dart} \newpage
 
 		\question{%
 			Develop an application using Flutter to Increment and Decrement
@@ -60,40 +59,33 @@
 		\question{Develop Login Screen Application.}
 		\answer \inputminted{dart}{../lab3.dart} \newpage
 
-		\pdfpageheight=90.5em
-		\textheight=90em \vsize\textheight
 		\question{Develop a ``To-do List" Application.}
-		\answer \inputminted{dart}{../lab4.dart} \restoregeometry
+		\answer \inputminted{dart}{../lab4.dart} \newpage
 
-		\pdfpageheight=114.5em
-		\textheight=112em \vsize\textheight
 		\question{Develop Calculator Application.} \stepcounter{enumi}
-		\answer \inputminted{dart}{../lab5.dart} \restoregeometry
+		\answer \inputminted{dart}{../lab5.dart} \newpage
 
-		\pdfpageheight=113.5em
-		\textheight=111em \vsize\textheight
 		\question{Develop a ``Stopwatch" application using Flutter.}
-		\answer \inputminted{dart}{../lab7.dart} \restoregeometry
+		\answer \inputminted{dart}{../lab7.dart} \newpage
 
-		\pdfpageheight=297mm
 		\question{%
 			Develop an application that Navigate from one Screen to another
 			(Seamless navigation).
 		} \stepcounter{enumi}
-		\answer \inputminted{dart}{../lab8.dart} \restoregeometry
+		\answer \inputminted{dart}{../lab8.dart} \newpage
 
-		\pdfpageheight=95.5em
-		\textheight=93em \vsize\textheight
 		\question{Develop an application to implement Animates Logo.}
-		\answer \inputminted{dart}{../lab10.dart} \restoregeometry
+		\answer \inputminted{dart}{../mini/lab10.dart} \newpage
 
-		\pdfpageheight=100em
-		\textheight=95em \vsize\textheight
 		\question{%
 			Develop an application that tracks our daily Expenses and get a
 			report chart.
 		}
-		\answer \inputminted{dart}{../lab11.dart} \restoregeometry
+		\answer \inputminted{dart}{../lab11.dart} \newpage
+
+		\question{Develop an application to Play Quiz and get the Score Board.}
+		\answer \inputminted{dart}{../lab12.dart} \newpage
+
 		\vspace*{\fill}
 		\centering \emph{This page left blank intentionally}
 		\vspace*{\fill}

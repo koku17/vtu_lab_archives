@@ -63,11 +63,7 @@ dot_data = export_graphviz(
 
 # converting Dot to graph
 graph = pydotplus.graph_from_dot_data(dot_data)
-
 Image(graph.create_png())
-with open("dot_data_tree.svg", "w") as f:
-    f.write(graph.create_svg().decode("utf-8"))
-
 plt.figure(figsize=(12, 8))
 plot_tree(
     dt, filled=True, feature_names=X.columns, class_names=["survived", "unsurvived"]

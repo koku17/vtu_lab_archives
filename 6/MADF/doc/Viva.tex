@@ -1,0 +1,115 @@
+\documentclass{article}
+
+% packages
+\usepackage[margin=.5in]{geometry}
+\usepackage{xcolor}
+\usepackage{minted}
+\usepackage{enumitem}
+
+% ricing
+\def \darkmode{1}
+
+\if1\darkmode
+	\pagecolor{black}
+	\color{white}
+	\usemintedstyle{github-dark}
+\else
+	\usemintedstyle{perldoc}
+\fi
+
+% macro
+\def \answer{\item[$\rightarrow$]}
+
+\begin{document}
+	\begin{enumerate}
+		\item  What is Flutter ?
+		\answer Flutter is an open-source UI software development toolkit by Google for building cross-platform apps using a single codebase.
+		\\
+		\item  What language is used to write Flutter apps ?
+		\answer Dart programming language.
+		\\
+		\item  What is a widget in Flutter ?
+		\answer A widget is the basic building block of a Flutter app's user interface. Everything in Flutter is a widget.
+		\\
+		\item  Differentiate between StatelessWidget and StatefulWidget.
+		\answer StatelessWidget does not change during runtime; StatefulWidget can rebuild UI based on state changes.
+		\\
+		\item  What is hot reload in Flutter ?
+		\answer It allows developers to inject updated source code files into a running Dart VM without restarting the app.
+		\\
+		\item  What is the purpose of \mintinline{dart}{main()} in Flutter ?
+		\answer It is the entry point of a Flutter application.
+		\\
+		\item  What does \mintinline{dart}{runApp()} do ?
+		\answer It inflates the given widget and attaches it to the screen.
+		\\
+		\item  What is a MaterialApp ?
+		\answer A convenience widget that wraps several widgets commonly required for material design applications.
+		\\
+		\item  What is a Scaffold widget ?
+		\answer It provides a high-level structure for material design layout (\mintinline{dart}{AppBar}, \mintinline{dart}{Drawer}, \mintinline{dart}{FAB}, etc.).
+		\\
+		\item  How do you define routes in Flutter ?
+		\answer Using the routes parameter of MaterialApp with route names and corresponding widget builders.
+		\\
+		\item  What is the difference between \mintinline{dart}{Navigator.push()} and \mintinline{dart}{Navigator.pop()} ?
+		\answer \mintinline{dart}{push()} adds a new route to the stack; \mintinline{dart}{pop()} removes the current route.
+		\\
+		\item  What is BuildContext ?
+		\answer It is a handle to the location of a widget in the widget tree and provides access to theme, media queries, etc.
+		\\
+		\item  What is \mintinline{dart}{setState()} used for ?
+		\answer To notify the framework that the internal state of the widget has changed and needs to be rebuilt.
+		\\
+		\item  What is the role of \mintinline{dart}{initState()} in StatefulWidget ?
+		\answer It is called once when the stateful widget is inserted into the widget tree, used for initialization.
+		\\
+		\item  How does ListView differ from Column ?
+		\answer ListView is scrollable and lazily builds its children; Column is not scrollable by default.
+		\\
+		\item  What is Future in Dart ?
+		\answer A Future represents a potential value or error that will be available at some time in the future.
+		\\
+		\item  How do you handle asynchronous operations in Dart ?
+		\answer Using async, await, and Future APIs.
+		\\
+		\item  What are keys in Flutter ?
+		\answer Keys preserve the state of widgets when they move in the widget tree.
+		\\
+		\item  What is the pubspec.yaml file ?
+		\answer It is the project configuration file used for managing dependencies, assets, fonts, etc.
+		\\
+		\item  What are packages in Flutter ?
+		\answer Reusable libraries or modules that can be imported into a Flutter project.
+		\\
+		\item  What is the difference between final and const in Dart ?
+		\answer final is runtime constant; const is compile-time constant.
+		\\
+		\item  What is MediaQuery used for ?
+		\answer To get information about the screen size and orientation.
+		\\
+		\item  How can you make your UI responsive in Flutter ?
+		\answer Using MediaQuery, LayoutBuilder, and flexible widgets like Expanded and Flexible.
+		\\
+		\item  What is the use of Flexible and Expanded widgets ?
+		\answer They control how child widgets expand or contract in a Row or Column.
+		\\
+		\item  How to include images in Flutter ?
+		\answer By placing them in the assets folder and specifying them in pubspec.yaml.
+		\\
+		\item  What is the purpose of the Theme widget ?
+		\answer To define global styling (colors, fonts) for a Flutter app.
+		\\
+		\item  How do you validate forms in Flutter ?
+		\answer Using Form, TextFormField, and GlobalKey<FormState> with validator functions.
+		\\
+		\item  How do you manage state in Flutter ?
+		\answer Using setState, Provider, Riverpod, Bloc, GetX, etc.
+		\\
+		\item  What is the use of \mintinline{dart}{showDialog()} function ?
+		\answer To display alert dialogs, confirmation boxes, or custom popups.
+		\\
+		\item  What are some popular state management techniques in Flutter ?
+		\answer Provider, Bloc, Riverpod, MobX, GetX, and Redux.
+	\end{enumerate}
+\end{document}

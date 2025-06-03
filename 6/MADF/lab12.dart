@@ -9,7 +9,7 @@ class QuizApp extends StatefulWidget {
 }
 
 class _QuizAppState extends State<QuizApp> {
-  final questions = [
+  final qns = [
     {
       'q': 'Capital of India?',
       'o': ['Mumbai', 'Delhi', 'Kolkata', 'Chennai'],
@@ -29,16 +29,16 @@ class _QuizAppState extends State<QuizApp> {
 
   int i = 0, score = 0;
 
-  void answer(int selected) {
-    if (selected == questions[i]['a']) score++;
+  void answer(int sel) {
+    if (sel == qns[i]['a']) score++;
     setState(() => i++);
   }
 
-  void reset() => setState(() => {i = 0, score = 0});
+  void reset() => setState(() => i = score = 0);
 
   @override
-  Widget build(BuildContext context) {
-    if (i >= questions.length) {
+  Widget build(BuildContext ctx) {
+    if (i >= qns.length) {
       return Scaffold(
         appBar: AppBar(title: Text('Result')),
         body: Center(
@@ -46,7 +46,7 @@ class _QuizAppState extends State<QuizApp> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'Score: $score / ${questions.length}',
+                'Score: $score / ${qns.length}',
                 style: TextStyle(fontSize: 24),
               ),
               ElevatedButton(onPressed: reset, child: Text('Play Again')),
@@ -56,7 +56,7 @@ class _QuizAppState extends State<QuizApp> {
       );
     }
 
-    var q = questions[i];
+    var q = qns[i];
     return Scaffold(
       appBar: AppBar(title: Text('Quiz App')),
       body: Padding(
@@ -67,9 +67,9 @@ class _QuizAppState extends State<QuizApp> {
             Text('Q${i + 1}: ${q['q']}', style: TextStyle(fontSize: 20)),
             SizedBox(height: 20),
             ...(q['o'] as List<String>).asMap().entries.map(
-              (entry) => ElevatedButton(
-                onPressed: () => answer(entry.key),
-                child: Text(entry.value),
+              (e) => ElevatedButton(
+                onPressed: () => answer(e.key),
+                child: Text(e.value),
               ),
             ),
           ],
