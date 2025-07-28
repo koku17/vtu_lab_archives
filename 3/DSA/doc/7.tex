@@ -1,0 +1,33 @@
+\documentclass{article}
+%!TEX program=xelatex
+
+% packages
+\usepackage{calc}
+\usepackage[a4paper,margin=.5in,paperheight=30in+1em]{geometry}
+\usepackage{minted}
+\usepackage{enumitem}
+\usepackage{pagecolor}
+
+% presets
+\pagestyle{empty}
+\pagecolor{black}
+\usemintedstyle{one-dark}
+\color{white}
+
+% commands
+\newcommand{\answer}{\item [$\rightarrow$]}
+
+\begin{document}
+	\begin{itemize}
+		\item [7.] Design, Develop and Implement a menu driven Program in C for the following operations on SLL of Student Data with the fields : \\ USN, Name, Branch, Sem, PhNo.
+		\begin{enumerate}[label=\alph*.]
+			\item Create a SLL of N Students Data by using front insertion.
+			\item Display the status of SLL and count the number of nodes in it
+			\item Perform Insertion and Deletion at End of SLL
+			\item Perform Insertion and Deletion at Front of SLL
+			\item Demonstrate how this SLL can be used as STACK and QUEUE
+			\item Exit
+		\end{enumerate}
+		\answer \inputminted{c}{../Program7.c}
+	\end{itemize}
+\end{document}

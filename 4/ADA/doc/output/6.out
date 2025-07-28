@@ -1,0 +1,13 @@
+Enter the number of objects : 6
+
+Enter the weights and profits of each object :
+1 8
+4 3
+3 9
+2 7
+5 9
+3 14
+
+Enter the capacity of Knapsack : 20
+
+The maximum profit is 42

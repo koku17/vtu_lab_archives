@@ -1,0 +1,88 @@
+             CRIM          ZN       INDUS  ...           B       LSTAT        MEDV
+count  486.000000  486.000000  486.000000  ...  506.000000  486.000000  506.000000
+mean     3.611874   11.211934   11.083992  ...  356.674032   12.715432   22.532806
+std      8.720192   23.388876    6.835896  ...   91.294864    7.155871    9.197104
+min      0.006320    0.000000    0.460000  ...    0.320000    1.730000    5.000000
+25%      0.081900    0.000000    5.190000  ...  375.377500    7.125000   17.025000
+50%      0.253715    0.000000    9.690000  ...  391.440000   11.430000   21.200000
+75%      3.560263   12.500000   18.100000  ...  396.225000   16.955000   25.000000
+max     88.976200  100.000000   27.740000  ...  396.900000   37.970000   50.000000
+
+[8 rows x 14 columns]
+0      0.0
+1      0.0
+2      0.0
+3      0.0
+4      0.0
+      ... 
+501    0.0
+502    0.0
+503    0.0
+504    0.0
+505    0.0
+
+Name: CHAS, Length: 506, dtype: float64
+0
+
+Mean Squared Error : 24.94407117217557
+Root Mean Squared Error : 4.99440398567993
+R-squared : 0.659855661371749
+
+    mpg  cylinders  displacement  ...  model_year  origin                       name
+0  18.0          8         307.0  ...          70     usa  chevrolet chevelle malibu
+1  15.0          8         350.0  ...          70     usa          buick skylark 320
+2  18.0          8         318.0  ...          70     usa         plymouth satellite
+3  16.0          8         304.0  ...          70     usa              amc rebel sst
+4  17.0          8         302.0  ...          70     usa                ford torino
+
+[5 rows x 9 columns]
+(398, 9)
+mpg             129
+cylinders         5
+displacement     82
+horsepower       93
+weight          351
+acceleration     95
+model_year       13
+origin            3
+name            305
+dtype: int64
+
+[130. 165. 150. 140. 198. 220. 215. 225. 190. 170. 160.  95.  97.  85.
+  88.  46.  87.  90. 113. 200. 210. 193.  nan 100. 105. 175. 153. 180.
+ 110.  72.  86.  70.  76.  65.  69.  60.  80.  54. 208. 155. 112.  92.
+ 145. 137. 158. 167.  94. 107. 230.  49.  75.  91. 122.  67.  83.  78.
+  52.  61.  93. 148. 129.  96.  71.  98. 115.  53.  81.  79. 120. 152.
+ 102. 108.  68.  58. 149.  89.  63.  48.  66. 139. 103. 125. 133. 138.
+ 135. 142.  77.  62. 132.  84.  64.  74. 116.  82.]
+
+mpg             0
+cylinders       0
+displacement    0
+horsepower      6
+weight          0
+acceleration    0
+model_year      0
+origin          0
+name            0
+dtype: int64
+
+0
+              count         mean         std  ...     50%       75%     max
+mpg           398.0    23.514573    7.815984  ...    23.0    29.000    46.6
+cylinders     398.0     5.454774    1.701004  ...     4.0     8.000     8.0
+displacement  398.0   193.425879  104.269838  ...   148.5   262.000   455.0
+horsepower    398.0   104.304020   38.222625  ...    93.5   125.000   230.0
+weight        398.0  2970.424623  846.841774  ...  2803.5  3608.000  5140.0
+acceleration  398.0    15.568090    2.757689  ...    15.5    17.175    24.8
+model_year    398.0    76.010050    3.697627  ...    76.0    79.000    82.0
+
+[7 rows x 8 columns]
+Index(['mpg', 'cylinders', 'displacement', 'horsepower', 'weight',
+       'acceleration', 'model_year'],
+      dtype='object')
+Index(['origin', 'name'], dtype='object')
+
+Mean Squared Error (MSE) : 13.94
+Root Mean Squared Error (RMSE) : 3.73
+R-squared (R$^2$) : 0.74

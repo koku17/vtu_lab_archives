@@ -1,0 +1,77 @@
+Unigram Probabilities :   |  Trigram Probabilities :
+    Unigram  Probability  |                    Trigram  Probability
+     (the,)     0.090909  |        (the, quick, brown)          1.0
+   (quick,)     0.022727  |        (quick, brown, fox)          1.0
+   (brown,)     0.022727  |        (brown, fox, jumps)          1.0
+     (fox,)     0.022727  |         (fox, jumps, over)          1.0
+   (jumps,)     0.022727  |         (jumps, over, the)          1.0
+    (over,)     0.022727  |          (over, the, lazy)          1.0
+    (lazy,)     0.022727  |           (the, lazy, dog)          1.0
+     (dog,)     0.022727  |           (a, journey, of)          1.0
+       (a,)     0.090909  |           (journey, of, a)          1.0
+ (journey,)     0.022727  |          (of, a, thousand)          1.0
+      (of,)     0.022727  |       (a, thousand, miles)          1.0
+(thousand,)     0.022727  |  (thousand, miles, begins)          1.0
+   (miles,)     0.022727  |      (miles, begins, with)          1.0
+  (begins,)     0.022727  |          (begins, with, a)          1.0
+    (with,)     0.022727  |          (with, a, single)          1.0
+  (single,)     0.022727  |          (a, single, step)          1.0
+    (step,)     0.022727  |               (to, be, or)          0.5
+      (to,)     0.045455  |              (be, or, not)          1.0
+      (be,)     0.045455  |              (or, not, to)          1.0
+      (or,)     0.022727  |              (not, to, be)          1.0
+     (not,)     0.045455  |             (to, be, that)          0.5
+    (that,)     0.045455  |             (be, that, is)          1.0
+      (is,)     0.045455  |            (that, is, the)          1.0
+(question,)     0.022727  |        (is, the, question)          1.0
+     (all,)     0.022727  |      (all, that, glitters)          1.0
+(glitters,)     0.022727  |       (that, glitters, is)          1.0
+    (gold,)     0.022727  |        (glitters, is, not)          1.0
+      (an,)     0.022727  |            (is, not, gold)          1.0
+   (apple,)     0.022727  |             (an, apple, a)          1.0
+     (day,)     0.022727  |            (apple, a, day)          1.0
+   (keeps,)     0.022727  |            (a, day, keeps)          1.0
+  (doctor,)     0.022727  |          (day, keeps, the)          1.0
+    (away,)     0.022727  |       (keeps, the, doctor)          1.0
+                          |        (the, doctor, away)          1.0
+
+Bigram Probabilities :
+           Bigram  Probability
+     (the, quick)         0.25
+   (quick, brown)         1.00
+     (brown, fox)         1.00
+     (fox, jumps)         1.00
+    (jumps, over)         1.00
+      (over, the)         1.00
+      (the, lazy)         0.25
+      (lazy, dog)         1.00
+     (a, journey)         0.25
+    (journey, of)         1.00
+          (of, a)         1.00
+    (a, thousand)         0.25
+(thousand, miles)         1.00
+  (miles, begins)         1.00
+   (begins, with)         1.00
+        (with, a)         1.00
+      (a, single)         0.25
+   (single, step)         1.00
+         (to, be)         1.00
+         (be, or)         0.50
+        (or, not)         1.00
+        (not, to)         0.50
+       (be, that)         0.50
+       (that, is)         0.50
+        (is, the)         0.50
+  (the, question)         0.25
+      (all, that)         1.00
+ (that, glitters)         0.50
+   (glitters, is)         1.00
+        (is, not)         0.50
+      (not, gold)         0.50
+      (an, apple)         1.00
+       (apple, a)         1.00
+         (a, day)         0.25
+     (day, keeps)         1.00
+     (keeps, the)         1.00
+    (the, doctor)         0.25
+   (doctor, away)         1.00

@@ -1,0 +1,22 @@
+\documentclass{article}
+
+% packages
+\usepackage[a4paper,margin=.25in]{geometry}
+\usepackage{svg}
+\usepackage{graphicx}
+\usepackage{lscape}
+\usepackage{minted}
+
+% details
+\title{Lab Outputs}
+\author{koku17}
+
+\begin{document}
+	\pagenumbering{gobble}
+	\includesvg[scale=.50]{3d-visual.svg} \hspace{-7em}
+	\includesvg[scale=.50]{eigen_vector.svg} \\
+	\includesvg[scale=.50]{pca.svg}
+	\includegraphics[scale=.5, angle=90]{../../../../../../Documents/Lab/3/6/flutter/to-do.png}
+	\newpage
+	\inputminted{text}{Lab3.out}
+\end{document}

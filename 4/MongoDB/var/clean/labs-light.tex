@@ -1,0 +1,149 @@
+\documentclass{article}
+
+%!TEX program=xelatex
+
+% programs
+\usepackage[margin=.5in]{geometry}
+\usepackage{xcolor}
+\usepackage{minted}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{caption}
+
+% detailes
+\title{MongoDB Lab Programs}
+\author{koku17}
+\date{\today}
+
+% presets
+\usemintedstyle{perldoc}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=black
+}
+\pagecolor{white}
+\color{black}
+
+% macros
+\newcommand{\epsection}[1]{
+	\item [] \begin{center}
+		\phantomsection \section*{Experiment #1}
+	\end{center}
+	\addcontentsline{toc}{section}{Experiment #1}
+}
+\newcommand{\question}[3]{
+	\item [#1.] #2
+	\addcontentsline{toc}{subsection}{
+		#3
+	}
+}
+\newcommand{\answer}{
+	\item [$\rightarrow$]
+}
+
+\begin{document}
+	\tableofcontents \thispagestyle{empty} \newpage
+	\begin{enumerate}[label=\arabic*. ,start=4]
+		\epsection{1}
+		\question{1a}{Illustration of Where Clause, AND, OR operations in MongoDB}{
+			Where Clause, AND, OR operations in MongoDB
+		}
+		\answer \inputminted[escapeinside=||]{js}{lab1.a.js} \newpage
+
+		\question{1b}{
+			Execute the Commands of MongoDB and operations in MongoDB : \\
+			Insert, Query, Update, Delete and Projection.
+		}{Insert, Query, Update, Delete and Projection Operations}
+		\answer \inputminted{js}{lab1.b.js} \newpage
+
+		\epsection{2}
+		\question{2a}{
+			Develop a MongoDB query to select certain fields and ignore some fields of the documents
+			from any collection.
+		}{MongoDB query to select certain fields and ignore some fields}
+		\answer \inputminted{js}{lab2.a.js} \newpage
+
+		\question{2b}{
+			Develop a MongoDB query to display the first 5 documents from the results obtained in
+			\textbf{a.}
+		}{MongoDB query to display the first 5 documents}
+		\answer \inputminted{js}{lab2.b.js} \newpage
+
+		\epsection{3}
+		\question{3a}{
+			Execute query selectors (comparison selectors, logical selectors) and list out the results on
+			any collection
+		}{Execute comparison selectors, logical selectors}
+		\answer \inputminted{js}{lab3.a.js} \newpage
+
+		\question{3b}{
+			Execute query selectors (Geospatial selectors, Bitwise selectors) and list out the results
+			on any collection
+		}{Execute Geospatial selectors, Bitwise selectors}
+		\answer \inputminted{js}{lab3.b.js} \newpage
+
+		\epsection{4}
+		\question{4}{
+			Create and demonstrate how projection operators (\texttt{\$,\$elemMatch} and \texttt{\$slice})
+			would be used in the MondoDB.
+		}{projection operators \texttt{\$,\$elemMatch} and \texttt{\$slice}}
+		\answer \inputminted{js}{lab4.js} \newpage
+
+		\epsection{5}
+		\question{5}{
+			Execute Aggregation operations (\texttt{\$avg,\$min,\$max,\$push,\$addToSet} etc).
+			students encourage to execute several queries to demonstrate various aggregation operators
+		}{Aggregation operations \\ \texttt{\$avg,\$min,\$max,\$push,\$addToSet}}
+		\answer \inputminted{js}{lab5.js} \newpage
+
+		\epsection{6}
+		\question{6}{
+			Execute Aggregation Pipeline and its operations (pipeline must contain
+			\texttt{\$match,\$group,\$sort,\$project,\$skip} etc.)
+			students encourage to execute several queries to demonstrate various aggregation operators
+		}{Aggregation Pipeline and its operations \\ \texttt{\$match,\$group,\$sort,\$project,\$skip}}
+		\answer \inputminted{js}{lab6.js}
+
+		\epsection{7}
+		\question{7a}{Find all listings with \texttt{listing\_url,name,address,host\_picture\_url}}{
+			Find all listings with \texttt{listing\_url,name,address,host\_picture\_url}
+		}
+		\answer \inputminted{js}{lab7.a.js} \newpage
+		\question{7b}{Using E-commerce collection write a query to display reviews summary}{
+			Write a query to display reviews summary
+		}
+		\answer \inputminted{js}{lab7.b.js} \newpage
+
+		\epsection{8}
+		\question{8a}{Demonstrate creation of different types of indexes on collection}{
+			Demonstrate creation of different types of indexes on collection
+		}
+		\answer \inputminted{js}{lab8.a.js} \newpage
+		\question{8a}{Demonstrate optimization of queries using indexes}{
+			Demonstrate optimization of queries using indexes
+		}
+		\answer \inputminted{js}{lab8.b.js} \newpage
+
+		\epsection{9}
+		\question{9a}{
+			Develop a query to demonstrate Text search using catalog data collection for a given word
+		}{
+			Demonstrate text search using catalog data collection for a given word
+		}
+		\answer \inputminted{js}{lab9.a.js} \newpage
+		\question{9a}{
+			Develop a query to demonstrate Text search using catalog data collection for a given word
+		}{
+			Demonstrate text search using collection for a given word
+		}
+		\answer \inputminted{js}{lab9.b.js} \newpage
+
+		\epsection{10}
+		\question{10}{
+			Develop an aggregation pipeline to illustrate Text search on Catalog data collection
+		}{
+			Aggregation pipeline to illustrate text search using collection for a given word
+		}
+		\answer \inputminted{js}{lab10.js}
+	\end{enumerate}
+\end{document}

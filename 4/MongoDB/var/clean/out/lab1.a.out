@@ -1,0 +1,212 @@
+test> use ProgBooksDB
+switched to db ProgBooksDB
+
+ProgBooksDB> db.createCollection("ProgrammingBooks")
+{ ok: 1 }
+
+ProgBooksDB> db.ProgrammingBooks.insertMany([
+...     {
+...             title : "Clean Code",
+...             author : "Robert C. Martin",
+...             category : "Software Development",
+...             year : 2008
+...     },{
+...             title : "JavaScript : The Good Parts",
+...             author : "Douglas Crockford",
+...             category : "JavaScript",
+...             year : 2008
+...     },{
+...             title : "Design Patterns",
+...             author : "Erich Gamma",
+...             category : "Software Design",
+...             year : 1994
+...     },{
+...             title : "Introduction to Algorithms",
+...             author : "Thomas H. Cormen",
+...             category : "Algorithms",
+...             year : 2009
+...     },{
+...             title : "Python Crash Course",
+...             author : "Eric Matthes",
+...             category : "Python",
+...             year : 2015
+...     }
+... ]);
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('66afb1455cec8b6418838726'),
+    '1': ObjectId('66afb1455cec8b6418838727'),
+    '2': ObjectId('66afb1455cec8b6418838728'),
+    '3': ObjectId('66afb1455cec8b6418838729'),
+    '4': ObjectId('66afb1455cec8b641883872a')
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+ProgBooksDB> // WHERE clause equivalent
+
+ProgBooksDB> db.ProgrammingBooks.find({
+...     year : 2008
+... }).pretty()
+[
+  {
+    _id: ObjectId('66afb1455cec8b6418838726'),
+    title: 'Clean Code',
+    author: 'Robert C. Martin',
+    category: 'Software Development',
+    year: 2008
+  },
+  {
+    _id: ObjectId('66afb1455cec8b6418838727'),
+    title: 'JavaScript : The Good Parts',
+    author: 'Douglas Crockford',
+    category: 'JavaScript',
+    year: 2008
+  }
+]
+
+ProgBooksDB> // Using the $and Operator
+
+ProgBooksDB> db.ProgrammingBooks.find({
+...     $and: [
+...             {
+...                     category : "Software Development"
+...             },{
+...                     year : 2008
+...             }
+...     ]
+... }).pretty()
+[
+  {
+    _id: ObjectId('66afb1455cec8b6418838726'),
+    title: 'Clean Code',
+    author: 'Robert C. Martin',
+    category: 'Software Development',
+    year: 2008
+  }
+]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ProgBooksDB> // Using the $or Operator
+
+ProgBooksDB> db.ProgrammingBooks.find({
+...     $or: [
+...             {
+...                     category : "JavaScript"
+...             },{
+...                     year : 2015
+...             }
+...     ]
+... }).pretty()
+[
+  {
+    _id: ObjectId('66afb1455cec8b6418838727'),
+    title: 'JavaScript : The Good Parts',
+    author: 'Douglas Crockford',
+    category: 'JavaScript',
+    year: 2008
+  },
+  {
+    _id: ObjectId('66afb1455cec8b641883872a'),
+    title: 'Python Crash Course',
+    author: 'Eric Matthes',
+    category: 'Python',
+    year: 2015
+  }
+]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ProgBooksDB> // Combining $and and $or Operators
+
+ProgBooksDB> db.ProgrammingBooks.find({
+...     $or: [
+...             {
+...                     $and: [
+...                             {
+...                                     category : "Software Development"
+...                             },{
+...                                     year : { $gt: 2007 }
+...                             }
+...                     ]
+...             },{
+...                     category : "Python"
+...             }
+...     ]
+... }).pretty()
+[
+  {
+    _id: ObjectId('66afb1455cec8b6418838726'),
+    title: 'Clean Code',
+    author: 'Robert C. Martin',
+    category: 'Software Development',
+    year: 2008
+  },
+  {
+    _id: ObjectId('66afb1455cec8b641883872a'),
+    title: 'Python Crash Course',
+    author: 'Eric Matthes',
+    category: 'Python',
+    year: 2015
+  }
+]
+
+ProgBooksDB> db.dropDatabase()
+{ ok: 1, dropped: 'ProgBooksDB' }

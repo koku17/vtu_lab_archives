@@ -1,0 +1,34 @@
+\documentclass{article}
+%!TEX program=xelatex
+
+% packages
+\usepackage[a4paper,margin=.5in,paperheight=20in]{geometry}
+\usepackage{minted}
+\usepackage{enumitem}
+\usepackage{pagecolor}
+
+% presets
+\pagestyle{empty}
+\pagecolor{black}
+\usemintedstyle{one-dark}
+\color{white}
+
+% commands
+\newcommand{\answer}{\item [$\rightarrow$]}
+
+\begin{document}
+	\begin{enumerate}
+		\item [3.] Develop a menu driven Program in C for the following operations on STACK of Integers \\
+		(Array Implementation of Stack with maximum size MAX)
+		\begin{enumerate}[label=\alph*.]
+			\item Push an Element on to Stack
+			\item Pop an Element from Stack
+			\item Demonstrate how Stack can be used to check Palindrome
+			\item Demonstrate Overflow and Underflow situations on Stack
+			\item Display the status of Stack
+			\item Exit
+		\end{enumerate}
+		Support the program with appropriate functions for each of the above operations.
+		\answer \inputminted{c}{../Program3.c}
+	\end{enumerate}
+\end{document}

@@ -1,0 +1,29 @@
+\documentclass{article}
+
+\usepackage[margin=.5in]{geometry}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{svg}
+\usepackage{minted}
+\usepackage{lscape}
+\usepackage{rotating}
+
+\begin{document}
+	\begin{center}
+		\includesvg[scale=.7]{feature_distribution.svg}
+		\includesvg[scale=.7]{outliers.svg}
+		\includesvg[scale=.8]{scatter_plot.svg}
+		\includesvg[scale=.8]{heatmap.svg} \newpage
+		\includesvg[scale=.45]{kde.svg}
+		\inputminted{text}{output}
+		\begin{tabular}{cc}
+		\includegraphics[scale=.5]{%
+			../../../../../../Documents/Lab/3/6/flutter/login_failure.png
+		} & ~~~
+		\includegraphics[scale=.5]{%
+			../../../../../../Documents/Lab/3/6/flutter/login_success.png
+		} \\
+		Login Sucessfull & Invalid credentials
+		\end{tabular}
+	\end{center}
+\end{document}

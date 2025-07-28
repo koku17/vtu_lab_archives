@@ -1,0 +1,26 @@
+\documentclass{article}
+%!TEX program=xelatex
+
+% packages
+\usepackage[a4paper,margin=.5in,paperheight=12in]{geometry}
+\usepackage{minted}
+\usepackage{enumitem}
+\usepackage{pagecolor}
+
+% presets
+\pagestyle{empty}
+\pagecolor{black}
+\usemintedstyle{one-dark}
+\color{white}
+
+% commands
+\newcommand{\answer}{\item [$\rightarrow$]}
+
+\begin{document}
+	\begin{enumerate}
+		\item [4.] Develop a Program in C for converting an Infix Expression to Postfix Expression \\
+		Program should support for both parenthesized and free parenthesized expressions with the operators : \\
+		\verb|+ - * / % ^| and alphanumeric operands
+		\answer \inputminted{c}{../Program4.c}
+	\end{enumerate}
+\end{document}

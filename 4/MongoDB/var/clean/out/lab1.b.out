@@ -1,0 +1,231 @@
+test> use ProgBooksDB
+switched to db ProgBooksDB
+
+ProgBooksDB> db.createCollection("ProgrammingBooks")
+{ ok: 1 }
+
+ProgBooksDB> // insert a new document into the ProgrammingBooks collection :
+
+ProgBooksDB> db.ProgrammingBooks.insertOne({
+...     title : "The Pragmatic Programmer : Your Journey to Mastery",
+...     author : "David Thomas,Andrew Hunt",
+...     category : "Software Development",
+...     year : 1999
+... })
+{
+  acknowledged: true,
+  insertedId: ObjectId('66afb1d92313f4a479838726')
+}
+
+ProgBooksDB> db.ProgrammingBooks.insertMany([
+...     {
+...             title : "Clean Code : A Handbook of Agile Software Craftsmanship",
+...             author : "Robert C. Martin",
+...             category : "Software Development",
+...             year : 2008
+...     },{
+...             title : "JavaScript : The Good Parts",
+...             author : "Douglas Crockford",
+...             category : "JavaScript",
+...             year : 2008
+...     },{
+...             title : "Design Patterns : Elements of Reusable Object-Oriented Software",
+...             author : "Erich Gamma,Richard Helm,Ralph Johnson,John Vlissides",
+...             category : "Software Design",
+...             year : 1994
+...     },{
+...             title : "Introduction to Algorithms",
+...             author : "Thomas H. Cormen,Charles E. Leiserson,Ronald L. Rivest,Clifford Stein",
+...             category : "Algorithms",
+...             year : 1990
+... 
+...     },{
+...             title : "Python Crash Course : A Hands-On,Project-Based Introduction to Programming",
+...             author : "Eric Matthes",
+...             category : "Python",
+...             year : 2015
+... 
+...     }
+... ])
+
+
+
+
+
+
+
+
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('66afb1d92313f4a479838727'),
+    '1': ObjectId('66afb1d92313f4a479838728'),
+    '2': ObjectId('66afb1d92313f4a479838729'),
+    '3': ObjectId('66afb1d92313f4a47983872a'),
+    '4': ObjectId('66afb1d92313f4a47983872b')
+  }
+}
+
+ProgBooksDB> // Find All Documents
+
+ProgBooksDB> db.ProgrammingBooks.find().pretty()
+[
+  {
+    _id: ObjectId('66afb1d92313f4a479838726'),
+    title: 'The Pragmatic Programmer : Your Journey to Mastery',
+    author: 'David Thomas,Andrew Hunt',
+    category: 'Software Development',
+    year: 1999
+  },
+  {
+    _id: ObjectId('66afb1d92313f4a479838727'),
+    title: 'Clean Code : A Handbook of Agile Software Craftsmanship',
+    author: 'Robert C. Martin',
+    category: 'Software Development',
+    year: 2008
+  },
+  {
+    _id: ObjectId('66afb1d92313f4a479838728'),
+    title: 'JavaScript : The Good Parts',
+    author: 'Douglas Crockford',
+    category: 'JavaScript',
+    year: 2008
+  },
+  {
+    _id: ObjectId('66afb1d92313f4a479838729'),
+    title: 'Design Patterns : Elements of Reusable Object-Oriented Software',
+    author: 'Erich Gamma,Richard Helm,Ralph Johnson,John Vlissides',
+    category: 'Software Design',
+    year: 1994
+  },
+  {
+    _id: ObjectId('66afb1d92313f4a47983872a'),
+    title: 'Introduction to Algorithms',
+    author: 'Thomas H. Cormen,Charles E. Leiserson,Ronald L. Rivest,Clifford Stein',
+    category: 'Algorithms',
+    year: 1990
+  },
+  {
+    _id: ObjectId('66afb1d92313f4a47983872b'),
+    title: 'Python Crash Course : A Hands-On,Project-Based Introduction to Programming',
+    author: 'Eric Matthes',
+    category: 'Python',
+    year: 2015
+  }
+]
+
+
+ProgBooksDB> // Find Documents Matching a Condition
+
+ProgBooksDB> db.ProgrammingBooks.find({
+...     year : { $gt: 2000 }
+... }).pretty()
+[
+  {
+    _id: ObjectId('66afb1d92313f4a479838727'),
+    title: 'Clean Code : A Handbook of Agile Software Craftsmanship',
+    author: 'Robert C. Martin',
+    category: 'Software Development',
+    year: 2008
+  },
+  {
+    _id: ObjectId('66afb1d92313f4a479838728'),
+    title: 'JavaScript : The Good Parts',
+    author: 'Douglas Crockford',
+    category: 'JavaScript',
+    year: 2008
+  },
+  {
+    _id: ObjectId('66afb1d92313f4a47983872b'),
+    title: 'Python Crash Course : A Hands-On,Project-Based Introduction to Programming',
+    author: 'Eric Matthes',
+    category: 'Python',
+    year: 2015
+  }
+]
+
+ProgBooksDB> // Update a Single Document
+
+ProgBooksDB> db.ProgrammingBooks.updateOne(
+...     {
+...             title : "Clean Code : A Handbook of Agile Software Craftsmanship"
+...     },{
+...             $set: { author : "Robert C. Martin (Uncle Bob)" }
+... })
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+ProgBooksDB> // Verify by displaying books published in year 2008
+
+ProgBooksDB> db.ProgrammingBooks.find({
+...     year : { $eq: 2008 }
+... }).pretty()
+[
+  {
+    _id: ObjectId('66afb1d92313f4a479838727'),
+    title: 'Clean Code : A Handbook of Agile Software Craftsmanship',
+    author: 'Robert C. Martin (Uncle Bob)',
+    category: 'Software Development',
+    year: 2008
+  },
+
+
+  {
+    _id: ObjectId('66afb1d92313f4a479838728'),
+    title: 'JavaScript : The Good Parts',
+    author: 'Douglas Crockford',
+    category: 'JavaScript',
+    year: 2008
+  }
+]
+
+ProgBooksDB> // Another way to verify
+
+ProgBooksDB> db.ProgrammingBooks.find({
+...     author : { $regex: "Robert*" }
+... }).pretty()
+[
+  {
+    _id: ObjectId('66afb1d92313f4a479838727'),
+    title: 'Clean Code : A Handbook of Agile Software Craftsmanship',
+    author: 'Robert C. Martin (Uncle Bob)',
+    category: 'Software Development',
+    year: 2008
+  }
+]
+
+ProgBooksDB> // Update Multiple Documents
+
+ProgBooksDB> db.ProgrammingBooks.updateMany({
+...     year : { $lt: 2010 }
+... },{
+...     $set: { category : "Classic Programming Books" }
+... })
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 5,
+  modifiedCount: 5,
+  upsertedCount: 0
+}
+
+ProgBooksDB> // Delete a Single Document
+
+ProgBooksDB> db.ProgrammingBooks.deleteOne({
+...     title : "JavaScript : The Good Parts"
+... })
+{ acknowledged: true, deletedCount: 1 }
+
+ProgBooksDB> // Verify to see document is deleted
+
+ProgBooksDB> db.ProgrammingBooks.find({
+...     title : "JavaScript : The Good Parts"
+... }).pretty()
+
+ProgBooksDB> db.dropDatabase()
+{ ok: 1, dropped: 'ProgBooksDB' }

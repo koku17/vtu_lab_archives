@@ -1,0 +1,37 @@
+\documentclass{article}
+
+\usepackage[margin=0em,left=2em,right=2em]{geometry}
+\usepackage{minted}
+\usepackage{svg}
+\usepackage{lscape}
+\usepackage{graphicx}
+\usepackage{float}
+
+\begin{document}
+	\begin{table}[H]
+		\begin{tabular}{cccc}
+			\includesvg[scale=.22]{histogram_AGE.svg}     & \includesvg[scale=.22]{box_plot_AGE.svg}   & \includesvg[scale=.22]{histogram_MEDV.svg}    & \includesvg[scale=.22]{box_plot_MEDV.svg} \\
+			\includesvg[scale=.22]{histogram_B.svg}       & \includesvg[scale=.22]{box_plot_B.svg}     & \includesvg[scale=.22]{histogram_NOX.svg}     & \includesvg[scale=.22]{box_plot_NOX.svg} \\
+			\includesvg[scale=.22]{histogram_CHAS.svg}    & \includesvg[scale=.22]{box_plot_CHAS.svg}  & \includesvg[scale=.22]{histogram_PTRATIO.svg} & \includesvg[scale=.22]{box_plot_PTRATIO.svg} \\
+			\includesvg[scale=.22]{histogram_CRIM.svg}    & \includesvg[scale=.22]{box_plot_CRIM.svg}  & \includesvg[scale=.22]{histogram_RAD.svg}     & \includesvg[scale=.22]{box_plot_RAD.svg} \\
+			\includesvg[scale=.22]{histogram_DIS.svg}     & \includesvg[scale=.22]{box_plot_DIS.svg}   & \includesvg[scale=.22]{histogram_RM.svg}      & \includesvg[scale=.22]{box_plot_RM.svg} \\
+			\includesvg[scale=.22]{histogram_INDUS.svg}   & \includesvg[scale=.22]{box_plot_INDUS.svg} & \includesvg[scale=.22]{histogram_TAX.svg}     & \includesvg[scale=.22]{box_plot_TAX.svg} \\
+			\includesvg[scale=.22]{histogram_LSTAT.svg}   & \includesvg[scale=.22]{box_plot_LSTAT.svg} & \includesvg[scale=.22]{histogram_ZN.svg}      & \includesvg[scale=.22]{box_plot_ZN.svg} \\
+			
+			\includesvg[scale=.18]{histogram2_acceleration.svg} & \includesvg[scale=.18]{boxplot2_acceleration.svg} & \includesvg[scale=.18]{histogram2_model_year.svg}   & \includesvg[scale=.18]{boxplot2_model_year.svg} \\
+			\includesvg[scale=.18]{histogram2_cylinders.svg}    & \includesvg[scale=.18]{boxplot2_cylinders.svg}    & \includesvg[scale=.18]{histogram2_mpg.svg}          & \includesvg[scale=.18]{boxplot2_mpg.svg} \\
+			\includesvg[scale=.18]{histogram2_displacement.svg} & \includesvg[scale=.18]{boxplot2_displacement.svg} & \includesvg[scale=.18]{histogram2_weight.svg}       & \includesvg[scale=.18]{boxplot2_weight.svg} \\
+			\includesvg[scale=.18]{histogram2_horsepower.svg}   & \includesvg[scale=.18]{boxplot2_horsepower.svg} \\
+		\end{tabular}
+	\end{table}
+
+	\begin{figure}[H]
+		\centering
+		\includesvg[scale=.35]{corr_matrix_heatmap2.svg}
+		\includesvg[scale=.35]{corr_matrix_heatmap.svg} \\
+		\includesvg[scale=.4]{countplot_name.svg}
+		\includesvg[scale=.4]{countplot_origin.svg}
+		\includesvg[scale=.4]{polynomial_regression.svg} \\ ~ \\ ~ \\
+		\includegraphics[scale=.35]{~/Documents/Flutter Lab 9.png}
+	\end{figure}
+\end{document}

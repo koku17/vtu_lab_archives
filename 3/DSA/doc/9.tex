@@ -1,0 +1,32 @@
+\documentclass{article}
+%!TEX program=xelatex
+
+% packages
+\usepackage{calc}
+\usepackage[a4paper,margin=.5in,paperheight=\paperheight+22.5in]{geometry}
+\usepackage{minted}
+\usepackage{enumitem}
+\usepackage{pagecolor}
+
+% presets
+\pagestyle{empty}
+\pagecolor{black}
+\usemintedstyle{one-dark}
+\color{white}
+
+% commands
+\newcommand{\answer}{\item [$\rightarrow$]}
+
+\begin{document}
+	\begin{itemize}
+		\item [9.] Develop a Program in C for the following operationson Singly Circular Linked List (SCLL) with header nodes
+
+		\begin{enumerate}[label=\alph*.]
+			\item Represent and Evaluate a Polynomial P$(x,y,z)=6x^2y^2z-4yz^2+3x^2yz+2xy^2z-2xyz^3$
+			\item Find the sum of two polynomials POLY1$(x,y,z)$ and POLY2$(x,y,z)$ and store the result in POLYSUM$(x,y,z)$
+		\end{enumerate}
+		Support the program with appropriate functions for each of the above operations
+
+		\answer \inputminted{c}{../Program9.c}
+	\end{itemize}
+\end{document}

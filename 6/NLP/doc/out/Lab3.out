@@ -1,0 +1,6 @@
+  string1   string2  Min Edit distance
+    hello      helo                  1
+    hello     heloo                  1
+    hello     hallo                  1
+    hello     world                  4
+intention execution                  5
