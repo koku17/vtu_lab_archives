@@ -1,0 +1,7 @@
+Learned rules :
+Rule1 :
+IF Humidity = Normal AND Wind = Weak THEN Play = Yes
+Rule2 :
+IF Outlook = Overcast THEN Play = Yes
+Rule3 :
+IF Outlook = Rain AND Temperature = Mild THEN Play = Yes

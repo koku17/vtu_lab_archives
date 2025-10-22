@@ -1,0 +1,31 @@
+\documentclass{article}
+
+\usepackage{graphicx}
+\usepackage{fontspec}
+\usepackage{float}
+\usepackage{svg}
+\usepackage[a4paper,margin=.25in]{geometry}
+\usepackage{minted}
+
+\setmonofont{FantasqueSansM Nerd Font}
+
+\begin{document}
+	\begin{tabular}{ll}
+		\begin{minipage}{.5\textwidth}
+			\inputminted[fontsize=\scriptsize]{text}{Lab4.out}
+		\end{minipage} &
+		\begin{tabular}{l}
+			\includegraphics[scale=.6,angle=90]{Lab4.png}
+		\end{tabular}
+	\end{tabular}
+
+	%\begin{tabular}{ll}
+	%\begin{minipage}{.485\textwidth}
+	%	\inputminted[fontsize=\scriptsize]{text}{Lab4.out}
+	%\end{minipage} &
+	%\begin{minipage}{.4\textwidth}
+	%	\inputminted[fontsize=\scriptsize]{text}{Lab4.out}
+	%\end{minipage}
+	%\end{tabular}
+
+\end{document}

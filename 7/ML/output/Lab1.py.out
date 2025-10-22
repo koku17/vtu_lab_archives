@@ -1,0 +1,37 @@
+Most Specific Hypothesis :  ['?' 'Warm' '?' 'Strong' '?' '?']
+
+Initialization : 
+S0 :  ['Sunny', 'Warm', 'Normal', 'Strong'] 
+G0 :  [['?', '?', '?', '?']]
+
+After instance 3, (['Rainy', 'Cold', 'High', 'Strong'], No): 
+S :  ['Sunny', 'Warm', '?', 'Strong'] 
+G :
+['Sunny', '?', '?', '?']
+['?', 'Warm', '?', '?']
+['?', '?', '?', '?']
+
+After instance 5, (['Cloudy', 'Warm', 'High', 'Weak'], No): 
+S :  ['Sunny', 'Warm', '?', '?'] 
+G :
+['Sunny', '?', '?', '?']
+['Sunny', '?', '?', '?']
+['Sunny', '?', '?', '?']
+['Sunny', 'Warm', '?', '?']
+['?', 'Warm', '?', '?']
+['?', 'Warm', '?', '?']
+['Sunny', '?', '?', '?']
+['?', '?', '?', '?']
+['?', '?', '?', '?']
+
+Final specific boundary (S) :  ['Sunny', 'Warm', '?', '?'] 
+Final General boundary (G)  :
+['Sunny', '?', '?', '?']
+['Sunny', '?', '?', '?']
+['Sunny', '?', '?', '?']
+['Sunny', 'Warm', '?', '?']
+['?', 'Warm', '?', '?']
+['?', 'Warm', '?', '?']
+['Sunny', '?', '?', '?']
+['?', '?', '?', '?']
+['?', '?', '?', '?']

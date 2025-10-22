@@ -1,0 +1,6 @@
+
+Final specific boundary (S) :  ['Sunny', 'Warm', '?', '?'] 
+Final General boundary (G)  :
+['Sunny', '?', '?', '?']
+['?', '?', '?', '?']
+['?', '?', '?', '?']

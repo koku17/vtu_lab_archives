@@ -1,0 +1,35 @@
+Bagging Accuracy :  0.9333333333333333 
+Bagging Report :
+               precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00        15
+           1       0.88      0.93      0.90        15
+           2       0.93      0.87      0.90        15
+
+    accuracy                           0.93        45
+   macro avg       0.93      0.93      0.93        45
+weighted avg       0.93      0.93      0.93        45
+ 
+Bagging Confusion Matrix :
+ [[15  0  0]
+ [ 0 14  1]
+ [ 0  2 13]] 
+
+AdaBoost Accuracy :  0.9333333333333333 
+AdaBoost Report :
+               precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00        15
+           1       0.88      0.93      0.90        15
+           2       0.93      0.87      0.90        15
+
+    accuracy                           0.93        45
+   macro avg       0.93      0.93      0.93        45
+weighted avg       0.93      0.93      0.93        45
+ 
+AdaBoost Confusion Matrix : 
+ [[15  0  0]
+ [ 0 14  1]
+ [ 0  2 13]]
+Bagging Accuracy: 0.8888888888888888
+Boosting Accuracy: 0.8888888888888888
