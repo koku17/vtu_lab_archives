@@ -32,7 +32,7 @@ ax.set_xlabel('Feature 0')
 ax.set_ylabel('Feature 1')
 ax.set_zlabel('Feature 2')
 plt.legend()
-plt.savefig ('k_means_unlabled' + '.svg')
+plt.savefig ('k_means_unlabled' + '.svg', bbox_inches='tight', transparent="True", pad_inches=0)
 plt.show()
 
 sil = silhouette_score(X_scaled, labels)
