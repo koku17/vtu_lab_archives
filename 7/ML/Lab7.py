@@ -5,7 +5,6 @@ from pgmpy.estimators import (
     HillClimbSearch,
     K2Score,
     MaximumLikelihoodEstimator,
-    LogLikelihoodScore,
 )
 from pgmpy.inference import VariableElimination
 
@@ -25,14 +24,16 @@ best_model = hc.estimate(scoring_method=K2Score(data))
 
 model = BayesianNetwork(best_model.edges())
 model.fit(data, estimator=MaximumLikelihoodEstimator)
-print("Learned structure:", model.edges())
+print("Learned structure : ", model.edges())
 
 for cpd in model.get_cpds():
-    print("CPD of (variable):".format(variable=cpd.variable), cpd)
+    print(f"\nCPD of {cpd.variable} :", cpd, sep ='\n')
 
 infer = VariableElimination(model)
 q = infer.query(variables=["Rain"], evidence={"GrassWet": 1})
-print("\nP(Rain | GrassWet=1):\n", q)
+print("\nP (Rain | GrassWet = 1) :\n", q)
 
-score = LogLikelihoodScore(data)
+score = K2Score(data)
 H_value = score.score(model)
+
+print("\nH value : ", H_value)
