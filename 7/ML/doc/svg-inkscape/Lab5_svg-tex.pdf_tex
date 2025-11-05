@@ -1,6 +1,6 @@
 %% Creator: Inkscape 1.4.2 (ebf0e940d0, 2025-05-08), www.inkscape.org
 %% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
-%% Accompanies image file 'k_means_unlabled_svg-tex.pdf' (pdf, eps, ps)
+%% Accompanies image file 'Lab5_svg-tex.pdf' (pdf, eps, ps)
 %%
 %% To include the image in your LaTeX document, write
 %%   \input{<filename>.pdf_tex}
@@ -38,7 +38,7 @@
   \newcommand*\fsize{\dimexpr\f@size pt\relax}%
   \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{410.9473877bp}%
+    \setlength{\unitlength}{552.96002197bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -50,9 +50,9 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.98114292)%
+  \begin{picture}(1,0.49479166)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
-    \put(0,0){\includegraphics[width=\unitlength,page=1]{k_means_unlabled_svg-tex.pdf}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{Lab5_svg-tex.pdf}}%
   \end{picture}%
 \endgroup%

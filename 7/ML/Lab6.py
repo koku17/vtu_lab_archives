@@ -18,6 +18,7 @@ def f(x):
 samples = my_uniform_random(10, seed=42)
 f_values = [f(x) for x in samples]
 I_estimate = sum(f_values) / len(f_values)
+
 print(
     "Random Samples (x) :\n",
     samples,

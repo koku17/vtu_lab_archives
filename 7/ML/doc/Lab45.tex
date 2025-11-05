@@ -1,0 +1,23 @@
+\documentclass[10pt]{article}
+
+\usepackage[margin=.25in]{geometry}
+\usepackage{svg}
+\usepackage{minted}
+
+\begin{document}
+	\section*{Lab 4}
+	\inputminted{text}{../output/Lab4.out}
+	\section*{Lab 5}
+	\inputminted{text}{../output/Lab5.out}
+	\section*{Lab 4}
+	\inputminted{text}{../output/Lab4.out}
+	\section*{Lab 5}
+	\inputminted{text}{../output/Lab5.out}
+	\begin{center}
+  	\begin{tabular}{cc}
+  	  Lab 4 & Lab 5 \\
+		  \includesvg[scale=.4]{../output/k_means_unlabled.svg} &
+		  \includesvg[scale=.4]{../output/Lab5.svg}
+  	\end{tabular}
+	\end{center}
+\end{document}
