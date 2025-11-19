@@ -34,14 +34,15 @@ model.add_cpds(cpd_B, cpd_R, cpd_A, cpd_S)
 model.check_model()
 infer = VariableElimination(model)
 print(
-    "P(S):\n",
+    "P(S):",
     infer.query(variables=["S"]),
-    "\nP(S | B=T):\n",
+    "\nP(S | B = T):",
     infer.query(variables=["S"], evidence={"B": "T"}),
-    "\nP(S | A=T):\n",
+    "\nP(S | A = T):",
     infer.query(variables=["S"], evidence={"A": "T"}),
-    "\nP(R | S=T):\n",
+    "\nP(R | S = T):",
     infer.query(variables=["R"], evidence={"S": "T"}),
-    "\nP(B | S=T):\n",
+    "\nP(B | S = T):",
     infer.query(variables=["B"], evidence={"S": "T"}),
+    sep="\n",
 )
