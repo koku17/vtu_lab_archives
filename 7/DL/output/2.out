@@ -1,0 +1,102 @@
+Epoch 1/50
+30/30 ━━━━━━━━━━━━━━━━━━━━ 1s 1ms/step - accuracy: 0.5917 - loss: 1.4984
+Epoch 2/50
+30/30 ━━━━━━━━━━━━━━━━━━━━ 0s 872us/step - accuracy: 0.6583 - loss: 1.1998
+Epoch 3/50
+30/30 ━━━━━━━━━━━━━━━━━━━━ 0s 897us/step - accuracy: 0.6583 - loss: 0.9997
+Epoch 4/50
+30/30 ━━━━━━━━━━━━━━━━━━━━ 0s 825us/step - accuracy: 0.6583 - loss: 0.9194
+Epoch 5/50
+30/30 ━━━━━━━━━━━━━━━━━━━━ 0s 818us/step - accuracy: 0.6583 - loss: 0.8783
+Epoch 6/50
+30/30 ━━━━━━━━━━━━━━━━━━━━ 0s 919us/step - accuracy: 0.6583 - loss: 0.8366
+Epoch 7/50
+30/30 ━━━━━━━━━━━━━━━━━━━━ 0s 831us/step - accuracy: 0.6583 - loss: 0.7914
+Epoch 8/50
+30/30 ━━━━━━━━━━━━━━━━━━━━ 0s 884us/step - accuracy: 0.7083 - loss: 0.7431
+Epoch 9/50
+30/30 ━━━━━━━━━━━━━━━━━━━━ 0s 826us/step - accuracy: 0.7083 - loss: 0.6979
+Epoch 10/50
+30/30 ━━━━━━━━━━━━━━━━━━━━ 0s 870us/step - accuracy: 0.8500 - loss: 0.6483
+Epoch 11/50
+30/30 ━━━━━━━━━━━━━━━━━━━━ 0s 817us/step - accuracy: 0.8000 - loss: 0.6038
+Epoch 12/50
+30/30 ━━━━━━━━━━━━━━━━━━━━ 0s 844us/step - accuracy: 0.9500 - loss: 0.5670
+Epoch 13/50
+30/30 ━━━━━━━━━━━━━━━━━━━━ 0s 859us/step - accuracy: 0.9250 - loss: 0.5247
+Epoch 14/50
+30/30 ━━━━━━━━━━━━━━━━━━━━ 0s 825us/step - accuracy: 0.9500 - loss: 0.4935
+Epoch 15/50
+30/30 ━━━━━━━━━━━━━━━━━━━━ 0s 1ms/step - accuracy: 0.9667 - loss: 0.4655
+Epoch 16/50
+30/30 ━━━━━━━━━━━━━━━━━━━━ 0s 833us/step - accuracy: 0.9583 - loss: 0.4405
+Epoch 17/50
+30/30 ━━━━━━━━━━━━━━━━━━━━ 0s 807us/step - accuracy: 0.9333 - loss: 0.4174
+Epoch 18/50
+30/30 ━━━━━━━━━━━━━━━━━━━━ 0s 869us/step - accuracy: 0.9583 - loss: 0.3963
+Epoch 19/50
+30/30 ━━━━━━━━━━━━━━━━━━━━ 0s 828us/step - accuracy: 0.9500 - loss: 0.3799
+Epoch 20/50
+30/30 ━━━━━━━━━━━━━━━━━━━━ 0s 802us/step - accuracy: 0.9583 - loss: 0.3611
+Epoch 21/50
+30/30 ━━━━━━━━━━━━━━━━━━━━ 0s 795us/step - accuracy: 0.9833 - loss: 0.3482
+Epoch 22/50
+30/30 ━━━━━━━━━━━━━━━━━━━━ 0s 906us/step - accuracy: 0.9583 - loss: 0.3368
+Epoch 23/50
+30/30 ━━━━━━━━━━━━━━━━━━━━ 0s 824us/step - accuracy: 0.9417 - loss: 0.3250
+Epoch 24/50
+30/30 ━━━━━━━━━━━━━━━━━━━━ 0s 829us/step - accuracy: 0.9667 - loss: 0.3061
+Epoch 25/50
+30/30 ━━━━━━━━━━━━━━━━━━━━ 0s 820us/step - accuracy: 0.9583 - loss: 0.2936
+Epoch 26/50
+30/30 ━━━━━━━━━━━━━━━━━━━━ 0s 829us/step - accuracy: 0.9667 - loss: 0.2855
+Epoch 27/50
+30/30 ━━━━━━━━━━━━━━━━━━━━ 0s 812us/step - accuracy: 0.9583 - loss: 0.2732
+Epoch 28/50
+30/30 ━━━━━━━━━━━━━━━━━━━━ 0s 814us/step - accuracy: 0.9667 - loss: 0.2610
+Epoch 29/50
+30/30 ━━━━━━━━━━━━━━━━━━━━ 0s 792us/step - accuracy: 0.9417 - loss: 0.2581
+Epoch 30/50
+30/30 ━━━━━━━━━━━━━━━━━━━━ 0s 891us/step - accuracy: 0.9750 - loss: 0.2476
+Epoch 31/50
+30/30 ━━━━━━━━━━━━━━━━━━━━ 0s 844us/step - accuracy: 0.9750 - loss: 0.2357
+Epoch 32/50
+30/30 ━━━━━━━━━━━━━━━━━━━━ 0s 882us/step - accuracy: 0.9583 - loss: 0.2311
+Epoch 33/50
+30/30 ━━━━━━━━━━━━━━━━━━━━ 0s 815us/step - accuracy: 0.9833 - loss: 0.2201
+Epoch 34/50
+30/30 ━━━━━━━━━━━━━━━━━━━━ 0s 843us/step - accuracy: 0.9750 - loss: 0.2288
+Epoch 35/50
+30/30 ━━━━━━━━━━━━━━━━━━━━ 0s 826us/step - accuracy: 0.9667 - loss: 0.2020
+Epoch 36/50
+30/30 ━━━━━━━━━━━━━━━━━━━━ 0s 886us/step - accuracy: 0.9583 - loss: 0.1975
+Epoch 37/50
+30/30 ━━━━━━━━━━━━━━━━━━━━ 0s 903us/step - accuracy: 0.9500 - loss: 0.1971
+Epoch 38/50
+30/30 ━━━━━━━━━━━━━━━━━━━━ 0s 852us/step - accuracy: 0.9583 - loss: 0.1909
+Epoch 39/50
+30/30 ━━━━━━━━━━━━━━━━━━━━ 0s 832us/step - accuracy: 0.9583 - loss: 0.1801
+Epoch 40/50
+30/30 ━━━━━━━━━━━━━━━━━━━━ 0s 830us/step - accuracy: 0.9417 - loss: 0.1838
+Epoch 41/50
+30/30 ━━━━━━━━━━━━━━━━━━━━ 0s 808us/step - accuracy: 0.9667 - loss: 0.1709
+Epoch 42/50
+30/30 ━━━━━━━━━━━━━━━━━━━━ 0s 810us/step - accuracy: 0.9583 - loss: 0.1756
+Epoch 43/50
+30/30 ━━━━━━━━━━━━━━━━━━━━ 0s 825us/step - accuracy: 0.9667 - loss: 0.1708
+Epoch 44/50
+30/30 ━━━━━━━━━━━━━━━━━━━━ 0s 855us/step - accuracy: 0.9667 - loss: 0.1590
+Epoch 45/50
+30/30 ━━━━━━━━━━━━━━━━━━━━ 0s 867us/step - accuracy: 0.9667 - loss: 0.1537
+Epoch 46/50
+30/30 ━━━━━━━━━━━━━━━━━━━━ 0s 908us/step - accuracy: 0.9667 - loss: 0.1515
+Epoch 47/50
+30/30 ━━━━━━━━━━━━━━━━━━━━ 0s 938us/step - accuracy: 0.9750 - loss: 0.1461
+Epoch 48/50
+30/30 ━━━━━━━━━━━━━━━━━━━━ 0s 797us/step - accuracy: 0.9833 - loss: 0.1466
+Epoch 49/50
+30/30 ━━━━━━━━━━━━━━━━━━━━ 0s 855us/step - accuracy: 0.9583 - loss: 0.1385
+Epoch 50/50
+30/30 ━━━━━━━━━━━━━━━━━━━━ 0s 882us/step - accuracy: 0.9667 - loss: 0.1491
+1/1 ━━━━━━━━━━━━━━━━━━━━ 0s 97ms/step - accuracy: 1.0000 - loss: 0.1290
+Test Accuracy : 1.00

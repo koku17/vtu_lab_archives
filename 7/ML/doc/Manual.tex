@@ -1,0 +1,130 @@
+\documentclass{article}
+
+% 67481253
+% packages
+\usepackage[margin=.25in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{svg}
+\usepackage{minted}
+\usepackage{enumitem}
+
+% details
+\author{koku17}
+\title{ML Lab Manual}
+
+% ricing
+\def \darkmode{1}
+
+\if1\darkmode
+	\pagecolor{black}
+	\color{white}
+	\usemintedstyle{github-dark}
+	\def \themecolor{white}
+\else
+	\usemintedstyle{gruvbox-light}
+	\def \themecolor{black}
+\fi
+
+% presets
+\hypersetup{
+	colorlinks,
+	linkcolor=\themecolor,
+	hidelinks
+}
+
+\setminted{
+	breaklines,
+	obeytabs=true,
+	tabsize=4
+}
+
+% macro
+\def \lab#1{
+	\phantomsection
+	\item[]
+	\begin{center}
+		\Large Lab #1
+	\end{center}
+	\addcontentsline{toc}{section}{Lab #1}
+}
+
+\def \answer{\item [$\rightarrow$]}
+
+\begin{document}
+	\pagenumbering{gobble} \maketitle \newpage
+	\pagenumbering{roman} \tableofcontents \newpage
+	\pagenumbering{arabic}
+	\begin{enumerate}
+		\lab{6}
+		\item Write a function to generate uniform random numbers in the interval
+			\texttt{[0, 1]}.
+			Use this function to generate 10 random samples and evaluate $f(x)$ for
+			each sample.
+			What are the sampled function values ?
+			Using the samples generated in the previous step, estimate the integral
+			I using the Monte Carlo method.
+		\answer \inputminted{python}{progs/Lab6.py}
+		\newpage
+
+		\lab{7}
+		\item Read a dataset and indicate the likelihood of an event occurring using
+			Bayesian Networks.
+		\answer \inputminted{python}{progs/Lab7.py}
+		\newpage
+
+		\lab{4}
+		\item Read an unsupervised dataset and group the dataset based on similarity
+			based on k-means clustering.
+		\answer \inputminted{python}{progs/Lab4.py}
+		\newpage
+
+		\lab{8}
+		\item Refer to the dataset in question 7 and indicate inferences based on
+			the sequence of steps.
+		\answer \inputminted{python}{progs/Lab8.py}
+		\newpage
+
+		\lab{1}
+		\item Read a dataset from the user and
+		\begin{enumerate}[label=\roman*.]
+			\item Use the Find-S algorithm to find the most specific hypothesis that
+				is consistent with the positive examples.
+			\item What is the final hypothesis after processing all the positive
+				examples ?
+			\item Using the same dataset, apply the Candidate Elimination
+				algorithm.
+		\end{enumerate}
+
+		Determine the final version space after processing all examples
+		(both positive and negative). \\
+		What are the most specific and most general hypotheses in the version space ?
+		\answer \inputminted{python}{progs/Lab1.py}
+		\newpage
+	
+		\lab{2}
+		\item Read a dataset and use an example-based method (such as RIPPER or CN2)
+			to generate a set of classification rules .
+			Apply the FOIL algorithm (First-Order Inductive Learner) to learn
+			first-order rules for predicting.
+		\answer \inputminted{python}{progs/Lab2.py}
+		\newpage
+
+		\lab{5}
+		\item Read a dataset and perform unsupervised learning using SOM algorithm.
+		\answer \inputminted{python}{progs/Lab5.py}
+		\newpage
+
+		\lab{3}
+		\item Read a supervised dataset and use bagging and boosting technique to
+			classify the dataset.
+			Indicate the performance of the model.
+		\answer \inputminted{python}{progs/Lab3.py}
+		\newpage
+
+		\vspace*{\fill}
+			\centering \emph{This page left blank intentionally}
+		\vspace*{\fill}
+	\end{enumerate}
+\end{document}

@@ -1,0 +1,19 @@
+Epoch 1/5
+391/391 ━━━━━━━━━━━━━━━━━━━━ 83s 209ms/step - accuracy: 0.7753 - loss: 0.4649 - val_accuracy: 0.8274 - val_loss: 0.3933
+Epoch 2/5
+391/391 ━━━━━━━━━━━━━━━━━━━━ 81s 208ms/step - accuracy: 0.8699 - loss: 0.3158 - val_accuracy: 0.8688 - val_loss: 0.3163
+Epoch 3/5
+391/391 ━━━━━━━━━━━━━━━━━━━━ 81s 207ms/step - accuracy: 0.8959 - loss: 0.2610 - val_accuracy: 0.8755 - val_loss: 0.3148
+Epoch 4/5
+391/391 ━━━━━━━━━━━━━━━━━━━━ 81s 207ms/step - accuracy: 0.9136 - loss: 0.2198 - val_accuracy: 0.8760 - val_loss: 0.3222
+Epoch 5/5
+391/391 ━━━━━━━━━━━━━━━━━━━━ 81s 207ms/step - accuracy: 0.9192 - loss: 0.2082 - val_accuracy: 0.8526 - val_loss: 0.3628
+782/782 ━━━━━━━━━━━━━━━━━━━━ 29s 37ms/step - accuracy: 0.8526 - loss: 0.3628
+Test Accuracy : 0.8526
+782/782 ━━━━━━━━━━━━━━━━━━━━ 29s 38ms/step
+Review 1 : Predicted = 0.2795088291168213 Actual = 1
+Review 2 : Predicted = 0.9961129426956177 Actual = 1
+Review 3 : Predicted = 0.38355350494384766 Actual = 1
+Review 4 : Predicted = 0.6693011522293091 Actual = 1
+Review 5 : Predicted = 0.9996349215507507 Actual = 1
+782/782 ━━━━━━━━━━━━━━━━━━━━ 29s 37ms/step

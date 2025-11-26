@@ -34,7 +34,6 @@ run_labs () {
 
 	cd tmp/lab*/ && flutter run
 	flutter clean tmp/lab_programs
-	cd -
 	run_labs
 }
 

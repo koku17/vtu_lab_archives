@@ -1,4 +1,107 @@
 \documentclass{article}
 
+% packages
+\usepackage[margin=.5in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{fontspec}
+\usepackage{hyperref}
+\usepackage{svg}
+\usepackage{minted}
+\usepackage{enumitem}
+
+% details
+\author{koku17}
+\title{ML Lab Manual}
+
+% ricing
+\def \darkmode{1}
+
+\if1\darkmode
+	\pagecolor{black}
+	\color{white}
+	\usemintedstyle{one-dark}
+	\def \themecolor{white}
+\else
+	\usemintedstyle{gruvbox-light}
+	\def \themecolor{black}
+\fi
+
+% presets
+\hypersetup{
+	colorlinks,
+	linkcolor=\themecolor,
+	hidelinks
+}
+
+\setmonofont{FantasqueSansM Nerd Font}
+
+\setminted{
+	breaklines,
+	obeytabs=true,
+	tabsize=4
+}
+
+% macro
+\def \lab#1{
+	\phantomsection
+	\item[]
+	\begin{center}
+		\Large Lab #1
+	\end{center}
+	\addcontentsline{toc}{section}{Lab #1}
+}
+
+\def \answer{\item [$\rightarrow$]}
+
+\def \output#1{
+	\phantomsection
+	\begin{center}
+		\Large Lab #1 Output
+	\end{center}
+	\addcontentsline{toc}{section}{Lab #1 Output}
+}
+
 \begin{document}
+	\pagenumbering{gobble} \maketitle \newpage
+	\pagenumbering{roman} \tableofcontents \newpage
+	\pagenumbering{arabic}
+	\begin{enumerate}[start=2]
+		\lab{2}
+		\item Write a program to demonstrate the working of a deep neural network for classification task.
+		\answer \inputminted{python}{../Lab2.py}
+		\newpage
+
+		\lab{3}
+		\item Desing and implement a Convolutional Neural Network(CNN) for
+			classification of image dataset
+		\answer \inputminted{python}{../Lab3.py}
+		\newpage
+
+		\lab{5}
+		\item Desing and implement a deep learning network for classification of
+			textual documents.
+		\answer \inputminted{python}{../Lab5.py}
+		\newpage
+
+		\lab{6}
+		\item Design and implement a deep learning network for forecasting time
+			series data.
+		\answer \inputminted{python}{../Lab6.py}
+		\newpage
+	\end{enumerate}
+	%\output{2} \inputminted{text}{../output/2.out}
+	%\newpage
+	%\output{3} \inputminted{text}{../output/3.out}
+	%\newpage
+	%\output{5} \inputminted{text}{../output/5.out}
+	%\vspace{2em}
+	%\includesvg[scale=.9]{../output/Lab5.svg}
+	%\newpage
+	%\output{6} \inputminted{text}{../output/6.out}
+	%\includesvg[scale=.9]{../output/Lab6.svg}
+	%\newpage
+	\vspace*{\fill}
+		\centering \emph{This page left blank intentionally}
+	\vspace*{\fill}
 \end{document}

@@ -46,20 +46,32 @@ def foil_algorithm(df, target_attr):
     return rules
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 data = {
     "Outlook": [
-        "Sunny", "Sunny", "Overcast", "Rain", "Rain", "Rain", "Overcast", "Sunny", "Sunny", "Rain",
+        "Sunny", "Sunny", "Overcast", "Rain", "Rain", "Rain", "Overcast", "Sunny", "Sunny", "Rain"
     ],
     "Temperature": [
-        "Hot", "Hot", "Hot", "Mild", "Cool", "Cool", "Cool", "Mild", "Cool", "Mild",
+        "Hot", "Hot", "Hot", "Mild", "Cool", "Cool", "Cool", "Mild", "Cool", "Mild"
     ],
     "Humidity": [
-        "High", "High", "High", "High", "Normal", "Normal", "Normal", "High", "Normal", "Normal",
+        "High", "High", "High", "High", "Normal", "Normal", "Normal", "High", "Normal", "Normal"
     ],
     "Wind": [
-        "Weak", "Strong", "Weak", "Weak", "Weak", "Strong", "Strong", "Weak", "Weak", "Weak",
+        "Weak", "Strong", "Weak", "Weak", "Weak", "Strong", "Strong", "Weak", "Weak", "Weak"
     ],
-    "Play": ["No", "No", "Yes", "Yes", "Yes", "No", "Yes", "No", "Yes", "Yes"],
+    "Play": ["No", "No", "Yes", "Yes", "Yes", "No", "Yes", "No", "Yes", "Yes"]
 }
 df = pd.DataFrame(data)
 rules = foil_algorithm(df, "Play")

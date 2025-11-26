@@ -1,0 +1,13 @@
+Epoch 1/5
+938/938 ━━━━━━━━━━━━━━━━━━━━ 5s 5ms/step - accuracy: 0.9254 - loss: 0.2450
+Epoch 2/5
+938/938 ━━━━━━━━━━━━━━━━━━━━ 5s 5ms/step - accuracy: 0.9753 - loss: 0.0805
+Epoch 3/5
+938/938 ━━━━━━━━━━━━━━━━━━━━ 5s 5ms/step - accuracy: 0.9830 - loss: 0.0564
+Epoch 4/5
+938/938 ━━━━━━━━━━━━━━━━━━━━ 5s 5ms/step - accuracy: 0.9867 - loss: 0.0433
+Epoch 5/5
+938/938 ━━━━━━━━━━━━━━━━━━━━ 5s 5ms/step - accuracy: 0.9896 - loss: 0.0346
+313/313 ━━━━━━━━━━━━━━━━━━━━ 0s 1ms/step - accuracy: 0.9861 - loss: 0.0456
+Test accuracy : 0.99
+Test Loss : 0.05
